@@ -1,0 +1,2 @@
+# Requirements for config-system
+# To be defined during implementation
