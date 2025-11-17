@@ -1,0 +1,1 @@
+"""Core for llm-gemini"""\n\nclass Core:\n    pass\n
