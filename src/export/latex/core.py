@@ -1,0 +1,1 @@
+"""Core for export-latex"""\n\nclass Core:\n    pass\n
