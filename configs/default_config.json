@@ -1,0 +1,74 @@
+{
+  "laboratory": {
+    "name": "PV Testing Laboratory",
+    "accreditation": "ISO/IEC 17025:2017",
+    "accreditation_body": "NABL",
+    "accreditation_number": "TC-XXXX",
+    "address": "Laboratory Address",
+    "contact_email": "lab@example.com",
+    "contact_phone": "+1-234-567-8900",
+    "website": "https://www.pvlab.example.com"
+  },
+  "equipment": {
+    "solar_simulator": {
+      "manufacturer": "Pasan",
+      "model": "HighLIGHT LED+",
+      "serial_number": "SS-2024-001",
+      "calibration_interval_days": 365
+    },
+    "iv_tracer": {
+      "manufacturer": "Keysight",
+      "model": "B2900A",
+      "serial_number": "IV-2024-001",
+      "calibration_interval_days": 365
+    },
+    "temperature_chamber": {
+      "manufacturer": "Weiss Technik",
+      "model": "WKL 340",
+      "serial_number": "TC-2024-001",
+      "calibration_interval_days": 365
+    },
+    "insulation_tester": {
+      "manufacturer": "Fluke",
+      "model": "1550C",
+      "serial_number": "IT-2024-001",
+      "calibration_interval_days": 365
+    }
+  },
+  "test": {
+    "stc_irradiance": 1000.0,
+    "stc_temperature": 25.0,
+    "stc_spectrum": "AM1.5G",
+    "noct_irradiance": 800.0,
+    "noct_ambient_temp": 20.0,
+    "noct_wind_speed": 1.0,
+    "max_degradation_general": 5.0,
+    "max_degradation_initial": 2.0,
+    "thermal_cycles": 200,
+    "humidity_freeze_cycles": 10,
+    "damp_heat_hours": 1000,
+    "dynamic_load_cycles": 1000,
+    "temperature_tolerance": 2.0,
+    "humidity_tolerance": 5.0,
+    "irradiance_tolerance": 50.0
+  },
+  "report": {
+    "output_directory": "./reports",
+    "template_directory": "./templates",
+    "default_format": "pdf",
+    "include_photos": true,
+    "include_raw_data": false,
+    "logo_path": null
+  },
+  "database": {
+    "type": "sqlite",
+    "host": "localhost",
+    "port": 5432,
+    "database": "pv_test_reports",
+    "sqlite_path": "./data/test_reports.db"
+  },
+  "debug_mode": false,
+  "log_level": "INFO",
+  "log_directory": "./logs",
+  "data_directory": "./data"
+}
