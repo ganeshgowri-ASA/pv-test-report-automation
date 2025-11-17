@@ -1,0 +1,1 @@
+"""Visual inspection\n\nSession: 21-test-vi"""\n__version__ = "0.1.0"\n
