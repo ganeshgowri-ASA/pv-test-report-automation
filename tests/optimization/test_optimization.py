@@ -1,0 +1,1 @@
+"""Tests for optimization"""\nimport pytest\n\ndef test_init():\n    assert True\n
