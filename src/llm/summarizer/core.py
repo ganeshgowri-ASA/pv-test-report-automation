@@ -1,0 +1,1 @@
+"""Core for llm-summarizer"""\n\nclass Core:\n    pass\n
