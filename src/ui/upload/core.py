@@ -1,0 +1,1 @@
+"""Core for ui-upload"""\n\nclass Core:\n    pass\n
