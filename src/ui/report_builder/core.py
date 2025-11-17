@@ -1,0 +1,1 @@
+"""Core for ui-report-builder"""\n\nclass Core:\n    pass\n

@@ -1,0 +1,1 @@
+"""Tests for ui-report-builder"""\nimport pytest\n\ndef test_init():\n    assert True\n
