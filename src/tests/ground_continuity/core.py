@@ -1,0 +1,1 @@
+"""Core for test-gct"""\n\nclass Core:\n    pass\n

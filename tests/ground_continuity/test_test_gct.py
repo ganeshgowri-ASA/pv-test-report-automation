@@ -1,0 +1,1 @@
+"""Tests for test-gct"""\nimport pytest\n\ndef test_init():\n    assert True\n
