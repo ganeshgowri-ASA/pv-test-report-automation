@@ -1,0 +1,1 @@
+"""Core for export-json-xml"""\n\nclass Core:\n    pass\n
