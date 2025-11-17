@@ -1,0 +1,1 @@
+"""Core for deployment"""\n\nclass Core:\n    pass\n
