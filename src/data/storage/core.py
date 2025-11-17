@@ -1,0 +1,1 @@
+"""Core for data-storage"""\n\nclass Core:\n    pass\n

@@ -1,0 +1,1 @@
+"""Tests for data-storage"""\nimport pytest\n\ndef test_init():\n    assert True\n
