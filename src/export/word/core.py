@@ -1,0 +1,1 @@
+"""Core for export-word"""\n\nclass Core:\n    pass\n

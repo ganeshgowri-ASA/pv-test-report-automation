@@ -1,0 +1,1 @@
+"""Word export\n\nSession: 41-export-word"""\n__version__ = "0.1.0"\n
