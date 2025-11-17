@@ -1,0 +1,1 @@
+"""Core for test-wlt"""\n\nclass Core:\n    pass\n
