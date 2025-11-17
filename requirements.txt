@@ -1,0 +1,37 @@
+# PV Test Report Automation - Core Dependencies
+# Phase 1: Database Models and Schema
+
+# Database ORM and migrations
+sqlmodel==0.0.14
+sqlalchemy>=2.0.0,<3.0.0
+alembic==1.13.1
+
+# Database drivers
+# SQLite (included in Python standard library)
+# PostgreSQL (optional, uncomment if needed)
+# psycopg2-binary==2.9.9
+
+# Data validation and settings
+pydantic>=2.5.0,<3.0.0
+pydantic-settings==2.1.0
+
+# Date and time utilities
+python-dateutil==2.8.2
+
+# Environment variables
+python-dotenv==1.0.0
+
+# Development and testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+
+# Code quality
+black==23.12.1
+isort==5.13.2
+flake8==7.0.0
+mypy==1.8.0
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.5.3

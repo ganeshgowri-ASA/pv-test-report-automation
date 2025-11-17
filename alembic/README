@@ -1,0 +1,62 @@
+Generic single-database configuration for Alembic migrations.
+
+## Usage
+
+### Initialize migrations (first time)
+
+Already done! The alembic directory is configured and ready to use.
+
+### Create a new migration
+
+After modifying database models, create a migration:
+
+```bash
+alembic revision --autogenerate -m "Description of changes"
+```
+
+### Apply migrations
+
+Apply all pending migrations:
+
+```bash
+alembic upgrade head
+```
+
+Apply migrations to a specific revision:
+
+```bash
+alembic upgrade <revision>
+```
+
+### Rollback migrations
+
+Rollback one migration:
+
+```bash
+alembic downgrade -1
+```
+
+Rollback to a specific revision:
+
+```bash
+alembic downgrade <revision>
+```
+
+### View migration history
+
+```bash
+alembic history
+```
+
+### View current revision
+
+```bash
+alembic current
+```
+
+## Notes
+
+- Always review auto-generated migrations before applying them
+- Test migrations in development before running in production
+- Migrations are version controlled with the codebase
+- The database URL is configured in alembic.ini
