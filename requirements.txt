@@ -1,0 +1,11 @@
+# Core dependencies
+streamlit==1.31.0
+pandas==2.2.0
+pillow==10.2.0
+python-docx==1.1.0
+openpyxl==3.1.2
+plotly==5.18.0
+
+# Additional utilities
+python-dateutil==2.8.2
+PyPDF2==3.0.1
