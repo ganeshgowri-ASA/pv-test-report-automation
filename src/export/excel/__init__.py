@@ -1,0 +1,1 @@
+"""Excel export\n\nSession: 43-export-excel"""\n__version__ = "0.1.0"\n
