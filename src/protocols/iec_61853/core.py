@@ -1,0 +1,1 @@
+"""Core for protocol-61853"""\n\nclass Core:\n    pass\n
