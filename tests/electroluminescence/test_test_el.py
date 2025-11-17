@@ -1,0 +1,1 @@
+"""Tests for test-el"""\nimport pytest\n\ndef test_init():\n    assert True\n

@@ -1,0 +1,1 @@
+"""Core for test-el"""\n\nclass Core:\n    pass\n
