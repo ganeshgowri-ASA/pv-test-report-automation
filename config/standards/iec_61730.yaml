@@ -1,0 +1,270 @@
+# IEC 61730: Photovoltaic (PV) module safety qualification
+# Part 1: Requirements for construction
+# Part 2: Requirements for testing
+
+standard:
+  code: "IEC 61730"
+  full_name: "Photovoltaic (PV) module safety qualification"
+  version: "IEC 61730-1:2016, IEC 61730-2:2016"
+  applicable_to:
+    - "All photovoltaic modules"
+  scope: "Safety qualification for PV modules including construction and testing requirements"
+
+safety_classes:
+  class_A:
+    description: "Hazardous voltage and not accessible"
+    application: "General applications, restricted access"
+    max_voltage: ">50V DC or >240W"
+    accessibility: "Restricted"
+
+  class_B:
+    description: "Hazardous voltage and accessible"
+    application: "Building integrated, roof-mounted"
+    max_voltage: ">50V DC or >240W"
+    accessibility: "Accessible"
+
+  class_C:
+    description: "Non-hazardous voltage"
+    application: "All applications"
+    max_voltage: "≤50V DC and ≤240W"
+    accessibility: "Any"
+
+application_classes:
+  class_I:
+    description: "General access with fire rating requirements"
+    fire_rating: "Required"
+    examples:
+      - "Roof-mounted systems"
+      - "Building integrated PV (BIPV)"
+
+  class_II:
+    description: "Restricted access, no fire rating required"
+    fire_rating: "Not required"
+    examples:
+      - "Ground-mounted systems"
+      - "Carport installations"
+
+construction_requirements:
+  electrical_safety:
+    - name: "Insulation Coordination"
+      requirement: "Proper spacing and creepage distances"
+      reference: "IEC 61730-1 Clause 10.1"
+
+    - name: "Electric Strength"
+      requirement: "Adequate dielectric strength"
+      reference: "IEC 61730-1 Clause 10.2"
+
+    - name: "Grounding"
+      requirement: "Proper grounding provisions where required"
+      reference: "IEC 61730-1 Clause 10.3"
+
+    - name: "Protection Against Electric Shock"
+      requirement: "Protection class I or II as applicable"
+      reference: "IEC 61730-1 Clause 10.4"
+
+  mechanical_safety:
+    - name: "Mechanical Strength"
+      requirement: "Adequate structural integrity"
+      reference: "IEC 61730-1 Clause 11.1"
+
+    - name: "Edges and Corners"
+      requirement: "No sharp edges that could cause injury"
+      reference: "IEC 61730-1 Clause 11.2"
+
+    - name: "Module Attachment"
+      requirement: "Secure mounting provisions"
+      reference: "IEC 61730-1 Clause 11.3"
+
+  material_safety:
+    - name: "Flammability"
+      requirement: "Materials meet flammability requirements"
+      reference: "IEC 61730-1 Clause 12"
+
+    - name: "Toxicity"
+      requirement: "No toxic materials accessible under normal use"
+      reference: "IEC 61730-1 Clause 13"
+
+    - name: "Environmental Stress Resistance"
+      requirement: "Materials suitable for intended environment"
+      reference: "IEC 61730-1 Clause 14"
+
+test_sequence:
+  module_safety_tests:
+    - name: "Visual Inspection"
+      clause: "MST 01"
+      duration: "N/A"
+      required: true
+      description: "Comprehensive visual examination for safety aspects"
+
+    - name: "Maximum Experimental Current or Voltage"
+      clause: "MST 02"
+      duration: "N/A"
+      required: true
+      description: "Determine maximum operating parameters"
+
+    - name: "Continuity Test"
+      clause: "MST 03"
+      duration: "N/A"
+      required: true
+      test_current: "≥0.2A"
+      max_resistance: "0.1Ω"
+      applicable_to: "Class I modules with ground"
+
+    - name: "Cut Susceptibility Test"
+      clause: "MST 04"
+      duration: "N/A"
+      required: true
+      applicable_to: "Modules with accessible cables"
+
+    - name: "Bypass Diode Thermal Test"
+      clause: "MST 05"
+      duration: "1 hour"
+      required: true
+      applicable_to: "Modules with bypass diodes"
+
+    - name: "Accessible Parts Temperature Test"
+      clause: "MST 06"
+      duration: "N/A"
+      required: true
+      test_irradiance: "1100 W/m²"
+      max_temperatures:
+        metal_parts: "90°C"
+        non_metal_parts: "115°C"
+
+    - name: "Module Integrity Test (Fire)"
+      clause: "MST 07"
+      duration: "N/A"
+      required: true
+      applicable_to: "Application Class I"
+      test_method: "Spread of flame test"
+
+    - name: "Impulse Voltage Test"
+      clause: "MST 08"
+      duration: "N/A"
+      required: true
+      test_voltage: "Depends on overvoltage category"
+      waveform: "1.2/50 µs"
+
+    - name: "Wet Insulation Resistance Test"
+      clause: "MST 09"
+      duration: "2 hours"
+      required: true
+      test_voltage: "2 × (max system voltage + 1000V)"
+      min_resistance: "400 MΩ"
+
+    - name: "Wet Leakage Current Test"
+      clause: "MST 10"
+      duration: "N/A"
+      required: true
+      test_voltage: "Module rated voltage or 500V (whichever higher)"
+      max_leakage_current: "Module specific"
+
+    - name: "Dielectric Withstand Test"
+      clause: "MST 11"
+      duration: "1 minute"
+      required: true
+      test_voltage: "Module specific"
+      frequency: "50/60 Hz"
+
+    - name: "Robustness of Terminations"
+      clause: "MST 12"
+      duration: "N/A"
+      required: true
+      test_cycles: "25 for plug/socket, specific for others"
+
+    - name: "Mechanical Stress Test"
+      clause: "MST 13"
+      duration: "Variable"
+      required: true
+      applicable_to: "Modules with leads or attachment points"
+
+    - name: "Pull Test (Connectors)"
+      clause: "MST 14"
+      duration: "N/A"
+      required: true
+      test_force: "50N (Class C), 80N (Class A/B)"
+      applicable_to: "Modules with connectors"
+
+    - name: "Module Breakage Test"
+      clause: "MST 15"
+      duration: "N/A"
+      required: true
+      test_method: "Ball drop or impact test"
+      acceptance: "No fire, electric shock, or mechanical hazard"
+
+    - name: "Hot-Spot Endurance Test"
+      clause: "MST 16"
+      duration: "5 hours"
+      required: true
+      test_conditions: "Cell or module area shaded"
+
+    - name: "UV Conditioning Test"
+      clause: "MST 17"
+      duration: "Variable"
+      required: true
+      uv_dose: "15 kWh/m²"
+      wavelength: "280-400 nm"
+
+    - name: "Environmental Conditioning Test"
+      clause: "MST 18-23"
+      duration: "Variable"
+      required: true
+      tests:
+        - "MST 18: Thermal cycling (50 cycles)"
+        - "MST 19: Humidity-freeze (10 cycles)"
+        - "MST 20: Damp heat (1000 hours)"
+        - "MST 21: Mechanical load (static/dynamic)"
+        - "MST 22: Hail impact"
+        - "MST 23: Reverse current overload"
+
+acceptance_criteria:
+  general_safety:
+    - "No fire hazard"
+    - "No electric shock hazard"
+    - "No mechanical hazard"
+    - "Insulation resistance: ≥400 MΩ"
+    - "Dielectric withstand: No breakdown"
+    - "Temperature limits not exceeded"
+
+  after_environmental_tests:
+    - "All safety tests still passed"
+    - "No insulation breakdown"
+    - "No ground fault"
+    - "No accessible live parts"
+    - "Structural integrity maintained"
+
+marking_and_documentation:
+  required_markings:
+    - "Manufacturer name or trademark"
+    - "Model and serial number"
+    - "Safety class (A, B, or C)"
+    - "Application class (I or II if applicable)"
+    - "Maximum system voltage"
+    - "Fire rating (if applicable)"
+    - "Warning labels as required"
+
+  required_documentation:
+    - "Installation instructions"
+    - "Safety precautions"
+    - "Electrical connection details"
+    - "Maintenance requirements"
+    - "Disposal information"
+
+reporting_requirements:
+  test_report_contents:
+    - "Module description and ratings"
+    - "Safety and application class"
+    - "Test sequence performed"
+    - "Test results for each MST"
+    - "Inspection results"
+    - "Non-conformances and resolutions"
+    - "Statement of compliance with IEC 61730"
+    - "Test laboratory information"
+    - "Test dates"
+
+notes:
+  - "IEC 61730 focuses on safety qualification, not performance"
+  - "Often tested in conjunction with IEC 61215 (design qualification)"
+  - "Fire safety requirements depend on application class"
+  - "Both construction (Part 1) and testing (Part 2) requirements must be met"
+  - "Some tests overlap with IEC 61215 and can be performed together"

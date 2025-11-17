@@ -1,0 +1,277 @@
+# IEC 62716: Photovoltaic (PV) modules - Ammonia corrosion testing
+
+standard:
+  code: "IEC 62716"
+  full_name: "Photovoltaic (PV) modules - Ammonia corrosion testing"
+  version: "IEC 62716:2013"
+  applicable_to:
+    - "All photovoltaic modules"
+    - "Especially relevant for agricultural and industrial installations"
+  scope: "Test method to evaluate PV module resistance to ammonia corrosion"
+
+background:
+  ammonia_sources:
+    agricultural:
+      - "Livestock facilities (poultry farms, pig farms, dairy operations)"
+      - "Fertilizer storage and application"
+      - "Manure handling and composting"
+      - "Typical concentration: 5-100 ppm"
+
+    industrial:
+      - "Chemical processing plants"
+      - "Refrigeration facilities"
+      - "Wastewater treatment plants"
+      - "Fertilizer manufacturing"
+
+  corrosion_mechanism:
+    description: "Ammonia reacts with copper and silver, common materials in PV modules"
+    affected_components:
+      - "Cell metallization (silver fingers)"
+      - "Interconnect ribbons (copper/tin-coated)"
+      - "Junction box terminals"
+      - "Electrical connections"
+
+    failure_modes:
+      - "Increased series resistance"
+      - "Contact degradation"
+      - "Power loss"
+      - "Open circuits in severe cases"
+
+test_method:
+  test_conditions:
+    ammonia_concentration: "2000 ± 200 ppm"
+    temperature: "50 ± 2°C"
+    relative_humidity: "80 ± 5%"
+    test_duration: "672 hours (28 days)"
+    chamber_volume: "Sufficient for proper air circulation"
+
+  test_severity:
+    description: "Accelerated test simulating several years of exposure"
+    equivalent_exposure: "~10-20 years in agricultural environment"
+    note: "Actual correlation depends on real-world conditions"
+
+  sample_preparation:
+    sample_size: "Minimum 3 modules (or representative samples)"
+
+    preconditioning:
+      - name: "Visual Inspection"
+        description: "Document initial condition"
+
+      - name: "Initial Performance Measurement"
+        conditions: "STC (1000 W/m², 25°C, AM 1.5)"
+        parameters:
+          - "Isc (Short circuit current)"
+          - "Voc (Open circuit voltage)"
+          - "Pmax (Maximum power)"
+          - "Vmp (Voltage at maximum power)"
+          - "Imp (Current at maximum power)"
+          - "FF (Fill factor)"
+
+      - name: "Insulation Resistance Test"
+        test_voltage: "2 × (max system voltage) + 1000V"
+        min_resistance: "400 MΩ"
+        duration: "1 minute"
+
+      - name: "Wet Leakage Current Test"
+        test_voltage: "Module rated voltage or 500V (whichever higher)"
+        spray_duration: "Prior to test"
+
+  test_procedure:
+    setup:
+      - "Place modules in exposure chamber"
+      - "Ensure adequate spacing for air circulation"
+      - "Position modules at typical installation angle"
+      - "Connect monitoring equipment if required"
+
+    exposure:
+      - "Maintain specified ammonia concentration"
+      - "Control temperature and humidity"
+      - "Continuous exposure for 672 hours"
+      - "Monitor chamber conditions"
+      - "Do not apply electrical load during exposure"
+
+    interruptions:
+      description: "Minimize test interruptions"
+      allowed: "Brief interruptions for safety or maintenance"
+      note: "Document any interruptions in test report"
+
+  post_test_evaluation:
+    sequence:
+      - name: "Neutralization"
+        description: "Allow modules to air for 24 hours minimum"
+        purpose: "Remove residual ammonia"
+
+      - name: "Visual Inspection"
+        items_to_check:
+          - "Discoloration of metallization"
+          - "Corrosion of contacts and interconnects"
+          - "Bubbles or delamination"
+          - "Junction box condition"
+          - "Cable and connector condition"
+
+        severity_classification:
+          minor: "Slight discoloration, no functional impact"
+          moderate: "Visible corrosion, possible performance impact"
+          major: "Severe corrosion, definite performance impact"
+          critical: "Structural damage, safety concern"
+
+      - name: "Performance Measurement"
+        conditions: "Same as pre-test (STC)"
+        parameters: "All initial parameters repeated"
+        calculate: "Percentage change for each parameter"
+
+      - name: "Insulation Resistance Test"
+        conditions: "Same as pre-test"
+        acceptance: "≥400 MΩ"
+
+      - name: "Wet Leakage Current Test"
+        conditions: "Same as pre-test"
+        acceptance: "Within specified limits"
+
+acceptance_criteria:
+  electrical_performance:
+    maximum_degradation:
+      Pmax: "≤5%"
+      Isc: "As specified"
+      Voc: "As specified"
+      FF: "As specified"
+
+    note: "Degradation calculated relative to pre-test values"
+
+  visual_inspection:
+    acceptable:
+      - "Minor discoloration of cell metallization"
+      - "No visible corrosion of interconnects"
+      - "No delamination or bubbles"
+      - "No junction box degradation"
+
+    not_acceptable:
+      - "Severe corrosion affecting electrical performance"
+      - "Open circuits or broken interconnects"
+      - "Delamination exposing electrical components"
+      - "Junction box failure"
+
+  safety_tests:
+    insulation_resistance: "≥400 MΩ"
+    wet_leakage_current: "Within specification"
+    ground_continuity: "Maintained (if applicable)"
+
+test_report_requirements:
+  module_information:
+    - "Manufacturer and model"
+    - "Serial numbers"
+    - "Technology type"
+    - "Rated power and electrical parameters"
+    - "Construction details relevant to ammonia exposure"
+
+  test_details:
+    - "Test duration and dates"
+    - "Chamber conditions (NH₃ concentration, temperature, RH)"
+    - "Monitoring data (continuous or periodic)"
+    - "Any deviations from standard procedure"
+
+  results:
+    - "Pre-test measurements (electrical and visual)"
+    - "Post-test measurements (electrical and visual)"
+    - "Percentage changes in all parameters"
+    - "Photographs showing before/after condition"
+    - "Pass/fail statement"
+
+  additional_information:
+    - "Test laboratory and equipment"
+    - "Calibration information"
+    - "Measurement uncertainty"
+    - "Reference to IEC 62716 standard"
+
+chamber_requirements:
+  design:
+    - "Corrosion-resistant materials"
+    - "Sealed construction with exhaust system"
+    - "Uniform temperature and humidity distribution"
+    - "Ammonia injection and monitoring system"
+    - "Safety features (alarms, ventilation)"
+
+  monitoring:
+    - "Continuous ammonia concentration measurement"
+    - "Temperature sensors (multiple locations)"
+    - "Humidity sensors"
+    - "Data logging system"
+
+  safety:
+    - "Proper ventilation and exhaust"
+    - "Ammonia detection and alarms"
+    - "Emergency shutdown systems"
+    - "Personal protective equipment requirements"
+    - "Neutralization system for exhaust"
+
+module_design_considerations:
+  materials_selection:
+    susceptible_materials:
+      - "Silver (cell metallization)"
+      - "Copper (interconnects, busbars)"
+      - "Brass and bronze (junction box components)"
+
+    resistant_materials:
+      - "Aluminum (frames, conductor)"
+      - "Stainless steel (fasteners)"
+      - "Gold and nickel (as protective coatings)"
+      - "Properly coated copper"
+
+  protection_strategies:
+    - "Hermetic encapsulation of cells"
+    - "Protective coatings on interconnects"
+    - "Sealed junction boxes"
+    - "Corrosion-resistant connectors"
+    - "Edge sealing to prevent ingress"
+
+  quality_control:
+    - "Material selection verification"
+    - "Encapsulation quality"
+    - "Seal integrity testing"
+    - "Junction box assembly inspection"
+
+applications:
+  module_qualification:
+    description: "Verify module suitability for ammonia-rich environments"
+    frequency: "During design qualification"
+
+  quality_assurance:
+    description: "Verify manufacturing consistency"
+    frequency: "Periodic sampling"
+
+  failure_analysis:
+    description: "Understand field failures in agricultural installations"
+    application: "Root cause investigation"
+
+  certification:
+    description: "Required for certain markets and applications"
+    examples:
+      - "Agricultural installations"
+      - "Industrial facilities"
+      - "Regions with agricultural PV incentives"
+
+related_standards:
+  - code: "IEC 61215"
+    relation: "Design qualification testing"
+    note: "IEC 62716 may be additional requirement"
+
+  - code: "IEC 61730"
+    relation: "Safety qualification"
+    note: "Safety aspects after ammonia exposure"
+
+  - code: "IEC 61701"
+    relation: "Salt mist corrosion testing"
+    note: "Different corrosive environment"
+
+  - code: "IEC 60068-2-52"
+    relation: "General salt mist testing"
+    note: "Referenced test methodology"
+
+notes:
+  - "Test is specifically for ammonia corrosion, not general corrosion"
+  - "Modules that pass may be labeled as 'ammonia-resistant' or similar"
+  - "Test conditions are accelerated; correlation to field exposure varies"
+  - "Some manufacturers conduct this test voluntarily for agricultural markets"
+  - "Chamber must be properly designed and maintained for safety and accuracy"
+  - "Visual inspection is subjective; use standardized criteria and photography"
+  - "May be required by specific customers or markets with agricultural applications"

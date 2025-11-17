@@ -1,0 +1,468 @@
+# NABL/ILAC/BIS - Indian Laboratory Accreditation and Standards Framework
+
+overview:
+  description: "Framework for laboratory accreditation and product certification in India"
+  organizations:
+    nabl: "National Accreditation Board for Testing and Calibration Laboratories"
+    ilac: "International Laboratory Accreditation Cooperation"
+    bis: "Bureau of Indian Standards"
+
+# NABL - National Accreditation Board for Testing and Calibration Laboratories
+
+nabl:
+  full_name: "National Accreditation Board for Testing and Calibration Laboratories"
+  established: "1998"
+  authority: "Department of Science & Technology, Government of India"
+  international_recognition: "ILAC MRA and APLAC MRA signatory"
+  website: "www.nabl-india.org"
+
+  purpose:
+    - "Provide third-party accreditation to testing and calibration laboratories"
+    - "Assess technical competence of laboratories"
+    - "Ensure international acceptance of test results"
+    - "Promote quality in laboratory services"
+
+  accreditation_programs:
+    testing_laboratories:
+      code: "NABL 100"
+      based_on: "ISO/IEC 17025:2017"
+      fields:
+        - "Chemical"
+        - "Biological"
+        - "Mechanical & Metallurgical"
+        - "Non-Destructive Testing"
+        - "Electrical"
+        - "Electronics & IT"
+        - "Photometry & Radiometry"
+        - "Thermal"
+        - "Fluid Flow"
+        - "Acoustics & Vibration"
+
+    calibration_laboratories:
+      code: "NABL 120"
+      based_on: "ISO/IEC 17025:2017"
+      disciplines:
+        - "Dimensional"
+        - "Mass & Related Quantities"
+        - "Mechanical"
+        - "Thermal"
+        - "Electrical"
+        - "Time & Frequency"
+        - "Radiometry & Photometry"
+
+    medical_laboratories:
+      code: "NABL 112"
+      based_on: "ISO 15189:2012"
+
+    proficiency_testing_providers:
+      code: "NABL 180"
+      based_on: "ISO/IEC 17043:2010"
+
+    reference_material_producers:
+      code: "NABL 181"
+      based_on: "ISO 17034:2016"
+
+  for_pv_testing:
+    relevant_program: "Testing Laboratories (NABL 100)"
+    discipline: "Electrical / Electronics & IT"
+
+    typical_scope:
+      - "Testing of photovoltaic modules as per IEC 61215 series"
+      - "Testing of photovoltaic modules as per IEC 61730 series"
+      - "Performance testing of PV modules as per IEC 61853"
+      - "Salt mist corrosion testing as per IEC 61701"
+      - "Ammonia corrosion testing as per IEC 62716"
+      - "PID testing as per IEC 62804"
+      - "Electrical measurements as per IEC 60904 series"
+
+  accreditation_process:
+    step_1_application:
+      - "Submit online application with scope of accreditation"
+      - "Provide laboratory details and test methods"
+      - "Pay application fee"
+
+    step_2_document_review:
+      - "Submit quality manual and procedures"
+      - "Submit technical procedures and test methods"
+      - "Provide personnel competence records"
+      - "Equipment list and calibration certificates"
+      - "Submit sample test reports"
+
+    step_3_preliminary_visit:
+      optional: "For new laboratories or significant scope extensions"
+      purpose: "Assess readiness for formal assessment"
+
+    step_4_on_site_assessment:
+      duration: "Typically 2-5 days depending on scope"
+      team: "Lead assessor and technical assessors"
+      activities:
+        - "Opening meeting"
+        - "Document review"
+        - "Facility tour"
+        - "Witnessing of tests"
+        - "Personnel interviews"
+        - "Record review"
+        - "Equipment verification"
+        - "Closing meeting"
+
+    step_5_corrective_action:
+      - "Address nonconformities identified"
+      - "Submit evidence to NABL"
+      - "Additional visits if needed"
+
+    step_6_accreditation_decision:
+      - "Technical Committee review"
+      - "Accreditation Committee decision"
+      - "Certificate issued (valid 2 years initially)"
+
+    step_7_surveillance:
+      frequency: "At least once per year"
+      purpose: "Verify continued compliance"
+      scope: "May be limited to critical areas"
+
+    step_8_reassessment:
+      frequency: "Every 2 years after initial accreditation"
+      scope: "Complete scope assessment"
+      outcome: "Certificate renewal"
+
+  nabl_specific_requirements:
+    additional_to_iso_17025:
+      - name: "NABL 100 Document"
+        description: "Specific criteria for testing laboratories"
+        content: "Interpretation and additional requirements for Indian context"
+
+      - name: "Measurement Uncertainty"
+        requirement: "Mandatory for quantitative measurements"
+        reporting: "Must be reported in test reports when required"
+
+      - name: "Proficiency Testing"
+        requirement: "Participate in PT for critical tests"
+        frequency: "Annually or as available"
+        action: "Investigate unsatisfactory performance"
+
+      - name: "Personnel Qualification"
+        requirement: "Minimum educational qualifications specified"
+        technical_manager: "Minimum B.Sc. or engineering degree"
+        testing_personnel: "Appropriate technical qualifications"
+
+      - name: "Equipment Calibration"
+        requirement: "Calibration from NABL accredited labs (or equivalent)"
+        frequency: "As per manufacturer or risk assessment"
+        traceability: "Traceability to national/international standards"
+
+      - name: "Sample Management"
+        requirement: "Comprehensive sample handling procedures"
+        elements:
+          - "Sample receipt and identification"
+          - "Storage conditions"
+          - "Retention policy"
+          - "Disposal procedure"
+
+      - name: "Complaints and Appeals"
+        requirement: "Documented procedure for handling complaints"
+        process:
+          - "Receipt and recording"
+          - "Investigation"
+          - "Resolution"
+          - "Response to complainant"
+
+  accreditation_benefits:
+    - "Government and regulatory acceptance"
+    - "International recognition under ILAC MRA"
+    - "Customer confidence"
+    - "Competitive advantage in tenders"
+    - "Quality improvement"
+    - "Access to exports (recognition in 100+ countries)"
+
+  costs:
+    application_fee: "Variable based on scope"
+    assessment_fee: "Based on man-days of assessment"
+    annual_fee: "Annual accreditation maintenance fee"
+    note: "Fees subject to change, check NABL website"
+
+  logo_usage:
+    permission: "Only on accredited test reports"
+    scope_limitation: "Only for tests within accredited scope"
+    format: "As per NABL guidelines"
+    restrictions: "Cannot use on marketing materials alone"
+
+# ILAC - International Laboratory Accreditation Cooperation
+
+ilac:
+  full_name: "International Laboratory Accreditation Cooperation"
+  established: "1977 (formal structure), 1996 (MRA launched)"
+  type: "International organization of accreditation bodies"
+  website: "www.ilac.org"
+
+  purpose:
+    - "Establish global network of accreditation bodies"
+    - "Develop internationally recognized standards"
+    - "Facilitate mutual recognition of test results"
+    - "Promote acceptance of accredited results across borders"
+
+  ilac_mra:
+    full_name: "ILAC Mutual Recognition Arrangement"
+    established: "2000"
+    signatories: "100+ accreditation bodies from 80+ economies"
+
+    principle: "Test or calibration result from accredited laboratory in one country accepted in other countries"
+
+    scope:
+      - "Testing laboratories (ISO/IEC 17025)"
+      - "Calibration laboratories (ISO/IEC 17025)"
+      - "Medical laboratories (ISO 15189)"
+      - "Inspection bodies (ISO/IEC 17020)"
+      - "Reference material producers (ISO 17034)"
+      - "Proficiency testing providers (ISO/IEC 17043)"
+
+    benefits:
+      - "Avoid repeat testing in different countries"
+      - "Reduce costs and time"
+      - "Facilitate international trade"
+      - "Regulatory confidence"
+
+  regional_cooperations:
+    aplac:
+      full_name: "Asia Pacific Laboratory Accreditation Cooperation"
+      region: "Asia-Pacific"
+      members: "NABL (India) is member"
+
+    ea:
+      full_name: "European co-operation for Accreditation"
+      region: "Europe"
+
+    iaac:
+      full_name: "Inter American Accreditation Cooperation"
+      region: "Americas"
+
+    afrac:
+      full_name: "African Accreditation Cooperation"
+      region: "Africa"
+
+    arac:
+      full_name: "Arab Accreditation Cooperation"
+      region: "Arab States"
+
+  for_pv_industry:
+    significance: "NABL accredited PV test reports accepted in ILAC MRA signatory countries"
+
+    practical_benefit: "Module tested in NABL accredited lab in India accepted for certification in Europe, USA, Australia, etc."
+
+    requirement: "Accreditation body (NABL) must be ILAC MRA signatory - NABL is signatory"
+
+# BIS - Bureau of Indian Standards
+
+bis:
+  full_name: "Bureau of Indian Standards"
+  established: "1987"
+  previous_name: "Indian Standards Institution (ISI)"
+  authority: "Ministry of Consumer Affairs, Food & Public Distribution, Government of India"
+  legislation: "Bureau of Indian Standards Act, 2016"
+  website: "www.bis.gov.in"
+
+  functions:
+    - "Development of national standards"
+    - "Product certification"
+    - "Laboratory recognition"
+    - "Hallmarking (for gold and silver)"
+    - "Consumer affairs"
+
+  for_pv_modules:
+    relevant_standards:
+      is_iec_61215:
+        code: "IS 14286"
+        title: "Crystalline silicon terrestrial photovoltaic (PV) modules - Design qualification and type approval"
+        based_on: "IEC 61215 series"
+        status: "Harmonized with IEC"
+
+      is_iec_61730:
+        code: "IS 14762"
+        title: "Photovoltaic (PV) module safety qualification"
+        based_on: "IEC 61730 series"
+        status: "Harmonized with IEC"
+
+      is_iec_61853:
+        code: "IS 16385"
+        title: "Photovoltaic (PV) module performance testing and energy rating"
+        based_on: "IEC 61853 series"
+        status: "Harmonized with IEC"
+
+      bis_other_standards:
+        - "IS 13302: Concentrator photovoltaic (CPV) modules and assemblies - Design qualification and type approval"
+        - "IS/IEC 60904 series: Photovoltaic devices - Measurement procedures"
+        - "IS 16169: Guidelines for grid connected rooftop solar photovoltaic system"
+
+  bis_certification_scheme:
+    product_certification:
+      scheme: "Product Certification Scheme"
+      marks:
+        - "ISI Mark (Indian Standards Institution Mark)"
+        - "Indicates conformity to Indian Standard"
+
+    mandatory_certification:
+      description: "Some products require mandatory BIS certification"
+      pv_modules_status: "PV modules under mandatory BIS certification (CRS - Compulsory Registration Scheme)"
+      order: "Electronics and Information Technology Goods (Requirements for Compulsory Registration) Order, 2012 - amended to include PV modules"
+
+    bis_registration_for_pv_modules:
+      requirement: "PV modules sold in India must be BIS registered"
+
+      types:
+        domestic_manufacturer:
+          process: "BIS license for manufacturing"
+          steps:
+            - "Application with product details"
+            - "Factory inspection"
+            - "Sample testing in BIS recognized lab"
+            - "Grant of license"
+            - "Surveillance"
+
+        foreign_manufacturer:
+          process: "BIS registration (CRS)"
+          steps:
+            - "Application through Indian representative"
+            - "Product testing in BIS recognized lab (Indian or foreign)"
+            - "Factory inspection (optional for certain schemes)"
+            - "Registration certificate"
+            - "Random sampling and testing"
+
+      testing_requirements:
+        design_qualification: "IS 14286 (IEC 61215)"
+        safety: "IS 14762 (IEC 61730)"
+        additional: "Any other applicable IS standards"
+
+    bis_recognized_laboratories:
+      requirement: "Testing must be in BIS recognized lab"
+
+      recognition_types:
+        nabl_accredited:
+          description: "NABL accredited labs automatically eligible for BIS recognition"
+          process: "Apply for BIS recognition (simplified if NABL accredited)"
+
+        foreign_labs:
+          description: "Foreign labs accredited by ILAC MRA signatory"
+          process: "Apply for BIS recognition"
+          consideration: "BIS may recognize foreign labs from certain countries"
+
+      for_pv_testing:
+        requirement: "Lab must be BIS recognized for PV module testing"
+        scope: "Recognition for relevant IS standards (IS 14286, IS 14762)"
+
+  bis_logo_usage:
+    isi_mark:
+      appearance: "ISI Mark with license number or registration number"
+      placement: "On module, packaging, and documentation"
+      format: "As per BIS guidelines"
+
+    requirement: "Mandatory for PV modules sold in India"
+    violation: "Sale without BIS registration is punishable"
+
+integration_nabl_ilac_bis:
+  laboratory_path:
+    step_1: "Obtain NABL accreditation for PV module testing (IEC standards)"
+    step_2: "NABL accreditation recognized under ILAC MRA (automatic as NABL is signatory)"
+    step_3: "Apply for BIS recognition (process simplified with NABL accreditation)"
+    step_4: "Conduct testing for BIS certification of PV modules"
+
+  benefits_of_integration:
+    for_laboratories:
+      - "NABL accreditation provides credibility"
+      - "ILAC MRA provides international acceptance"
+      - "BIS recognition allows certification testing for Indian market"
+      - "Comprehensive service offering"
+
+    for_manufacturers:
+      - "Single lab can provide internationally recognized testing"
+      - "Results accepted for multiple certifications"
+      - "Access to Indian market through BIS"
+      - "Export capability through ILAC MRA"
+
+  typical_workflow_for_pv_module_certification:
+    step_1:
+      action: "Manufacturer sends modules to NABL accredited lab"
+      lab_requirement: "NABL accredited for IEC 61215, 61730, etc."
+
+    step_2:
+      action: "Laboratory conducts testing per IS 14286 (IEC 61215), IS 14762 (IEC 61730)"
+      output: "NABL accredited test report"
+
+    step_3:
+      action: "Manufacturer submits test report to BIS for registration"
+      requirement: "Report from BIS recognized lab (NABL accredited lab qualifies)"
+
+    step_4:
+      action: "BIS reviews application and may conduct factory inspection"
+      output: "BIS registration certificate"
+
+    step_5:
+      action: "Modules can be sold in India with BIS mark"
+      ongoing: "BIS surveillance sampling and testing"
+
+key_documents_and_resources:
+  nabl:
+    - "NABL 100: Specific Criteria for Accreditation of Testing Laboratories"
+    - "NABL 120: Specific Criteria for Accreditation of Calibration Laboratories"
+    - "NABL Policy on Measurement Uncertainty"
+    - "NABL Directory of Accredited Laboratories (online)"
+
+  ilac:
+    - "ILAC-P8: ILAC Policy on Traceability of Measurement Results"
+    - "ILAC-P9: ILAC Policy for Participation in Proficiency Testing Activities"
+    - "ILAC-P10: ILAC Policy on Metrological Traceability of Measurement Results"
+    - "ILAC MRA Signatory List"
+
+  bis:
+    - "BIS Act 2016"
+    - "Product Certification Scheme"
+    - "CRS Order for Electronics and IT Goods"
+    - "IS 14286 (IEC 61215): PV module design qualification"
+    - "IS 14762 (IEC 61730): PV module safety"
+    - "List of BIS Recognized Laboratories"
+
+compliance_checklist_for_pv_testing_laboratory:
+  nabl_accreditation:
+    - "Implement ISO/IEC 17025:2017 quality management system"
+    - "Define scope (e.g., IEC 61215, 61730, 61853, 60904)"
+    - "Ensure personnel competence and training"
+    - "Calibrate all equipment with traceability to national standards"
+    - "Participate in proficiency testing programs"
+    - "Conduct measurement uncertainty analysis"
+    - "Prepare for NABL assessment"
+    - "Maintain accreditation through surveillance"
+
+  bis_recognition:
+    - "Obtain NABL accreditation first (recommended)"
+    - "Apply for BIS recognition for relevant IS standards"
+    - "Provide NABL certificate and scope"
+    - "Demonstrate competence for IS 14286, IS 14762, etc."
+    - "Maintain BIS recognition through compliance"
+
+  laboratory_infrastructure:
+    - "Solar simulator (Class AAA for module testing)"
+    - "Environmental test chambers (thermal cycling, damp heat, humidity-freeze)"
+    - "Mechanical test equipment (static/dynamic load, hail impact)"
+    - "Electrical measurement equipment (IV tracers, multimeters)"
+    - "Reference cells and modules (calibrated, traceable)"
+    - "Environmental monitoring (temperature, humidity)"
+    - "Safety equipment and facilities"
+
+  ongoing_compliance:
+    - "Annual NABL surveillance"
+    - "Equipment calibration (annual or as required)"
+    - "Personnel training and competence evaluation"
+    - "Internal audits (at least annually)"
+    - "Management reviews (at least annually)"
+    - "Proficiency testing participation"
+    - "Corrective actions for nonconformities"
+    - "Records maintenance (minimum 3 years or as specified)"
+
+notes:
+  - "NABL is the premier accreditation body for laboratories in India"
+  - "ILAC MRA provides global acceptance of NABL accredited results"
+  - "BIS certification is mandatory for PV modules sold in India"
+  - "NABL accreditation simplifies BIS recognition process"
+  - "Integration of NABL, ILAC, and BIS provides comprehensive credibility"
+  - "Indian PV market requires BIS compliance - critical for manufacturers"
+  - "Foreign manufacturers need Indian representative for BIS registration"
+  - "NABL accreditation is voluntary but highly valued"
+  - "Regular updates to standards and requirements - stay current"

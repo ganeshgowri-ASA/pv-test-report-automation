@@ -1,0 +1,410 @@
+# Test Report Template for PV Module Testing
+
+report_metadata:
+  template_name: "Standard PV Module Test Report"
+  template_version: "1.0"
+  applicable_standards:
+    - "IEC 61215"
+    - "IEC 61730"
+    - "ISO/IEC 17025"
+
+report_structure:
+  cover_page:
+    required: true
+    elements:
+      - element: "laboratory_logo"
+        type: "image"
+        position: "top-left"
+
+      - element: "report_title"
+        type: "text"
+        content: "PHOTOVOLTAIC MODULE TEST REPORT"
+        style: "bold, large"
+
+      - element: "report_number"
+        type: "text"
+        pattern: "Report No: {report_id}"
+
+      - element: "test_standard"
+        type: "text"
+        pattern: "Test Standard: {standard_code}"
+
+      - element: "client_name"
+        type: "text"
+        pattern: "Client: {client_name}"
+
+      - element: "issue_date"
+        type: "date"
+        pattern: "Issue Date: {issue_date}"
+
+      - element: "accreditation_mark"
+        type: "image"
+        position: "bottom-right"
+        note: "NABL/ISO 17025 accreditation mark"
+
+  section_1_introduction:
+    title: "1. Introduction"
+    required: true
+    subsections:
+      - subsection: "1.1 Purpose"
+        content: |
+          This report presents the results of testing performed on photovoltaic (PV) modules
+          as per the applicable standards to evaluate design qualification and safety.
+
+      - subsection: "1.2 Scope"
+        content: |
+          The scope of this report covers the following:
+          - Module identification and description
+          - Test methods and procedures
+          - Test results and observations
+          - Compliance assessment
+
+  section_2_client_information:
+    title: "2. Client Information"
+    required: true
+    fields:
+      - field: "client_name"
+        label: "Client Name"
+        required: true
+
+      - field: "client_address"
+        label: "Address"
+        required: true
+
+      - field: "contact_person"
+        label: "Contact Person"
+        required: false
+
+      - field: "email"
+        label: "Email"
+        required: false
+
+      - field: "phone"
+        label: "Phone"
+        required: false
+
+  section_3_sample_information:
+    title: "3. Sample Information"
+    required: true
+    fields:
+      - field: "manufacturer"
+        label: "Module Manufacturer"
+        required: true
+
+      - field: "model_number"
+        label: "Model Number"
+        required: true
+
+      - field: "serial_numbers"
+        label: "Serial Numbers"
+        type: "list"
+        required: true
+
+      - field: "technology_type"
+        label: "Technology Type"
+        options:
+          - "Monocrystalline Silicon"
+          - "Polycrystalline Silicon"
+          - "Thin Film (CdTe)"
+          - "Thin Film (CIGS)"
+          - "Thin Film (a-Si)"
+          - "Other"
+        required: true
+
+      - field: "rated_power"
+        label: "Rated Power (Wp)"
+        type: "number"
+        unit: "Wp"
+        required: true
+
+      - field: "dimensions"
+        label: "Module Dimensions (L × W × H)"
+        type: "text"
+        unit: "mm"
+        required: true
+
+      - field: "weight"
+        label: "Module Weight"
+        type: "number"
+        unit: "kg"
+        required: false
+
+      - field: "sample_receipt_date"
+        label: "Sample Receipt Date"
+        type: "date"
+        required: true
+
+      - field: "sample_condition"
+        label: "Sample Condition on Receipt"
+        type: "text"
+        required: true
+
+  section_4_test_standards:
+    title: "4. Test Standards and Methods"
+    required: true
+    subsections:
+      - subsection: "4.1 Applicable Standards"
+        type: "list"
+        source: "standards_applied"
+
+      - subsection: "4.2 Test Equipment"
+        type: "table"
+        columns:
+          - "Equipment"
+          - "Manufacturer/Model"
+          - "Calibration Date"
+          - "Due Date"
+          - "Certificate Number"
+
+      - subsection: "4.3 Test Conditions"
+        fields:
+          - field: "test_environment"
+            label: "Test Environment"
+            content: "Controlled laboratory environment"
+
+          - field: "stc_conditions"
+            label: "Standard Test Conditions (STC)"
+            content: |
+              - Irradiance: 1000 W/m²
+              - Spectrum: AM 1.5 Global
+              - Cell Temperature: 25°C ± 2°C
+
+  section_5_test_sequence:
+    title: "5. Test Sequence and Results"
+    required: true
+    note: "Detailed test sequence as per applicable standard"
+
+    test_template:
+      test_name: "{test_name}"
+      test_clause: "{standard_clause}"
+      test_date: "{test_date}"
+      test_duration: "{duration}"
+
+      pre_test_measurements:
+        visual_inspection: "Pass/Fail with observations"
+        electrical_parameters:
+          - "Pmax (W)"
+          - "Voc (V)"
+          - "Isc (A)"
+          - "Vmp (V)"
+          - "Imp (A)"
+          - "FF (%)"
+
+      test_conditions:
+        description: "Specific conditions for this test"
+        parameters: []
+
+      post_test_measurements:
+        visual_inspection: "Pass/Fail with observations"
+        electrical_parameters:
+          - "Pmax (W)"
+          - "Voc (V)"
+          - "Isc (A)"
+          - "Vmp (V)"
+          - "Imp (A)"
+          - "FF (%)"
+        degradation_percentage: "Calculated percentage"
+
+      test_result: "Pass/Fail"
+      observations: "Detailed observations and notes"
+
+  section_6_summary_of_results:
+    title: "6. Summary of Results"
+    required: true
+
+    summary_table:
+      columns:
+        - "Test Name"
+        - "Standard Clause"
+        - "Acceptance Criteria"
+        - "Result"
+        - "Status (Pass/Fail)"
+
+    overall_assessment:
+      field: "overall_result"
+      values: ["Pass", "Fail", "Conditional"]
+
+  section_7_electrical_performance:
+    title: "7. Electrical Performance Summary"
+    required: true
+
+    performance_table:
+      parameters:
+        - parameter: "Maximum Power (Pmax)"
+          initial: "{initial_pmax}"
+          final: "{final_pmax}"
+          change: "{pmax_change}%"
+          limit: "≤ 5%"
+          status: "Pass/Fail"
+
+        - parameter: "Open Circuit Voltage (Voc)"
+          initial: "{initial_voc}"
+          final: "{final_voc}"
+          change: "{voc_change}%"
+          limit: "Per standard"
+          status: "Pass/Fail"
+
+        - parameter: "Short Circuit Current (Isc)"
+          initial: "{initial_isc}"
+          final: "{final_isc}"
+          change: "{isc_change}%"
+          limit: "Per standard"
+          status: "Pass/Fail"
+
+        - parameter: "Fill Factor (FF)"
+          initial: "{initial_ff}"
+          final: "{final_ff}"
+          change: "{ff_change}%"
+          limit: "Per standard"
+          status: "Pass/Fail"
+
+  section_8_photographs:
+    title: "8. Photographs and Visual Documentation"
+    required: false
+    note: "Include photographs of modules before and after testing"
+
+    photo_categories:
+      - "Module front view"
+      - "Module rear view"
+      - "Visual defects (if any)"
+      - "Test setup"
+      - "Electroluminescence images (if applicable)"
+
+  section_9_deviations:
+    title: "9. Deviations from Standard Procedures"
+    required: true
+    note: "List any deviations from standard test procedures, or state 'None'"
+
+  section_10_uncertainty:
+    title: "10. Measurement Uncertainty"
+    required: true
+
+    uncertainty_table:
+      parameters:
+        - parameter: "Maximum Power (Pmax)"
+          uncertainty: "± {pmax_uncertainty}%"
+          coverage_factor: "k=2 (95% confidence)"
+
+        - parameter: "Irradiance"
+          uncertainty: "± {irradiance_uncertainty}%"
+          coverage_factor: "k=2 (95% confidence)"
+
+        - parameter: "Temperature"
+          uncertainty: "± {temperature_uncertainty}°C"
+          coverage_factor: "k=2 (95% confidence)"
+
+  section_11_conclusions:
+    title: "11. Conclusions and Compliance Statement"
+    required: true
+
+    compliance_statement:
+      pass: |
+        Based on the test results presented in this report, the tested photovoltaic modules
+        COMPLY with the requirements of {standard_code} for {test_category}.
+
+      fail: |
+        Based on the test results presented in this report, the tested photovoltaic modules
+        DO NOT COMPLY with the requirements of {standard_code} for {test_category}.
+
+        Non-conformances are detailed in Section 5.
+
+      conditional: |
+        Based on the test results presented in this report, the tested photovoltaic modules
+        CONDITIONALLY COMPLY with the requirements of {standard_code}.
+
+        Conditions and observations are detailed in Section 9.
+
+  section_12_limitations:
+    title: "12. Limitations of Testing"
+    required: true
+    content: |
+      1. This report relates only to the samples tested.
+      2. The test results are valid for the specific batch/lot submitted.
+      3. This report shall not be reproduced except in full without written approval.
+      4. Testing was performed under controlled laboratory conditions.
+      5. Field performance may vary based on actual installation conditions.
+
+  section_13_references:
+    title: "13. References"
+    required: true
+    reference_list:
+      - "IEC 61215-1:2021 - Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 1: Test requirements"
+      - "IEC 61215-2:2021 - Part 2: Test procedures"
+      - "IEC 61730-1:2016 - Photovoltaic (PV) module safety qualification - Part 1: Requirements for construction"
+      - "IEC 61730-2:2016 - Part 2: Requirements for testing"
+      - "ISO/IEC 17025:2017 - General requirements for the competence of testing and calibration laboratories"
+
+  section_14_signatures:
+    title: "14. Authorization and Signatures"
+    required: true
+
+    signatures:
+      - role: "Tested by"
+        name: "{tester_name}"
+        qualification: "{tester_qualification}"
+        date: "{test_date}"
+
+      - role: "Reviewed by"
+        name: "{reviewer_name}"
+        qualification: "{reviewer_qualification}"
+        date: "{review_date}"
+
+      - role: "Approved by"
+        name: "{technical_manager_name}"
+        qualification: "{technical_manager_qualification}"
+        designation: "Technical Manager"
+        date: "{approval_date}"
+
+  appendices:
+    appendix_a:
+      title: "Appendix A: Detailed Test Data"
+      optional: true
+      content: "IV curves, environmental monitoring data, etc."
+
+    appendix_b:
+      title: "Appendix B: Equipment Calibration Certificates"
+      optional: true
+      content: "Copies of calibration certificates for critical equipment"
+
+    appendix_c:
+      title: "Appendix C: Calculation Sheets"
+      optional: true
+      content: "Detailed calculations for uncertainty, degradation, etc."
+
+footer:
+  elements:
+    - "Laboratory Name and Address"
+    - "NABL Accreditation Number: {nabl_cert_number}"
+    - "Report Number: {report_number}"
+    - "Page {page_number} of {total_pages}"
+    - "This report is valid only with authorized signatures and laboratory stamp"
+
+formatting:
+  font:
+    body: "Arial, 11pt"
+    headings: "Arial Bold, 14pt"
+    subheadings: "Arial Bold, 12pt"
+
+  spacing:
+    line_spacing: "1.15"
+    paragraph_spacing: "6pt before, 6pt after"
+
+  margins:
+    top: "25mm"
+    bottom: "25mm"
+    left: "25mm"
+    right: "25mm"
+
+  page_size: "A4"
+
+  watermark:
+    draft: "DRAFT - NOT FOR OFFICIAL USE"
+    final: "None"
+
+quality_marks:
+  required_marks:
+    - "NABL logo (if accredited)"
+    - "ISO/IEC 17025 mark"
+    - "Laboratory logo"
+
+  placement: "Header or footer as per policy"

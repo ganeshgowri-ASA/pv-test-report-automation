@@ -1,0 +1,376 @@
+# IEC 61701: Photovoltaic (PV) modules - Salt mist corrosion testing
+
+standard:
+  code: "IEC 61701"
+  full_name: "Photovoltaic (PV) modules - Salt mist corrosion testing"
+  version: "IEC 61701:2020 (Edition 2.0)"
+  applicable_to:
+    - "All photovoltaic modules"
+    - "Especially for coastal and marine installations"
+  scope: "Test method to evaluate PV module resistance to salt mist corrosion"
+
+background:
+  application:
+    description: "Modules installed in coastal or marine environments"
+    distance_from_sea:
+      severe: "< 500 m from shoreline"
+      moderate: "500 m - 10 km from shoreline"
+      mild: "> 10 km from shoreline"
+
+  corrosion_mechanism:
+    description: "Salt mist causes electrochemical corrosion of metallic components"
+    affected_components:
+      - "Aluminum frames"
+      - "Mounting brackets and fasteners"
+      - "Junction box and terminals"
+      - "Interconnect ribbons (if exposed)"
+      - "Cell metallization (if exposed)"
+      - "Electrical connectors"
+
+severity_levels:
+  level_1:
+    description: "Minimum salt mist corrosion resistance"
+    test_duration: "14 days (336 hours)"
+    application: "Installations >10 km from sea, low salt environment"
+
+  level_2:
+    description: "Moderate salt mist corrosion resistance"
+    test_duration: "30 days (720 hours)"
+    application: "Installations 500m-10km from sea, moderate exposure"
+
+  level_3:
+    description: "Severe salt mist corrosion resistance"
+    test_duration: "60 days (1440 hours)"
+    application: "Coastal installations <500m from sea, high exposure"
+
+  level_4:
+    description: "Very severe salt mist corrosion resistance"
+    test_duration: "90 days (2160 hours)"
+    application: "Marine environments, offshore installations, splash zones"
+
+test_method:
+  test_solution:
+    composition: "Sodium chloride (NaCl) in water"
+    concentration: "50 ± 5 g/L (5% solution)"
+    ph_range: "6.5 to 7.2"
+    preparation:
+      - "Use deionized or distilled water"
+      - "Dissolve pure NaCl (chemically pure grade)"
+      - "Filter to remove any particles"
+      - "Prepare fresh solution regularly"
+
+  test_conditions:
+    chamber_temperature: "35 ± 2°C"
+    salt_mist_fall_rate: "1.0 to 2.0 mL/80 cm²/hour"
+    continuous_exposure: "Yes (except for interruptions)"
+    chamber_type: "Neutral salt spray (NSS) per IEC 60068-2-52"
+
+  chamber_requirements:
+    design:
+      - "Corrosion-resistant materials (e.g., PVC, polypropylene)"
+      - "Non-drip design (condensate should not fall on samples)"
+      - "Adequate volume for air circulation"
+      - "Uniform salt mist distribution"
+
+    monitoring:
+      - "Temperature sensors"
+      - "Salt mist collection devices (at least 2 locations)"
+      - "Continuous or periodic recording"
+
+    maintenance:
+      - "Regular cleaning to prevent salt buildup"
+      - "Nozzle inspection and cleaning"
+      - "Calibration verification"
+
+  sample_preparation:
+    sample_selection:
+      description: "Complete modules or representative samples"
+      minimum_quantity: "3 modules per test level"
+      alternatives: "Framed mini-modules (minimum 4 cells)"
+
+    preconditioning:
+      - name: "Cleaning"
+        description: "Remove any protective coatings or shipping residue"
+        method: "Clean with isopropyl alcohol, dry thoroughly"
+
+      - name: "Initial Visual Inspection"
+        description: "Document baseline condition"
+        photography: "High-resolution images of all surfaces"
+
+      - name: "Initial Performance Measurement"
+        conditions: "STC (1000 W/m², 25°C, AM 1.5)"
+        parameters:
+          - "Isc, Voc, Pmax, Vmp, Imp, FF"
+
+      - name: "Insulation Resistance Test"
+        test_voltage: "2 × (max system voltage) + 1000V"
+        min_resistance: "400 MΩ"
+
+      - name: "Ground Continuity Test"
+        applicable_to: "Modules with grounding provisions"
+        test_current: "≥0.2A"
+        max_resistance: "0.1Ω"
+
+  test_procedure:
+    setup:
+      - "Position modules at 15-30° from vertical"
+      - "Ensure all surfaces exposed to salt mist"
+      - "Maintain adequate spacing between samples"
+      - "Do not apply electrical load during test"
+
+    exposure:
+      duration: "According to severity level (14, 30, 60, or 90 days)"
+      interruptions:
+        allowed: "Maximum 1 hour per 24 hours for inspection/maintenance"
+        documentation: "Record all interruptions"
+
+    monitoring:
+      - "Daily verification of temperature"
+      - "Daily verification of salt fall rate"
+      - "Weekly visual inspection (optional)"
+      - "Continuous data logging (recommended)"
+
+  post_test_evaluation:
+    sequence:
+      - name: "Cleaning"
+        method: "Rinse gently with clean running water at ≤38°C"
+        duration: "Until all salt removed"
+        drying: "Air dry at room temperature for 24 hours minimum"
+
+      - name: "Visual Inspection"
+        timing: "After cleaning and drying"
+        items_to_check:
+          frame_and_mounting:
+            - "Corrosion of aluminum frame"
+            - "Pitting, blistering, or flaking"
+            - "Corrosion of mounting holes"
+            - "Fastener condition"
+
+          junction_box:
+            - "Cover integrity"
+            - "Terminal corrosion"
+            - "Seal condition"
+            - "Cable entry integrity"
+
+          connectors:
+            - "Contact corrosion"
+            - "Housing integrity"
+            - "Seal condition"
+
+          module_front:
+            - "Delamination or bubbles"
+            - "Encapsulant discoloration"
+            - "Cell or interconnect corrosion (if visible)"
+
+          module_back:
+            - "Backsheet integrity"
+            - "Adhesion to frame"
+            - "Discoloration"
+
+        documentation:
+          - "Detailed photographs (before and after)"
+          - "Written description of all findings"
+          - "Severity rating for each defect"
+
+      - name: "Performance Measurement"
+        timing: "After visual inspection"
+        conditions: "Same as pre-test (STC)"
+        parameters: "Repeat all initial measurements"
+
+      - name: "Insulation Resistance Test"
+        conditions: "Same as pre-test"
+        acceptance: "≥400 MΩ"
+
+      - name: "Wet Leakage Current Test"
+        test_voltage: "Module rated voltage or 500V (whichever higher)"
+        acceptance: "Within specified limits"
+
+      - name: "Ground Continuity Test"
+        applicable_to: "Modules with grounding"
+        acceptance: "≤0.1Ω (no increase from pre-test)"
+
+acceptance_criteria:
+  visual_inspection:
+    frame_and_mounting:
+      acceptable:
+        - "Light surface oxidation of aluminum"
+        - "Minor cosmetic discoloration"
+        - "No structural corrosion"
+
+      not_acceptable:
+        - "Pitting corrosion >1mm depth"
+        - "Flaking or scaling of frame"
+        - "Corrosion affecting structural integrity"
+        - "Corrosion of mounting holes affecting attachment"
+
+    junction_box:
+      acceptable:
+        - "Minor discoloration of housing"
+        - "No seal degradation"
+
+      not_acceptable:
+        - "Terminal corrosion affecting electrical contact"
+        - "Seal failure or water ingress"
+        - "Cover or housing cracks"
+
+    module_encapsulation:
+      acceptable:
+        - "No delamination"
+        - "No bubbles"
+        - "No visible cell or interconnect corrosion"
+
+      not_acceptable:
+        - "Any delamination"
+        - "Bubbles or moisture ingress"
+        - "Visible corrosion of cells or interconnects"
+
+  electrical_performance:
+    maximum_degradation:
+      Pmax: "≤5% (relative to pre-test)"
+      Isc: "Within measurement uncertainty"
+      Voc: "Within measurement uncertainty"
+      FF: "No significant degradation"
+
+    note: "Degradation must not be attributable to corrosion"
+
+  safety_tests:
+    insulation_resistance: "≥400 MΩ"
+    wet_leakage_current: "Within specification"
+    ground_continuity: "≤0.1Ω (no significant increase)"
+
+  overall_pass_criteria:
+    requirements:
+      - "Visual inspection passed"
+      - "Electrical performance within limits"
+      - "All safety tests passed"
+      - "No safety hazards created by corrosion"
+
+test_report_requirements:
+  module_information:
+    - "Manufacturer, model, serial numbers"
+    - "Module type and technology"
+    - "Rated power and electrical parameters"
+    - "Frame material and coating"
+    - "Junction box and connector types"
+
+  test_details:
+    - "Severity level tested (1, 2, 3, or 4)"
+    - "Test duration (start and end dates)"
+    - "Chamber conditions (temperature, salt fall rate, pH)"
+    - "Solution composition and preparation"
+    - "Sample positioning in chamber"
+    - "Interruptions and deviations"
+
+  results:
+    pre_test:
+      - "Visual inspection findings and photos"
+      - "Electrical measurements"
+      - "Insulation resistance and ground continuity"
+
+    post_test:
+      - "Visual inspection findings and photos"
+      - "Comparison photos (before/after)"
+      - "Electrical measurements and degradation percentages"
+      - "Insulation resistance and ground continuity"
+
+    conclusion:
+      - "Pass/fail for each criterion"
+      - "Overall pass/fail statement"
+      - "Severity level achieved"
+
+  additional_information:
+    - "Test laboratory and equipment"
+    - "Calibration data"
+    - "Measurement uncertainty"
+    - "Reference to IEC 61701 standard"
+    - "Test personnel"
+
+module_design_considerations:
+  frame_and_mounting:
+    materials:
+      good: "Anodized aluminum, marine-grade aluminum alloys"
+      poor: "Untreated aluminum, incompatible metal combinations"
+
+    design:
+      - "Proper drainage to prevent water pooling"
+      - "Avoid crevices where salt can accumulate"
+      - "Use dissimilar metal barriers if necessary"
+      - "Adequate edge sealing"
+
+  junction_box:
+    requirements:
+      - "Marine-grade enclosure (minimum IP65)"
+      - "Corrosion-resistant materials"
+      - "High-quality seals and gaskets"
+      - "Protected terminals"
+      - "Proper cable glands"
+
+  connectors:
+    requirements:
+      - "Sealed connectors (IP67 or higher when mated)"
+      - "Corrosion-resistant contacts (gold or tin plated)"
+      - "UV-resistant housing materials"
+      - "Salt mist resistant seals"
+
+  encapsulation:
+    requirements:
+      - "Robust edge sealing"
+      - "Moisture barrier backsheet"
+      - "Adequate encapsulant thickness"
+      - "No pathways for salt ingress"
+
+applications:
+  certification:
+    description: "Often required for coastal installations"
+    labeling: "Modules passing may be labeled with achieved severity level"
+    example: "IEC 61701 Level 3 Certified"
+
+  site_assessment:
+    factors_to_consider:
+      - "Distance from ocean"
+      - "Prevailing wind direction"
+      - "Local topography"
+      - "History of salt spray"
+      - "Presence of other corrosive factors"
+
+    severity_selection:
+      - "Level 1: Low risk coastal areas (>10 km)"
+      - "Level 2: Moderate coastal areas (0.5-10 km)"
+      - "Level 3: High exposure coastal (<500 m)"
+      - "Level 4: Marine and offshore applications"
+
+  quality_assurance:
+    frequency: "Periodic testing during production"
+    purpose: "Verify manufacturing consistency"
+    sampling: "Per manufacturer's quality plan"
+
+related_standards:
+  - code: "IEC 61215"
+    relation: "Design qualification"
+    note: "IEC 61701 may be additional requirement for coastal areas"
+
+  - code: "IEC 61730"
+    relation: "Safety qualification"
+    note: "Safety after corrosion exposure"
+
+  - code: "IEC 62716"
+    relation: "Ammonia corrosion testing"
+    note: "Different corrosive environment"
+
+  - code: "IEC 60068-2-52"
+    relation: "Salt mist testing (general)"
+    note: "Base test method referenced by IEC 61701"
+
+  - code: "ISO 9227"
+    relation: "Salt spray tests (general)"
+    note: "Alternative salt spray methodology"
+
+notes:
+  - "Test severity should match installation environment"
+  - "Passing higher level qualifies for lower levels"
+  - "Some regions may require specific severity levels by regulation"
+  - "Field exposure correlation depends on many factors"
+  - "Regular field inspection recommended for coastal installations"
+  - "Corrosion protection is more critical than in inland environments"
+  - "Chamber must be properly maintained for accurate results"
+  - "Visual inspection is critical - use standardized criteria"

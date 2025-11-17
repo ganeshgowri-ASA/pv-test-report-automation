@@ -1,0 +1,280 @@
+# LLM Configuration for PV Test Report Automation
+# This file manages API configurations for various LLM providers
+
+# IMPORTANT: Do not commit API keys directly in this file!
+# Use environment variables for sensitive information.
+
+llm_providers:
+  openai:
+    enabled: true
+    api_key_env: "OPENAI_API_KEY"  # Set this environment variable
+    api_base: "https://api.openai.com/v1"
+    organization_id_env: "OPENAI_ORG_ID"  # Optional
+
+    models:
+      default: "gpt-4"
+      available:
+        - name: "gpt-4"
+          context_window: 8192
+          use_case: "Complex analysis, report generation"
+          cost_tier: "high"
+
+        - name: "gpt-4-turbo"
+          context_window: 128000
+          use_case: "Long documents, comprehensive analysis"
+          cost_tier: "high"
+
+        - name: "gpt-3.5-turbo"
+          context_window: 4096
+          use_case: "Quick tasks, data extraction"
+          cost_tier: "low"
+
+    parameters:
+      temperature: 0.3  # Lower for more consistent outputs
+      max_tokens: 4000
+      top_p: 1.0
+      frequency_penalty: 0.0
+      presence_penalty: 0.0
+
+  anthropic:
+    enabled: true
+    api_key_env: "ANTHROPIC_API_KEY"
+    api_base: "https://api.anthropic.com"
+
+    models:
+      default: "claude-3-opus-20240229"
+      available:
+        - name: "claude-3-opus-20240229"
+          context_window: 200000
+          use_case: "Complex analysis, detailed reports"
+          cost_tier: "high"
+
+        - name: "claude-3-sonnet-20240229"
+          context_window: 200000
+          use_case: "Balanced performance and cost"
+          cost_tier: "medium"
+
+        - name: "claude-3-haiku-20240307"
+          context_window: 200000
+          use_case: "Fast processing, simple tasks"
+          cost_tier: "low"
+
+    parameters:
+      temperature: 0.3
+      max_tokens: 4000
+      top_p: 1.0
+
+  google:
+    enabled: false
+    api_key_env: "GOOGLE_AI_API_KEY"
+    api_base: "https://generativelanguage.googleapis.com/v1beta"
+
+    models:
+      default: "gemini-pro"
+      available:
+        - name: "gemini-pro"
+          context_window: 32000
+          use_case: "General purpose"
+          cost_tier: "medium"
+
+        - name: "gemini-pro-vision"
+          context_window: 16000
+          use_case: "Image analysis (module defects, EL images)"
+          cost_tier: "medium"
+
+    parameters:
+      temperature: 0.3
+      max_output_tokens: 2048
+      top_p: 1.0
+      top_k: 40
+
+  azure_openai:
+    enabled: false
+    api_key_env: "AZURE_OPENAI_API_KEY"
+    api_base_env: "AZURE_OPENAI_ENDPOINT"
+    api_version: "2024-02-15-preview"
+    deployment_name_env: "AZURE_OPENAI_DEPLOYMENT"
+
+    models:
+      default: "gpt-4"
+      # Model mapping configured in Azure deployment
+
+    parameters:
+      temperature: 0.3
+      max_tokens: 4000
+
+  local_llm:
+    enabled: false
+    api_base: "http://localhost:11434"  # Ollama default
+
+    models:
+      default: "llama2"
+      available:
+        - name: "llama2"
+          context_window: 4096
+          use_case: "Privacy-sensitive processing"
+
+        - name: "mistral"
+          context_window: 8192
+          use_case: "Fast local processing"
+
+    parameters:
+      temperature: 0.3
+      num_predict: 2048
+
+# Application-specific LLM usage configuration
+application:
+  primary_provider: "openai"  # Default provider to use
+  fallback_provider: "anthropic"  # Fallback if primary fails
+
+  # Task-specific model selection
+  task_routing:
+    data_extraction:
+      provider: "openai"
+      model: "gpt-3.5-turbo"
+      reason: "Fast and cost-effective for structured data"
+
+    report_generation:
+      provider: "anthropic"
+      model: "claude-3-sonnet-20240229"
+      reason: "Excellent at long-form content generation"
+
+    compliance_checking:
+      provider: "openai"
+      model: "gpt-4"
+      reason: "High accuracy for critical compliance tasks"
+
+    image_analysis:
+      provider: "google"
+      model: "gemini-pro-vision"
+      reason: "Specialized in visual analysis"
+
+    summarization:
+      provider: "openai"
+      model: "gpt-3.5-turbo"
+      reason: "Efficient for summarization tasks"
+
+  # Retry and error handling
+  retry_config:
+    max_retries: 3
+    retry_delay: 1  # seconds
+    exponential_backoff: true
+    timeout: 60  # seconds
+
+  # Rate limiting
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 20
+    tokens_per_minute: 90000
+
+  # Caching
+  caching:
+    enabled: true
+    cache_dir: ".cache/llm_responses"
+    ttl: 86400  # 24 hours in seconds
+    max_cache_size_mb: 500
+
+# Prompt templates configuration
+prompt_templates:
+  base_template: |
+    You are an expert in photovoltaic (PV) module testing and standards compliance.
+    Your task is to {task_description}.
+
+    Context: {context}
+
+    Instructions: {instructions}
+
+    Please provide a {output_format} response.
+
+  system_prompts:
+    data_extraction: |
+      You are a specialized AI assistant for extracting structured data from PV test reports.
+      Extract data accurately and format it according to the specified schema.
+      If information is missing or unclear, indicate this explicitly.
+
+    report_generation: |
+      You are a technical writer specializing in PV module test reports.
+      Generate clear, professional, and compliant test reports following industry standards.
+      Ensure all required sections are included and formatted correctly.
+
+    compliance_checking: |
+      You are a compliance expert for PV testing standards (IEC, ISO, NABL, BIS).
+      Verify that test results and procedures meet all applicable standard requirements.
+      Identify any non-conformances and provide specific recommendations.
+
+# Security and validation
+security:
+  api_key_validation:
+    validate_on_startup: true
+    mask_keys_in_logs: true
+    key_rotation_reminder_days: 90
+
+  data_handling:
+    sanitize_inputs: true
+    max_input_length: 50000  # characters
+    allowed_file_types: [".txt", ".pdf", ".json", ".yaml", ".csv"]
+
+  output_validation:
+    validate_json_outputs: true
+    max_output_length: 100000  # characters
+    sanitize_outputs: true
+
+# Monitoring and logging
+monitoring:
+  logging:
+    enabled: true
+    log_level: "INFO"
+    log_file: "logs/llm_operations.log"
+    log_api_calls: true
+    log_token_usage: true
+
+  metrics:
+    track_token_usage: true
+    track_costs: true
+    track_response_times: true
+    track_error_rates: true
+
+  alerts:
+    enabled: true
+    alert_on_errors: true
+    alert_on_high_costs: true
+    cost_threshold_usd: 100  # Daily threshold
+
+# Cost management
+cost_management:
+  budget_limits:
+    daily_limit_usd: 50
+    monthly_limit_usd: 1000
+    per_request_limit_usd: 1
+
+  cost_optimization:
+    prefer_cheaper_models: true
+    batch_requests: true
+    use_caching: true
+
+  pricing:  # Approximate pricing as of 2024 (update regularly)
+    openai:
+      gpt-4:
+        input_per_1k_tokens: 0.03
+        output_per_1k_tokens: 0.06
+      gpt-3.5-turbo:
+        input_per_1k_tokens: 0.0015
+        output_per_1k_tokens: 0.002
+
+    anthropic:
+      claude-3-opus:
+        input_per_1k_tokens: 0.015
+        output_per_1k_tokens: 0.075
+      claude-3-sonnet:
+        input_per_1k_tokens: 0.003
+        output_per_1k_tokens: 0.015
+
+# Environment variable examples (create .env file)
+# OPENAI_API_KEY=sk-...
+# ANTHROPIC_API_KEY=sk-ant-...
+# GOOGLE_AI_API_KEY=...
+# AZURE_OPENAI_API_KEY=...
+# AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+# AZURE_OPENAI_DEPLOYMENT=gpt-4
+
+# Note: Never commit .env file or this file with actual API keys!

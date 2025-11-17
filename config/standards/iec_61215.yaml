@@ -1,0 +1,196 @@
+# IEC 61215: Terrestrial photovoltaic (PV) modules - Design qualification and type approval
+# Part 1: Test requirements for crystalline silicon photovoltaic (PV) modules
+# Part 2: Test procedures
+
+standard:
+  code: "IEC 61215"
+  full_name: "Terrestrial photovoltaic (PV) modules - Design qualification and type approval"
+  version: "IEC 61215-1:2021, IEC 61215-2:2021"
+  applicable_to:
+    - "Crystalline silicon photovoltaic modules"
+    - "Thin-film photovoltaic modules"
+  scope: "Design qualification and type approval testing for terrestrial PV modules"
+
+test_sequence:
+  preliminary_tests:
+    - name: "Visual Inspection"
+      clause: "10.1"
+      duration: "N/A"
+      required: true
+      description: "Check for defects, damage, and proper labeling"
+
+    - name: "Maximum Power Determination"
+      clause: "10.2"
+      duration: "N/A"
+      required: true
+      description: "Measure electrical performance at STC"
+
+    - name: "Insulation Test"
+      clause: "10.3"
+      duration: "N/A"
+      required: true
+      test_voltage: "2 × (maximum system voltage) + 1000V"
+      min_resistance: "400 MΩ"
+
+    - name: "Measurement of Temperature Coefficients"
+      clause: "10.4"
+      duration: "N/A"
+      required: true
+      parameters:
+        - "Temperature coefficient of Isc"
+        - "Temperature coefficient of Voc"
+        - "Temperature coefficient of Pmax"
+
+  main_test_sequence:
+    - name: "UV Preconditioning Test"
+      clause: "10.5"
+      duration: "Variable"
+      required: true
+      uv_dose: "15 kWh/m²"
+      wavelength: "280-400 nm"
+
+    - name: "Thermal Cycling Test"
+      clause: "10.6"
+      duration: "~10 days"
+      required: true
+      cycles: 200
+      temperature_range: "-40°C to +85°C"
+      acceptance_criteria:
+        max_power_degradation: "5%"
+        no_major_visual_defects: true
+
+    - name: "Damp Heat Test"
+      clause: "10.7"
+      duration: "1000 hours"
+      required: true
+      conditions:
+        temperature: "85°C"
+        relative_humidity: "85%"
+      acceptance_criteria:
+        max_power_degradation: "5%"
+        insulation_resistance: ">400 MΩ"
+
+    - name: "Humidity Freeze Test"
+      clause: "10.8"
+      duration: "~7 days"
+      required: true
+      cycles: 10
+      sequence:
+        - "20 hours at +85°C, 85% RH"
+        - "Freeze to -40°C"
+        - "Return to +85°C, 85% RH"
+
+    - name: "Robustness of Terminations Test"
+      clause: "10.9"
+      duration: "N/A"
+      required: true
+      test_force: "Module specific"
+
+    - name: "Wet Leakage Current Test"
+      clause: "10.10"
+      duration: "N/A"
+      required: true
+      test_voltage: "Module rated voltage or 500V (whichever is higher)"
+      max_leakage_current: "Module specific"
+
+    - name: "Mechanical Load Test"
+      clause: "10.11"
+      duration: "~1 hour"
+      required: true
+      load_cycles: 3
+      static_load: "2400 Pa (front), 2400 Pa (rear)"
+      dynamic_load: "1000 Pa"
+
+    - name: "Hail Test"
+      clause: "10.12"
+      duration: "N/A"
+      required: true
+      ice_ball_diameter: "25 mm"
+      impact_velocity: "23 m/s"
+      impact_locations: 11
+
+    - name: "Hot Spot Endurance Test"
+      clause: "10.13"
+      duration: "Variable"
+      required: true
+      test_duration: "Module specific"
+
+    - name: "UV Test"
+      clause: "10.14"
+      duration: "Variable"
+      required: true
+      uv_dose: "60 kWh/m²"
+      wavelength: "280-400 nm"
+
+    - name: "Bypass Diode Thermal Test"
+      clause: "10.15"
+      duration: "N/A"
+      required: true
+      applicable_to: "Modules with bypass diodes"
+
+    - name: "Reverse Current Overload Test"
+      clause: "10.16"
+      duration: "2 hours"
+      required: true
+      test_current: "1.25 × Isc,STC"
+
+    - name: "Light-Induced Degradation Test"
+      clause: "10.17"
+      duration: "Variable"
+      required: false
+      irradiation: "60 kWh/m²"
+      note: "Optional for crystalline silicon modules"
+
+    - name: "PID Test"
+      clause: "10.18"
+      duration: "96-192 hours"
+      required: false
+      conditions:
+        temperature: "60°C"
+        relative_humidity: "85%"
+        voltage_stress: "-1000V or module system voltage"
+      note: "Optional test for potential induced degradation"
+
+acceptance_criteria:
+  general:
+    - "Maximum power degradation: ≤5% for most tests"
+    - "No major visual defects (cracks, bubbles, delamination)"
+    - "Insulation resistance: ≥400 MΩ"
+    - "Wet leakage current within limits"
+    - "No open circuits or ground faults"
+
+  final_inspection:
+    - "Visual inspection passed"
+    - "Ground continuity maintained"
+    - "No broken cells or interconnections"
+    - "No corrosion of contacts"
+
+measurement_conditions:
+  standard_test_conditions:
+    irradiance: "1000 W/m²"
+    spectrum: "AM 1.5"
+    cell_temperature: "25°C"
+
+  nominal_operating_cell_temperature:
+    irradiance: "800 W/m²"
+    ambient_temperature: "20°C"
+    wind_speed: "1 m/s"
+    mounting: "Open rack"
+
+reporting_requirements:
+  required_information:
+    - "Module identification and description"
+    - "Test sequence followed"
+    - "Test results for each test"
+    - "Electrical measurements before and after each test"
+    - "Visual inspection results"
+    - "Deviations from standard (if any)"
+    - "Test date and laboratory information"
+    - "Statement of compliance"
+
+notes:
+  - "This standard covers design qualification and type approval only"
+  - "Manufacturing quality assurance is covered by IEC 62941"
+  - "Safety qualification is covered by IEC 61730"
+  - "Tests must be performed in the specified sequence"
+  - "Some tests may be performed in parallel if properly justified"

@@ -1,0 +1,417 @@
+# IEC 60904: Photovoltaic devices
+# Multiple parts covering measurement and calibration procedures
+
+standard:
+  code: "IEC 60904"
+  full_name: "Photovoltaic devices - Measurement procedures"
+  version: "Multiple parts (1-10), various publication years"
+  applicable_to:
+    - "Photovoltaic cells"
+    - "Photovoltaic modules"
+    - "Photovoltaic arrays"
+  scope: "Measurement and calibration procedures for PV devices"
+
+parts_overview:
+  part_1:
+    title: "Measurement of photovoltaic current-voltage characteristics"
+    version: "IEC 60904-1:2020"
+    scope: "Procedures for measuring IV curves of PV devices"
+
+  part_2:
+    title: "Requirements for reference solar devices"
+    version: "IEC 60904-2:2015"
+    scope: "Requirements for primary and secondary reference cells and modules"
+
+  part_3:
+    title: "Measurement principles for terrestrial photovoltaic (PV) solar devices with reference spectral irradiance data"
+    version: "IEC 60904-3:2019"
+    scope: "Fundamental measurement principles and reference spectra"
+
+  part_4:
+    title: "Reference solar devices - Procedures for establishing calibration traceability"
+    version: "IEC 60904-4:2019"
+    scope: "Calibration traceability chain for reference devices"
+
+  part_5:
+    title: "Determination of the equivalent cell temperature (ECT) of photovoltaic (PV) devices by the open-circuit voltage method"
+    version: "IEC 60904-5:2011"
+    scope: "Methods to determine cell/module temperature"
+
+  part_7:
+    title: "Computation of the spectral mismatch correction for measurements of photovoltaic devices"
+    version: "IEC 60904-7:2019"
+    scope: "Spectral mismatch correction calculations"
+
+  part_8:
+    title: "Measurement of spectral responsivity of a photovoltaic (PV) device"
+    version: "IEC 60904-8:2014"
+    scope: "Procedures for measuring spectral response"
+
+  part_9:
+    title: "Solar simulator performance requirements"
+    version: "IEC 60904-9:2020"
+    scope: "Classification and requirements for solar simulators"
+
+  part_10:
+    title: "Linearity of photovoltaic devices"
+    version: "IEC 60904-10:2020"
+    scope: "Procedures to determine linearity with irradiance"
+
+part_1_iv_characteristics:
+  standard_test_conditions:
+    irradiance: "1000 W/m²"
+    spectrum: "AM 1.5 global (IEC 60904-3)"
+    cell_temperature: "25°C ± 2°C"
+    abbreviation: "STC"
+
+  nominal_operating_cell_temperature:
+    irradiance: "800 W/m²"
+    ambient_temperature: "20°C"
+    wind_speed: "1 m/s"
+    mounting: "Open rack"
+    abbreviation: "NOCT"
+
+  measurement_requirements:
+    equipment:
+      - "Solar simulator (Class AAA preferred) or natural sunlight"
+      - "Electronic load or IV curve tracer"
+      - "Calibrated reference device"
+      - "Temperature measurement (contact or IR)"
+      - "Irradiance measurement"
+
+    procedure:
+      - name: "Temperature Stabilization"
+        description: "Ensure device at specified temperature"
+        tolerance: "±2°C"
+
+      - name: "Irradiance Setting"
+        description: "Adjust to 1000 W/m² using reference device"
+        tolerance: "±2%"
+
+      - name: "IV Curve Measurement"
+        description: "Sweep from 0V to Voc (or reverse)"
+        speed: "Fast enough to avoid heating effects"
+        data_points: "Sufficient for accurate curve (≥100 points typical)"
+
+    parameters_extracted:
+      - symbol: "Isc"
+        name: "Short-circuit current"
+        definition: "Current at V=0"
+
+      - symbol: "Voc"
+        name: "Open-circuit voltage"
+        definition: "Voltage at I=0"
+
+      - symbol: "Pmax"
+        name: "Maximum power"
+        definition: "Maximum of I×V"
+
+      - symbol: "Vmp"
+        name: "Voltage at maximum power"
+        definition: "Voltage at Pmax"
+
+      - symbol: "Imp"
+        name: "Current at maximum power"
+        definition: "Current at Pmax"
+
+      - symbol: "FF"
+        name: "Fill factor"
+        calculation: "FF = (Vmp × Imp) / (Voc × Isc)"
+
+  measurement_uncertainty:
+    typical_values:
+      Pmax: "±3-5%"
+      Isc: "±2-3%"
+      Voc: "±1-2%"
+      temperature: "±2°C"
+      irradiance: "±2-3%"
+
+    sources_of_uncertainty:
+      - "Reference device calibration"
+      - "Spectral mismatch"
+      - "Temperature measurement"
+      - "Irradiance non-uniformity"
+      - "IV curve measurement"
+
+part_2_reference_devices:
+  primary_reference_cells:
+    calibration: "Absolute calibration (e.g., DSR method)"
+    laboratories: "National metrology institutes"
+    uncertainty: "±1-2% (lowest achievable)"
+    stability: "High, monitored regularly"
+
+  secondary_reference_cells:
+    calibration: "Traceable to primary reference"
+    users: "Test laboratories, manufacturers"
+    uncertainty: "±2-3%"
+    recalibration: "Annual or biennial"
+
+  working_reference_devices:
+    types:
+      - "Reference cells (for irradiance measurement)"
+      - "Reference modules (for module testing)"
+
+    requirements:
+      - "Stable over time"
+      - "Known spectral response"
+      - "Temperature compensated or measured"
+      - "Properly packaged and protected"
+
+    calibration_chain:
+      level_1: "Primary reference (national lab)"
+      level_2: "Secondary reference (accredited lab)"
+      level_3: "Working reference (test lab/manufacturer)"
+
+part_3_measurement_principles:
+  reference_spectra:
+    am_1_5_global:
+      description: "Standard terrestrial spectrum"
+      total_irradiance: "1000 W/m²"
+      application: "Module and system rating"
+      wavelength_range: "280-4000 nm"
+
+    am_1_5_direct:
+      description: "Direct beam spectrum"
+      application: "Concentrator PV testing"
+
+    am_0:
+      description: "Extraterrestrial spectrum"
+      total_irradiance: "1366 W/m²"
+      application: "Space PV applications"
+
+  spectral_responsivity:
+    definition: "Device current per unit irradiance at each wavelength"
+    units: "A/W"
+    importance: "Needed for spectral mismatch correction"
+
+  measurement_principles:
+    - "Measurements at STC for rating"
+    - "Corrections for temperature and irradiance"
+    - "Spectral mismatch correction when needed"
+    - "Traceability to SI units"
+
+part_4_calibration_traceability:
+  traceability_chain:
+    description: "Unbroken chain from SI units to working reference"
+
+    levels:
+      - level: "SI units"
+        maintained_by: "BIPM (International Bureau of Weights and Measures)"
+
+      - level: "Primary reference"
+        maintained_by: "National metrology institutes (NIST, PTB, etc.)"
+        calibration: "Absolute calibration methods"
+
+      - level: "Secondary reference"
+        maintained_by: "Accredited laboratories"
+        calibration: "Comparison to primary reference"
+
+      - level: "Working reference"
+        maintained_by: "Test laboratories, manufacturers"
+        calibration: "Comparison to secondary reference"
+
+  calibration_methods:
+    indoor:
+      - "Solar simulator with reference device"
+      - "Spectral mismatch correction applied"
+      - "Temperature controlled"
+
+    outdoor:
+      - "Natural sunlight"
+      - "Clear sky conditions"
+      - "Careful atmospheric monitoring"
+
+  recalibration_intervals:
+    recommendation: "Annual to ensure accuracy"
+    factors:
+      - "Usage frequency"
+      - "Handling and storage"
+      - "Observed drift"
+      - "Critical applications may need more frequent"
+
+part_5_temperature_determination:
+  open_circuit_voltage_method:
+    principle: "Voc varies linearly with temperature"
+
+    procedure:
+      - "Measure Voc vs temperature in dark (thermal chamber)"
+      - "Determine temperature coefficient β (V/°C)"
+      - "During light measurement, measure Voc"
+      - "Calculate ECT from Voc using β"
+
+    advantages:
+      - "Non-contact method"
+      - "Accurate for cells"
+
+    limitations:
+      - "Requires prior calibration"
+      - "Irradiance dependence for modules"
+
+  alternative_methods:
+    contact_temperature:
+      - "Thermocouples on rear surface"
+      - "PT100/PT1000 sensors"
+      - "Good thermal contact required"
+
+    infrared_thermography:
+      - "Non-contact"
+      - "Can map temperature distribution"
+      - "Requires emissivity correction"
+
+part_7_spectral_mismatch:
+  mismatch_factor:
+    definition: "Correction for spectrum difference between test and reference conditions"
+    symbol: "M"
+
+    calculation:
+      formula: "M = [∫E₁(λ)S₁(λ)dλ × ∫E₀(λ)S₀(λ)dλ] / [∫E₀(λ)S₁(λ)dλ × ∫E₁(λ)S₀(λ)dλ]"
+      where:
+        E₀: "Reference spectrum"
+        E₁: "Test spectrum"
+        S₀: "Spectral response of reference device"
+        S₁: "Spectral response of test device"
+
+    typical_values:
+      well_matched: "0.95 - 1.05"
+      acceptable: "0.90 - 1.10"
+      poor_match: "Outside 0.90 - 1.10"
+
+  minimizing_mismatch:
+    - "Use reference device of same technology"
+    - "Use Class AAA solar simulator"
+    - "Measure and correct for mismatch"
+    - "Outdoor testing under natural spectrum"
+
+part_8_spectral_responsivity:
+  measurement_methods:
+    monochromatic_method:
+      description: "Illuminate with single wavelength, measure current"
+      equipment: "Monochromator or tunable laser"
+      wavelength_range: "300-1200 nm (Si), wider for other technologies"
+      wavelength_increment: "10-20 nm typical"
+
+    filter_method:
+      description: "Use narrow-band filters"
+      advantages: "Simpler equipment"
+      disadvantages: "Lower resolution"
+
+  data_output:
+    absolute_responsivity: "A/W at each wavelength"
+    relative_responsivity: "Normalized curve"
+    quantum_efficiency: "Can be calculated from responsivity"
+
+part_9_solar_simulators:
+  classification_system:
+    criteria:
+      - "Spectral match to AM 1.5G"
+      - "Irradiance non-uniformity"
+      - "Temporal stability"
+
+    class_ratings:
+      class_a:
+        spectral_match: "0.75-1.25 in each band (6 bands)"
+        non_uniformity: "≤2%"
+        temporal_instability_stt: "≤0.5%"
+        temporal_instability_ltt: "≤2%"
+
+      class_b:
+        spectral_match: "0.6-1.4 in each band"
+        non_uniformity: "≤5%"
+        temporal_instability_stt: "≤2%"
+        temporal_instability_ltt: "≤5%"
+
+      class_c:
+        spectral_match: "0.4-2.0 in each band"
+        non_uniformity: "≤10%"
+        temporal_instability_stt: "≤10%"
+        temporal_instability_ltt: "≤10%"
+
+  simulator_types:
+    continuous:
+      description: "Continuous illumination"
+      application: "IV curve measurement, long-term exposure"
+
+    pulsed:
+      description: "Short flash (typically ms)"
+      application: "High-speed measurement, minimize heating"
+
+    multi_source:
+      description: "Multiple lamps for better spectrum"
+      application: "High-quality testing"
+
+part_10_linearity:
+  definition: "Proportionality of device parameters to irradiance"
+
+  importance:
+    - "Verify reference device linearity"
+    - "Validate translation equations"
+    - "Quality check for PV devices"
+
+  test_procedure:
+    method: "Measure Isc at multiple irradiance levels"
+    irradiance_range: "100-1100 W/m²"
+    analysis: "Plot Isc vs irradiance, check linearity"
+    acceptance: "R² > 0.999 typically"
+
+  non_linearity_causes:
+    - "Series resistance effects"
+    - "Recombination effects"
+    - "Temperature variation"
+    - "Shunt resistance"
+
+applications:
+  module_testing:
+    - "Production quality control"
+    - "Design qualification (IEC 61215)"
+    - "Performance rating and labeling"
+
+  system_design:
+    - "Energy yield prediction"
+    - "System sizing"
+    - "Performance monitoring baseline"
+
+  research_and_development:
+    - "Material and device characterization"
+    - "Performance optimization"
+    - "New technology evaluation"
+
+measurement_best_practices:
+  general:
+    - "Use calibrated equipment with valid certificates"
+    - "Follow standard procedures consistently"
+    - "Document measurement conditions"
+    - "Calculate and report uncertainty"
+    - "Maintain environmental control"
+
+  quality_assurance:
+    - "Regular reference device calibration"
+    - "Proficiency testing (round robins)"
+    - "Documented procedures"
+    - "Trained personnel"
+    - "Equipment maintenance logs"
+
+related_standards:
+  - code: "IEC 61215"
+    relation: "Module design qualification"
+    note: "Uses IEC 60904 measurement procedures"
+
+  - code: "IEC 61853"
+    relation: "Performance testing and energy rating"
+    note: "Extended performance characterization"
+
+  - code: "ISO 17025"
+    relation: "Testing laboratory competence"
+    note: "Accreditation requirements"
+
+  - code: "ISO 9001"
+    relation: "Quality management"
+    note: "Manufacturing quality systems"
+
+notes:
+  - "IEC 60904 series is fundamental to all PV testing"
+  - "Proper calibration chain is essential for accurate measurements"
+  - "Spectral mismatch can be significant source of error"
+  - "Class AAA simulators preferred for module testing"
+  - "Uncertainty analysis is critical for measurement quality"
+  - "Standards are regularly updated - use current versions"
+  - "Some parts of IEC 60904 are highly technical and require specialized knowledge"

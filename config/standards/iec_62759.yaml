@@ -1,0 +1,416 @@
+# IEC 62759: Photovoltaic (PV) modules - Transportation testing
+# Part 1: Transportation and shipping of module package units
+
+standard:
+  code: "IEC 62759"
+  full_name: "Photovoltaic (PV) modules - Transportation testing"
+  version: "IEC 62759-1:2015"
+  applicable_to:
+    - "Packaged PV modules"
+    - "Module shipping containers"
+  scope: "Test methods to evaluate module package integrity during transportation"
+
+background:
+  motivation:
+    description: "Modules can be damaged during shipping"
+    common_damage:
+      - "Cell cracks (micro-cracks and visible cracks)"
+      - "Glass breakage"
+      - "Frame damage"
+      - "Junction box damage"
+      - "Connector damage"
+      - "Delamination initiation"
+
+  shipping_stresses:
+    mechanical:
+      - "Vibration (truck, rail, sea)"
+      - "Shock (handling, loading/unloading)"
+      - "Compression (stacking)"
+      - "Impact (drops, collisions)"
+
+    environmental:
+      - "Temperature variation"
+      - "Humidity"
+      - "Pressure changes (air freight)"
+
+test_overview:
+  objective: "Simulate stresses experienced during typical transportation"
+
+  test_sequence:
+    description: "Series of tests simulating shipping journey"
+    sequence:
+      - "Initial inspection and testing"
+      - "Packaging"
+      - "Transportation simulation tests"
+      - "Unpacking"
+      - "Final inspection and testing"
+
+  package_types:
+    type_1:
+      description: "Standard commercial packaging"
+      typical: "Cardboard boxes, wooden crates"
+      modules_per_package: "Varies (typically 20-30)"
+
+    type_2:
+      description: "Special or reinforced packaging"
+      typical: "Custom crates, extra protection"
+
+sample_requirements:
+  sample_size:
+    minimum: "One complete package unit"
+    recommendation: "Multiple packages for statistical validity"
+
+  sample_selection:
+    - "Representative of production packaging"
+    - "Standard commercial packaging materials"
+    - "Typical module packing density"
+    - "Include all normal protective materials"
+
+  preconditioning:
+    not_required: "Modules tested in as-packaged condition"
+    optional: "Pre-test electrical measurement if desired"
+
+initial_evaluation:
+  before_packaging:
+    - name: "Visual Inspection"
+      description: "Document module condition"
+      photography: "Multiple angles, close-ups of critical areas"
+
+    - name: "Electrical Performance Measurement"
+      conditions: "STC (1000 W/m², 25°C, AM 1.5)"
+      parameters:
+        - "Pmax"
+        - "Isc"
+        - "Voc"
+        - "Imp"
+        - "Vmp"
+        - "FF"
+      optional: "Not required but recommended"
+
+    - name: "Electroluminescence (EL) Imaging"
+      purpose: "Detect pre-existing cell cracks"
+      recommendation: "Highly recommended to establish baseline"
+
+  packaging_documentation:
+    - "Package dimensions and weight"
+    - "Number of modules per package"
+    - "Packaging materials used"
+    - "Module orientation and spacing"
+    - "Protective materials and cushioning"
+    - "Securing methods (straps, bands)"
+    - "Labeling and markings"
+
+transportation_simulation_tests:
+  test_1_vibration:
+    purpose: "Simulate truck or rail transportation vibration"
+
+    reference_standard: "ASTM D4169, ISTA procedures"
+
+    test_parameters:
+      vibration_profile: "Random vibration"
+      frequency_range: "1-200 Hz"
+      power_spectral_density: "Per ASTM D4169 or ISTA"
+      duration: "60-120 minutes (direction dependent)"
+      axes: "All three axes (vertical, lateral, longitudinal)"
+
+    procedure:
+      - "Secure package on vibration table"
+      - "Apply specified vibration profile"
+      - "Test each axis sequentially"
+      - "Monitor for package damage during test"
+
+  test_2_mechanical_shock:
+    purpose: "Simulate handling impacts during loading/unloading"
+
+    reference_standard: "ASTM D4169, ISTA procedures"
+
+    test_parameters:
+      shock_pulse: "Half-sine or saw-tooth"
+      peak_acceleration: "10-50 G (depends on severity level)"
+      duration: "6-20 ms"
+      number_of_shocks: "Multiple per edge/corner"
+
+    procedure:
+      - "Apply shocks to edges and corners"
+      - "Test in multiple orientations"
+      - "Document any damage after each shock"
+
+  test_3_compression:
+    purpose: "Simulate stacking loads during storage and transport"
+
+    test_parameters:
+      load_duration: "24 hours typical"
+      load_magnitude: "Weight of typical stack height"
+      calculation: "Number of packages × package weight"
+      typical_stack_height: "6-10 packages"
+
+    procedure:
+      - "Place package on stable surface"
+      - "Apply uniform compression load to top surface"
+      - "Maintain load for specified duration"
+      - "Inspect for deformation or damage"
+
+    acceptance:
+      - "No permanent deformation of package"
+      - "No damage to modules inside"
+      - "Package remains stable and secure"
+
+  test_4_drop_test:
+    purpose: "Simulate accidental drops during handling"
+
+    reference_standard: "ASTM D5276, ISTA procedures"
+
+    test_parameters:
+      drop_height: "300-760 mm (depends on package weight)"
+      surface: "Rigid (concrete or steel plate)"
+      orientations: "Multiple (edges, corners, faces)"
+      number_of_drops: "1-6 drops (depends on severity level)"
+
+    procedure:
+      - "Lift package to specified height"
+      - "Release to free-fall onto rigid surface"
+      - "Drop in specified orientations"
+      - "Inspect after each drop"
+
+    severity_levels:
+      level_1:
+        drop_height: "300 mm"
+        application: "Light packages, careful handling"
+
+      level_2:
+        drop_height: "500 mm"
+        application: "Typical commercial shipping"
+
+      level_3:
+        drop_height: "760 mm"
+        application: "Rough handling expected"
+
+  test_5_environmental_conditioning:
+    purpose: "Simulate temperature and humidity during transport"
+
+    optional: "Not always required"
+
+    test_conditions:
+      temperature_cycling:
+        range: "-20°C to +60°C"
+        cycles: "2-5 cycles"
+        rate: "Gradual transition"
+
+      humidity_exposure:
+        temperature: "30°C"
+        relative_humidity: "90%"
+        duration: "24-48 hours"
+
+post_test_evaluation:
+  unpacking:
+    procedure:
+      - "Document package condition (photos)"
+      - "Note any visible damage to package"
+      - "Carefully unpack modules"
+      - "Document module condition"
+
+  visual_inspection:
+    package:
+      - "Deformation or crushing"
+      - "Tape or strap failure"
+      - "Protective material condition"
+      - "Corner and edge damage"
+
+    modules:
+      - "Glass cracks or chips"
+      - "Cell cracks (visible)"
+      - "Frame damage or deformation"
+      - "Junction box damage"
+      - "Connector damage"
+      - "Backsheet damage"
+      - "Label condition"
+
+  electrical_testing:
+    - name: "Performance Measurement"
+      conditions: "Same as pre-test (STC)"
+      parameters: "All parameters repeated"
+      comparison: "Compare to pre-test values"
+
+    - name: "Insulation Resistance"
+      test_voltage: "500V or 1000V"
+      acceptance: "≥400 MΩ"
+
+    - name: "Ground Continuity"
+      applicable_to: "Modules with grounding"
+      acceptance: "≤0.1Ω"
+
+  electroluminescence_imaging:
+    purpose: "Detect cell cracks not visible to eye"
+    procedure: "Full EL image of each module"
+    analysis:
+      - "Compare to pre-test images"
+      - "Count and classify cracks"
+      - "Assess severity of damage"
+
+    crack_classification:
+      type_a: "Small crack, no electrical isolation"
+      type_b: "Crack with partial electrical isolation"
+      type_c: "Crack with complete electrical isolation (dead area)"
+
+acceptance_criteria:
+  package_integrity:
+    acceptable:
+      - "Minor cosmetic damage to packaging"
+      - "No structural failure of package"
+      - "Modules remain secured during tests"
+
+    not_acceptable:
+      - "Package collapse or failure"
+      - "Modules shifting significantly inside package"
+      - "Inadequate protection leading to module damage"
+
+  module_integrity:
+    visual:
+      acceptable:
+        - "No visible glass cracks"
+        - "No visible cell cracks"
+        - "No frame damage affecting functionality"
+        - "No junction box or connector damage"
+
+      not_acceptable:
+        - "Glass breakage or cracks"
+        - "Visible cell cracks"
+        - "Frame deformation affecting mounting"
+        - "Junction box damage or opening"
+        - "Connector damage"
+
+    electrical:
+      power_degradation: "≤5% (if measured)"
+      insulation_resistance: "≥400 MΩ"
+      ground_continuity: "≤0.1Ω (no change from pre-test)"
+
+    el_imaging:
+      acceptable: "No new cracks, or only minor type A cracks"
+      marginal: "Some type B cracks, limited quantity"
+      not_acceptable: "Type C cracks (isolated areas) or extensive cracking"
+
+test_report_requirements:
+  package_information:
+    - "Package dimensions and weight"
+    - "Packaging materials and design"
+    - "Number of modules per package"
+    - "Module orientation and securing method"
+    - "Cushioning and protective materials"
+
+  module_information:
+    - "Manufacturer, model, serial numbers"
+    - "Module specifications"
+    - "Quantity tested"
+
+  test_details:
+    - "Test sequence performed"
+    - "Test parameters for each test"
+    - "Test equipment and settings"
+    - "Environmental conditions"
+    - "Any deviations from standard"
+
+  results:
+    pre_test:
+      - "Package documentation and photos"
+      - "Module visual inspection and photos"
+      - "Electrical measurements (if performed)"
+      - "EL images (if performed)"
+
+    during_test:
+      - "Observations during each test"
+      - "Any damage noted"
+      - "Photos of damage"
+
+    post_test:
+      - "Package condition and photos"
+      - "Module visual inspection findings"
+      - "Electrical measurements and comparison"
+      - "EL images with crack analysis"
+      - "Pass/fail for each criterion"
+
+  conclusions:
+    - "Overall pass/fail statement"
+    - "Summary of damage observed"
+    - "Recommendations for packaging improvement"
+    - "Suitability for intended transportation mode"
+
+packaging_design_considerations:
+  module_protection:
+    - "Adequate edge and corner protection"
+    - "Separation between modules (avoid contact)"
+    - "Face protection (avoid pressure on glass)"
+    - "Junction box and connector protection"
+
+  package_structure:
+    - "Adequate strength for stacking"
+    - "Rigid frame or reinforcement"
+    - "Proper closure and sealing"
+    - "Moisture barrier (if needed)"
+
+  cushioning:
+    - "Shock-absorbing materials"
+    - "Vibration dampening"
+    - "Corner and edge cushioning"
+    - "Gap filling to prevent shifting"
+
+  securing:
+    - "Straps or bands to hold modules"
+    - "Internal supports or dividers"
+    - "Methods to prevent tilting or sliding"
+
+  labeling:
+    - "Fragile warnings"
+    - "Orientation indicators (This Side Up)"
+    - "Stacking limit markers"
+    - "Handling instructions"
+
+best_practices:
+  shipping:
+    - "Use proven packaging designs"
+    - "Consider transportation mode (truck, ship, air)"
+    - "Account for handling at transfer points"
+    - "Provide clear handling instructions"
+    - "Train personnel in proper handling"
+
+  quality_assurance:
+    - "Periodic transportation testing of packaging"
+    - "Monitor field damage rates"
+    - "Continuous improvement of packaging design"
+    - "Supplier quality agreements for packaging materials"
+
+  cost_optimization:
+    - "Balance protection vs. packaging cost"
+    - "Optimize module density per package"
+    - "Consider reusable packaging for some routes"
+    - "Minimize package weight and volume"
+
+related_standards:
+  - code: "IEC 61215"
+    relation: "Module design qualification"
+    note: "Transportation test supplements design qualification"
+
+  - code: "IEC 61730"
+    relation: "Module safety"
+    note: "Safety after transportation stresses"
+
+  - code: "ASTM D4169"
+    relation: "Shipping container performance testing"
+    note: "Referenced for vibration and shock profiles"
+
+  - code: "ISTA procedures"
+    relation: "International Safe Transit Association standards"
+    note: "Alternative transportation test procedures"
+
+  - code: "ISO 4180"
+    relation: "Packaging - Complete, filled transport packages"
+    note: "General packaging test methods"
+
+notes:
+  - "EL imaging is critical for detecting hidden cell damage"
+  - "Cell cracks may not immediately affect performance but can lead to field failures"
+  - "Packaging costs must be balanced with damage prevention"
+  - "Testing should use real production packaging, not idealized designs"
+  - "Different transportation modes may require different test severity levels"
+  - "Some damage may only be detected by EL imaging"
+  - "Insurance and warranty implications of transportation damage"
+  - "Consider testing with both new and aged packaging materials"

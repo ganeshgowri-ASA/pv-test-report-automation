@@ -1,0 +1,707 @@
+# ISO/IEC 17025: General requirements for the competence of testing and calibration laboratories
+
+standard:
+  code: "ISO/IEC 17025"
+  full_name: "General requirements for the competence of testing and calibration laboratories"
+  version: "ISO/IEC 17025:2017 (Third edition)"
+  replaces: "ISO/IEC 17025:2005"
+  applicable_to:
+    - "Testing laboratories"
+    - "Calibration laboratories"
+    - "All types of organizations performing testing/calibration"
+  scope: "Requirements for laboratory competence, impartiality, and consistent operation"
+
+overview:
+  purpose: "Demonstrate laboratory technical competence and ability to generate valid results"
+
+  accreditation_benefits:
+    - "International recognition of competence"
+    - "Customer confidence in results"
+    - "Regulatory acceptance"
+    - "Market access"
+    - "Competitive advantage"
+
+  structure:
+    part_1: "General requirements (Clauses 4-5)"
+    part_2: "Structural requirements (Clause 6)"
+    part_3: "Resource requirements (Clause 7)"
+    part_4: "Process requirements (Clause 8)"
+    part_5: "Management system requirements (Clause 9)"
+
+general_requirements:
+  clause_4_impartiality:
+    principle: "Laboratory shall be impartial and operate independently"
+
+    requirements:
+      - name: "Impartial Activities"
+        requirement: "Conduct activities in an impartial manner"
+        implementation: "Free from commercial, financial, or other pressures"
+
+      - name: "Identify Risks to Impartiality"
+        requirement: "Identify ongoing risks to impartiality"
+        examples:
+          - "Ownership or financial interests"
+          - "Relationships with clients"
+          - "Marketing or sales pressures"
+          - "Personnel conflicts of interest"
+
+      - name: "Eliminate or Minimize Risks"
+        requirement: "Eliminate or minimize risks to impartiality"
+        actions:
+          - "Policies and procedures"
+          - "Personnel declarations"
+          - "Management oversight"
+          - "Organizational separation"
+
+      - name: "Commitment to Impartiality"
+        requirement: "Top management commitment to impartiality"
+        evidence: "Policy statement, procedures, training"
+
+  clause_5_confidentiality:
+    principle: "Laboratory shall be responsible for confidentiality of information"
+
+    requirements:
+      - name: "Legal Responsibilities"
+        requirement: "Inform client of legal responsibilities"
+        disclosure: "Information disclosed by law or contract"
+
+      - name: "Information from Third Parties"
+        requirement: "Maintain confidentiality of information from other sources"
+        examples: "Client information, test results, proprietary data"
+
+      - name: "Personnel Agreements"
+        requirement: "Personnel sign confidentiality agreements"
+        scope: "All personnel with access to information"
+
+structural_requirements:
+  clause_6_organization:
+    legal_entity:
+      requirement: "Laboratory shall be a legal entity or part of one"
+      responsibility: "Legally accountable for laboratory activities"
+
+    scope_definition:
+      requirement: "Define scope of conformity to ISO/IEC 17025"
+      content:
+        - "Types of tests/calibrations"
+        - "Materials or products tested"
+        - "Test methods and standards"
+        - "Measurement ranges"
+
+    organizational_structure:
+      requirement: "Document organizational structure and relationships"
+      elements:
+        - "Management structure"
+        - "Technical operations"
+        - "Support services"
+        - "Reporting relationships"
+        - "Quality management"
+
+    impartial_operation:
+      requirement: "Identify management having overall responsibility"
+      independence: "Free from undue commercial, financial, or other pressures"
+
+    responsibilities_and_authorities:
+      requirement: "Define and document responsibilities and authorities"
+      roles:
+        - "Technical manager"
+        - "Quality manager"
+        - "Department heads"
+        - "All personnel"
+
+resource_requirements:
+  clause_7_1_general:
+    principle: "Laboratory shall have resources necessary for competent performance"
+
+  clause_7_2_personnel:
+    competence:
+      requirement: "Personnel shall be competent"
+      basis: "Education, training, experience, demonstrated skills"
+
+    requirements:
+      - name: "Competence Requirements"
+        define: "Competence requirements for each function"
+        document: "Job descriptions, competence criteria"
+
+      - name: "Personnel Selection"
+        requirement: "Select personnel meeting competence requirements"
+        verification: "Qualification checks, interviews"
+
+      - name: "Training"
+        requirement: "Provide training to achieve and maintain competence"
+        types:
+          - "On-the-job training"
+          - "Formal training courses"
+          - "Proficiency testing"
+          - "Standard updates"
+
+      - name: "Supervision"
+        requirement: "Supervise personnel appropriately"
+        trainees: "Under supervision until competent"
+
+      - name: "Authorization"
+        requirement: "Authorize personnel for specific activities"
+        examples:
+          - "Test performance"
+          - "Result reporting"
+          - "Method development"
+          - "Equipment calibration"
+
+      - name: "Competence Monitoring"
+        requirement: "Monitor personnel competence"
+        methods:
+          - "Performance reviews"
+          - "Proficiency testing"
+          - "Observation"
+          - "Record review"
+
+      - name: "Competence Records"
+        requirement: "Maintain records of competence"
+        content:
+          - "Education and qualifications"
+          - "Training completed"
+          - "Authorizations"
+          - "Competence evaluations"
+
+  clause_7_3_facilities_and_environmental_conditions:
+    requirements:
+      - name: "Suitable Facilities"
+        requirement: "Facilities suitable for activities performed"
+        considerations:
+          - "Space and layout"
+          - "Environmental control"
+          - "Security and access control"
+          - "Separation of incompatible activities"
+
+      - name: "Environmental Conditions"
+        requirement: "Monitor, control, and record environmental conditions"
+        when_required: "When affecting result validity"
+        parameters:
+          - "Temperature"
+          - "Humidity"
+          - "Dust and contamination"
+          - "Electromagnetic interference"
+          - "Vibration"
+          - "Lighting"
+
+      - name: "Environmental Control"
+        requirement: "Control environmental conditions as required by standards"
+        pv_testing_examples:
+          - "Solar simulator testing: Temperature 25°C ± 2°C"
+          - "Humidity control for damp heat testing"
+          - "Climate chambers for environmental tests"
+
+      - name: "Access Control"
+        requirement: "Control access to facilities"
+        purpose:
+          - "Prevent contamination or interference"
+          - "Maintain confidentiality"
+          - "Ensure safety"
+
+  clause_7_4_equipment:
+    requirements:
+      - name: "Correct Equipment"
+        requirement: "Access to equipment required for tests/calibrations"
+        includes:
+          - "Measuring instruments"
+          - "Test apparatus"
+          - "Reference standards"
+          - "Computer systems"
+          - "Software"
+
+      - name: "Equipment Performance"
+        requirement: "Equipment capable of achieving required accuracy"
+        verification: "Initial and periodic verification"
+
+      - name: "Equipment Records"
+        requirement: "Maintain records for each item of equipment"
+        content:
+          - "Equipment identification"
+          - "Manufacturer, model, serial number"
+          - "Verification of conformity"
+          - "Location (if relevant)"
+          - "Calibration records and dates"
+          - "Maintenance records"
+          - "Damage, malfunction, modification"
+
+      - name: "Calibration Program"
+        requirement: "Establish calibration program"
+        elements:
+          - "Calibration schedule based on usage and stability"
+          - "Traceable to SI units"
+          - "Calibration procedures"
+          - "Acceptance criteria"
+          - "Calibration certificates"
+
+      pv_testing_equipment_examples:
+        - "Solar simulators: Annual calibration minimum"
+        - "Reference cells: Annual calibration to secondary standard"
+        - "Temperature sensors: Annual calibration"
+        - "Pyranometers: Biannual calibration"
+        - "Multimeters and IV tracers: Annual calibration"
+
+      - name: "Equipment Checks"
+        requirement: "Check equipment before use"
+        methods:
+          - "Zero checks"
+          - "Reference measurements"
+          - "Calibration verification"
+          - "Functionality tests"
+
+      - name: "Out-of-Service Equipment"
+        requirement: "Mark or remove equipment out of service"
+        actions:
+          - "Identify clearly"
+          - "Prevent use"
+          - "Investigate impact on previous results"
+
+  clause_7_5_metrological_traceability:
+    principle: "Measurement results shall be traceable to SI units"
+
+    requirements:
+      - name: "Calibration Traceability"
+        requirement: "Establish and maintain metrological traceability"
+        chain: "SI units → National standards → Secondary standards → Working standards → Equipment"
+
+      - name: "Calibration Service Providers"
+        requirement: "Use calibration services from competent providers"
+        options:
+          - "ISO/IEC 17025 accredited laboratories"
+          - "National metrology institutes"
+          - "Laboratories demonstrating competence"
+
+      - name: "Reference Standards"
+        requirement: "Reference standards used only for calibration"
+        protection: "Protect from damage or deterioration"
+        verification: "Check before and after use"
+
+      pv_testing_traceability:
+        primary_reference:
+          level: "National metrology institute (e.g., NIST, PTB)"
+          devices: "Primary reference solar cells"
+          uncertainty: "±1-2%"
+
+        secondary_reference:
+          level: "ISO/IEC 17025 accredited laboratory"
+          devices: "Secondary reference cells and modules"
+          uncertainty: "±2-3%"
+
+        working_reference:
+          level: "Testing laboratory"
+          devices: "Working reference cells and modules"
+          uncertainty: "±3-5%"
+
+  clause_7_6_externally_provided_products_and_services:
+    requirements:
+      - name: "Suitable External Providers"
+        requirement: "Ensure externally provided items are suitable"
+        applies_to:
+          - "Calibration services"
+          - "Consumables and supplies"
+          - "Subcontracted testing"
+          - "Equipment maintenance"
+
+      - name: "Evaluation of Providers"
+        requirement: "Evaluate and monitor external providers"
+        criteria:
+          - "Competence and accreditation"
+          - "Past performance"
+          - "Quality of services"
+          - "Delivery and reliability"
+
+      - name: "Records"
+        requirement: "Maintain records of provider evaluations"
+        content:
+          - "Evaluation criteria"
+          - "Approval decisions"
+          - "Monitoring results"
+
+process_requirements:
+  clause_8_3_review_of_requests_tenders_and_contracts:
+    requirements:
+      - name: "Review Requirements"
+        requirement: "Review customer requirements before commitment"
+        verify:
+          - "Requirements adequately defined"
+          - "Laboratory has capability and resources"
+          - "Appropriate methods available"
+          - "Any deviations resolved"
+
+      - name: "Contract Review Records"
+        requirement: "Maintain records of contract reviews"
+        include: "Discussions, clarifications, agreements"
+
+  clause_8_4_selection_verification_and_validation_of_methods:
+    method_selection:
+      - name: "Appropriate Methods"
+        requirement: "Use appropriate methods and procedures"
+        preference_order:
+          1: "International standards (e.g., IEC)"
+          2: "Regional or national standards"
+          3: "Industry standards"
+          4: "Laboratory-developed methods (validated)"
+
+      - name: "Latest Versions"
+        requirement: "Use current valid editions of standards"
+        management: "Maintain standard library, track updates"
+
+      - name: "Method Instructions"
+        requirement: "Provide instructions for method use"
+        location: "Readily available to personnel"
+
+    method_verification:
+      requirement: "Verify ability to properly perform standard methods"
+      evidence:
+        - "Inter-laboratory comparisons"
+        - "Proficiency testing"
+        - "Replicate measurements"
+        - "Comparison with reference materials"
+
+    method_validation:
+      when_required: "Laboratory-developed or non-standard methods"
+      validation_parameters:
+        - "Measurement range"
+        - "Accuracy (bias)"
+        - "Precision (repeatability, reproducibility)"
+        - "Specificity"
+        - "Detection limit"
+        - "Robustness"
+
+      documentation: "Validation plan, data, report, procedure"
+
+  clause_8_5_equipment_calibration:
+    covered_in: "Clause 7.4 (Equipment)"
+
+  clause_8_6_evaluation_of_measurement_uncertainty:
+    requirements:
+      - name: "Uncertainty Evaluation"
+        requirement: "Identify and evaluate measurement uncertainty"
+        when: "For calibrations and tests where uncertainty affects validity"
+
+      - name: "Uncertainty Contributors"
+        requirement: "Identify all significant contributions to uncertainty"
+        pv_testing_sources:
+          - "Reference device calibration uncertainty"
+          - "Spectral mismatch"
+          - "Temperature measurement"
+          - "Irradiance non-uniformity"
+          - "Temporal instability"
+          - "IV measurement"
+          - "Module positioning"
+
+      - name: "Uncertainty Calculation"
+        requirement: "Calculate combined and expanded uncertainty"
+        method: "ISO/IEC Guide 98-3 (GUM)"
+
+      - name: "Uncertainty Reporting"
+        requirement: "Report uncertainty with results when required"
+        format: "Expanded uncertainty with coverage factor (typically k=2, 95% confidence)"
+
+  clause_8_7_ensuring_validity_of_results:
+    quality_control:
+      - name: "Quality Control Procedures"
+        requirement: "Implement procedures to ensure result validity"
+        methods:
+          - "Regular use of reference materials or quality control standards"
+          - "Participation in proficiency testing or interlaboratory comparisons"
+          - "Replicate testing using same or different methods"
+          - "Retesting of retained items"
+          - "Correlation of results for different characteristics"
+          - "Review of reported results"
+          - "Within-laboratory comparisons"
+
+      pv_testing_examples:
+        - "Reference module measurements before each test session"
+        - "Participation in PV proficiency testing programs"
+        - "Replicate measurements on same module"
+        - "Inter-laboratory comparisons"
+        - "Control charts for reference device measurements"
+
+    proficiency_testing:
+      requirement: "Participate in proficiency testing when available"
+      frequency: "Regular intervals (annual typical)"
+      scope: "Cover scope of accreditation"
+      action: "Investigate and correct any unsatisfactory results"
+
+    quality_indicators:
+      requirement: "Monitor quality indicators"
+      examples:
+        - "Customer feedback"
+        - "Staff feedback"
+        - "Test repeat rate"
+        - "Proficiency test results"
+        - "Inter-laboratory comparison results"
+        - "Control chart trends"
+
+  clause_8_8_reporting_of_results:
+    test_report_requirements:
+      general:
+        - name: "Report Format"
+          requirement: "Results reported clearly, accurately, unambiguously"
+          format: "Usually test report or calibration certificate"
+
+        - name: "Required Information"
+          requirement: "Include information necessary for interpretation"
+          minimum_content:
+            - "Title (e.g., 'Test Report')"
+            - "Laboratory name and address"
+            - "Location of testing if different"
+            - "Unique identification of report"
+            - "Client name and address"
+            - "Identification and description of item tested"
+            - "Date of receipt and testing"
+            - "Identification of test method"
+            - "Description of sampling (if applicable)"
+            - "Test results with units"
+            - "Names, signatures, authorizations of personnel"
+            - "Clear identification of any non-accredited results"
+            - "Statement that results relate only to items tested"
+
+      pv_module_testing_specific:
+        identification:
+          - "Module manufacturer, model, serial number"
+          - "Module type and technology"
+          - "Nameplate ratings"
+          - "Module physical description"
+
+        test_details:
+          - "Test standard (e.g., IEC 61215-1:2021)"
+          - "Test sequence performed"
+          - "Test dates for each test"
+          - "Environmental conditions (if relevant)"
+
+        results:
+          - "Pass/fail for each test"
+          - "Electrical measurements (Pmax, Isc, Voc, etc.)"
+          - "Visual inspection results"
+          - "Deviations from standard procedures"
+          - "Photographs or data plots as appropriate"
+
+        uncertainty:
+          - "Measurement uncertainty where applicable"
+          - "Coverage factor and confidence level"
+
+        compliance_statement:
+          when_applicable: "If assessing compliance to specification"
+          requirement: "State compliance or non-compliance with requirements"
+          note: "Requires clear decision rule"
+
+      opinions_and_interpretations:
+        requirement: "Clearly identified and basis documented"
+        authorization: "Authorized personnel only"
+
+      amendments:
+        requirement: "Amendments clearly identified"
+        method: "Supplementary document or new report"
+        trace: "Link to original report"
+
+management_system_requirements:
+  clause_8_options:
+    option_a: "Comply with ISO 9001 and all ISO/IEC 17025 requirements"
+    option_b: "Comply with ISO/IEC 17025 clauses 8.2-8.9"
+    note: "Most laboratories choose Option B"
+
+  clause_8_2_management_system_documentation:
+    requirements:
+      - "Quality policy and objectives"
+      - "Management system manual or equivalent"
+      - "Procedures and work instructions"
+      - "Forms and templates"
+      - "Document control procedure"
+
+  clause_8_3_control_of_management_system_documents:
+    requirements:
+      - "Approve documents before issue"
+      - "Review and update as necessary"
+      - "Identify changes and revision status"
+      - "Ensure availability of current versions"
+      - "Ensure legibility and identifiable"
+      - "Prevent use of obsolete documents"
+
+  clause_8_4_control_of_records:
+    requirements:
+      - "Establish procedure for records management"
+      - "Ensure records identifiable, retrievable, protected"
+      - "Define retention times"
+      - "Records in any media (paper, electronic)"
+      - "Protect confidential information"
+
+    pv_testing_records:
+      technical:
+        - "Test requests and contracts"
+        - "Sample identification and tracking"
+        - "Original observations and data"
+        - "Calculation worksheets"
+        - "Test reports"
+        - "Photographs and images"
+        - "Equipment printouts and data files"
+
+      quality:
+        - "Internal audit reports"
+        - "Management review minutes"
+        - "Corrective action records"
+        - "Proficiency test results"
+        - "Customer feedback"
+
+      personnel:
+        - "Qualification records"
+        - "Training records"
+        - "Competence evaluations"
+        - "Authorizations"
+
+      equipment:
+        - "Calibration certificates"
+        - "Maintenance records"
+        - "Equipment logs"
+        - "Verification records"
+
+  clause_8_5_actions_to_address_risks_and_opportunities:
+    requirement: "Identify risks and opportunities, plan actions"
+
+    risk_areas:
+      technical:
+        - "Measurement uncertainty exceeds requirements"
+        - "Equipment failure or calibration lapse"
+        - "Personnel competence gaps"
+        - "Method validation inadequate"
+
+      operational:
+        - "Workload exceeding capacity"
+        - "Key personnel turnover"
+        - "Facility or equipment issues"
+
+      impartiality:
+        - "Conflicts of interest"
+        - "Commercial pressures"
+        - "Relationship with clients"
+
+  clause_8_6_improvement:
+    requirements:
+      - "Identify opportunities for improvement"
+      - "Implement selected improvements"
+      - "Evaluate effectiveness of improvements"
+
+    sources:
+      - "Customer feedback"
+      - "Internal audits"
+      - "Management reviews"
+      - "Staff suggestions"
+      - "Data analysis"
+      - "Proficiency testing"
+
+  clause_8_7_corrective_actions:
+    requirements:
+      - "React to nonconformities"
+      - "Evaluate need for action"
+      - "Implement corrective action"
+      - "Review effectiveness of action"
+      - "Update risk information"
+
+    triggers:
+      - "Internal audit findings"
+      - "Proficiency test failures"
+      - "Customer complaints"
+      - "Equipment problems"
+      - "Errors in reports"
+
+  clause_8_8_internal_audits:
+    requirements:
+      - "Plan and conduct internal audits"
+      - "Cover all aspects of management system"
+      - "Use qualified auditors (internal or external)"
+      - "Ensure impartiality of audit"
+      - "Report results to management"
+      - "Implement timely corrections and corrective actions"
+
+    frequency: "At least annually, or more frequently for critical areas"
+    scope: "All activities, locations, and management system elements"
+
+  clause_8_9_management_reviews:
+    requirements:
+      - "Top management review management system"
+      - "Review at planned intervals (at least annually)"
+      - "Consider inputs from multiple sources"
+      - "Make decisions and take actions"
+      - "Record review outcomes"
+
+    review_inputs:
+      - "Changes in internal and external issues"
+      - "Impartiality"
+      - "Structure and policies"
+      - "Resource adequacy"
+      - "Results of recent activities"
+      - "Customer and personnel feedback"
+      - "Complaints"
+      - "Effectiveness of improvements"
+      - "Audit results"
+      - "Corrective actions"
+      - "Assessment by external bodies"
+      - "Proficiency testing results"
+      - "Risks and opportunities"
+      - "Outcomes of previous reviews"
+
+    review_outputs:
+      - "Effectiveness of changes"
+      - "Improvement needs"
+      - "Resource needs"
+      - "Any other relevant actions"
+
+accreditation_process:
+  application:
+    - "Submit application to accreditation body (e.g., NABL, A2LA, UKAS)"
+    - "Define scope of accreditation"
+    - "Provide documentation (quality manual, procedures)"
+
+  assessment:
+    - "Document review by accreditation body"
+    - "On-site assessment by assessors"
+    - "Witnessing of testing activities"
+    - "Interview of personnel"
+    - "Review of records and reports"
+    - "Evaluation of technical competence"
+
+  accreditation_decision:
+    - "Assessment report prepared"
+    - "Nonconformities addressed (corrective actions)"
+    - "Accreditation committee decision"
+    - "Certificate and scope issued"
+
+  surveillance:
+    - "Regular surveillance visits (typically annual)"
+    - "Maintenance of accreditation"
+    - "Scope extensions as needed"
+    - "Reassessment (every 3-5 years depending on body)"
+
+for_pv_testing_laboratories:
+  scope_definition:
+    typical_scope:
+      - "PV module performance testing per IEC 61215"
+      - "PV module safety testing per IEC 61730"
+      - "IV curve measurement per IEC 60904"
+      - "PV module qualification testing"
+      - "Environmental testing (thermal cycling, damp heat, etc.)"
+
+  critical_competencies:
+    - "Solar simulator operation and maintenance"
+    - "Reference device calibration and use"
+    - "Temperature and irradiance measurement"
+    - "Uncertainty evaluation for PV measurements"
+    - "Test standard interpretation and application"
+
+  typical_nonconformities:
+    - "Inadequate calibration records or overdue calibrations"
+    - "Missing uncertainty evaluations"
+    - "Incomplete test reports"
+    - "Personnel competence documentation gaps"
+    - "Environmental monitoring not performed"
+    - "Proficiency testing not conducted"
+    - "Inadequate method validation"
+
+notes:
+  - "ISO/IEC 17025 is the international standard for laboratory accreditation"
+  - "Accreditation is often required for regulatory acceptance"
+  - "Significant effort required to achieve and maintain accreditation"
+  - "Benefits include customer confidence and market access"
+  - "Standard is generic - applies to all testing disciplines including PV"
+  - "2017 version emphasizes risk-based thinking"
+  - "Requires both management system and technical competence"
+  - "Regular internal and external audits essential"

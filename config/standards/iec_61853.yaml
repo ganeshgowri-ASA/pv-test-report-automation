@@ -1,0 +1,300 @@
+# IEC 61853: Photovoltaic (PV) module performance testing and energy rating
+# Part 1: Irradiance and temperature performance measurements and power rating
+# Part 2: Spectral responsivity, incidence angle and module operating temperature measurements
+# Part 3: Energy rating of PV modules
+# Part 4: Standard reference climatic profiles
+
+standard:
+  code: "IEC 61853"
+  full_name: "Photovoltaic (PV) module performance testing and energy rating"
+  version: "IEC 61853-1:2011, IEC 61853-2:2016, IEC 61853-3:2018, IEC 61853-4:2018"
+  applicable_to:
+    - "All photovoltaic module technologies"
+  scope: "Performance characterization and energy rating of PV modules"
+
+part_1_irradiance_temperature_performance:
+  objective: "Characterize module performance across range of operating conditions"
+
+  test_conditions:
+    irradiance_levels:
+      - "1100 W/m²"
+      - "1000 W/m²"
+      - "800 W/m²"
+      - "600 W/m²"
+      - "400 W/m²"
+      - "200 W/m²"
+
+    module_temperatures:
+      - "15°C"
+      - "25°C"
+      - "50°C"
+      - "75°C"
+
+    spectrum: "AM 1.5 global"
+
+    measurement_matrix:
+      description: "Full IV curves at each irradiance/temperature combination"
+      total_measurements: "24 (6 irradiances × 4 temperatures)"
+
+  measurements_required:
+    electrical_parameters:
+      - "Short circuit current (Isc)"
+      - "Open circuit voltage (Voc)"
+      - "Maximum power (Pmax)"
+      - "Voltage at maximum power (Vmp)"
+      - "Current at maximum power (Imp)"
+      - "Fill factor (FF)"
+
+    environmental_parameters:
+      - "Irradiance (W/m²)"
+      - "Module temperature (°C)"
+      - "Ambient temperature (°C)"
+      - "Wind speed (m/s)"
+      - "Spectrum (if measured)"
+
+  data_analysis:
+    - name: "Power Matrix"
+      description: "Create matrix of Pmax vs irradiance and temperature"
+      output: "Lookup table or mathematical model"
+
+    - name: "Temperature Coefficients"
+      description: "Calculate for all parameters across operating range"
+      parameters:
+        - "α(Isc): Temperature coefficient of Isc (%/°C)"
+        - "β(Voc): Temperature coefficient of Voc (%/°C)"
+        - "γ(Pmax): Temperature coefficient of Pmax (%/°C)"
+
+    - name: "Irradiance Coefficients"
+      description: "Calculate performance at low irradiance"
+      output: "Normalized power vs irradiance curve"
+
+part_2_advanced_characterization:
+  spectral_responsivity:
+    objective: "Measure module response to different light spectra"
+
+    measurements:
+      - name: "Spectral Response"
+        wavelength_range: "300-1200 nm (Si), wider for other technologies"
+        increment: "10 nm typical"
+        output: "Relative spectral response curve"
+
+      - name: "Useful Fraction"
+        description: "Fraction of solar spectrum usable by module"
+        reference_spectrum: "AM 1.5 global"
+
+  angle_of_incidence:
+    objective: "Characterize module performance at different sun angles"
+
+    test_angles:
+      description: "Measure at various angles of incidence"
+      angles: [0, 20, 30, 40, 50, 60, 70, 80]
+      unit: "degrees from normal"
+
+    measurements:
+      - "Isc at each angle"
+      - "Relative Isc normalized to normal incidence"
+
+    output:
+      - name: "IAM (Incidence Angle Modifier)"
+        description: "Correction factor for off-normal angles"
+        format: "IAM = f(angle of incidence)"
+
+  module_operating_temperature:
+    objective: "Predict module temperature from environmental conditions"
+
+    test_conditions:
+      irradiance_levels: [1000, 800, 600, 400]
+      wind_speeds: [0, 1, 2, 3, 4, 5, 6]
+      mounting_type: "As specified (open rack, close roof, etc.)"
+
+    measurements:
+      - "Module temperature"
+      - "Ambient temperature"
+      - "Irradiance"
+      - "Wind speed"
+      - "Wind direction (optional)"
+
+    output:
+      - name: "NMOT Model Coefficients"
+        description: "Coefficients for predicting module temperature"
+        equation: "Tmodule = f(Tambient, Irradiance, Wind speed)"
+
+part_3_energy_rating:
+  objective: "Calculate annual energy yield for different climates"
+
+  required_inputs:
+    module_data:
+      - "Power matrix from IEC 61853-1"
+      - "Spectral responsivity from IEC 61853-2"
+      - "IAM from IEC 61853-2"
+      - "NMOT model from IEC 61853-2"
+
+    climate_data:
+      - "Hourly irradiance"
+      - "Hourly temperature"
+      - "Hourly wind speed"
+      - "Sun position (angle of incidence)"
+      - "Spectral distribution (if available)"
+
+  reference_climatic_profiles:
+    description: "Standard climate profiles from IEC 61853-4"
+    profiles:
+      - code: "WMO Zone A"
+        description: "Moderate climate (e.g., Northern Europe)"
+        example_location: "Davos, Switzerland"
+
+      - code: "WMO Zone B"
+        description: "Dry tropical climate"
+        example_location: "Phoenix, USA"
+
+      - code: "WMO Zone C"
+        description: "Humid tropical climate"
+        example_location: "Mumbai, India"
+
+      - code: "WMO Zone D"
+        description: "Desert climate"
+        example_location: "Alice Springs, Australia"
+
+  calculation_method:
+    steps:
+      - "Calculate module temperature for each hour"
+      - "Apply angle of incidence corrections"
+      - "Apply spectral corrections (if applicable)"
+      - "Determine module power from power matrix"
+      - "Sum hourly energy over year"
+
+    output:
+      - "Annual energy yield (kWh/kWp)"
+      - "Monthly energy distribution"
+      - "Performance ratio"
+
+part_4_standard_reference_climates:
+  objective: "Define standard climatic profiles for energy rating"
+
+  climatic_profiles:
+    - name: "Moderate Climate"
+      code: "WMO Zone A"
+      characteristics:
+        annual_irradiation: "~1700 kWh/m²"
+        temperature_range: "-10°C to +35°C"
+        seasonal_variation: "High"
+
+    - name: "Dry Tropical"
+      code: "WMO Zone B"
+      characteristics:
+        annual_irradiation: "~2100 kWh/m²"
+        temperature_range: "5°C to +45°C"
+        dry_season: "Pronounced"
+
+    - name: "Humid Tropical"
+      code: "WMO Zone C"
+      characteristics:
+        annual_irradiation: "~1900 kWh/m²"
+        temperature_range: "20°C to +38°C"
+        humidity: "High year-round"
+
+    - name: "Desert"
+      code: "WMO Zone D"
+      characteristics:
+        annual_irradiation: "~2300 kWh/m²"
+        temperature_range: "-5°C to +50°C"
+        dust_loading: "High"
+
+  data_requirements:
+    temporal_resolution: "Hourly data for one year"
+    parameters:
+      - "Global horizontal irradiance (GHI)"
+      - "Direct normal irradiance (DNI)"
+      - "Diffuse horizontal irradiance (DHI)"
+      - "Ambient temperature"
+      - "Wind speed"
+      - "Sun position (azimuth and elevation)"
+
+test_procedures:
+  general_requirements:
+    - name: "Module Stabilization"
+      requirement: "Pre-condition module before testing"
+      method: "Light soaking or thermal cycling as appropriate"
+
+    - name: "Measurement Uncertainty"
+      requirement: "Document uncertainty for all measurements"
+      typical_uncertainty:
+        irradiance: "±3%"
+        temperature: "±2°C"
+        power: "±5%"
+
+    - name: "Calibration"
+      requirement: "All instruments must be calibrated"
+      reference: "Traceable to international standards"
+
+  indoor_testing:
+    equipment:
+      - "Solar simulator (Class A preferred)"
+      - "Temperature-controlled chamber"
+      - "IV curve tracer"
+      - "Calibrated reference cell"
+
+    advantages:
+      - "Controlled conditions"
+      - "Repeatable results"
+      - "All test points achievable"
+
+    limitations:
+      - "Spectrum may differ from natural sunlight"
+      - "Limited to module size capacity"
+
+  outdoor_testing:
+    equipment:
+      - "Pyranometer"
+      - "Temperature sensors (module and ambient)"
+      - "Anemometer"
+      - "Data acquisition system"
+
+    advantages:
+      - "Natural spectrum"
+      - "Real operating conditions"
+      - "Suitable for large modules"
+
+    limitations:
+      - "Weather dependent"
+      - "Requires translation to reference conditions"
+      - "Time consuming"
+
+data_reporting:
+  required_data:
+    - "Complete IV curves at all test points"
+    - "Power matrix (Pmax vs G and T)"
+    - "Temperature coefficients"
+    - "Spectral response curve (if measured)"
+    - "IAM curve (if measured)"
+    - "NMOT model coefficients (if measured)"
+    - "Energy ratings for reference climates"
+
+  presentation_format:
+    - "Tabular data"
+    - "Graphical representations"
+    - "Mathematical models/equations"
+    - "Uncertainty analysis"
+
+applications:
+  system_design:
+    - "Accurate performance prediction"
+    - "Site-specific energy yield estimates"
+    - "System sizing and optimization"
+
+  module_comparison:
+    - "Technology comparison"
+    - "Energy rating comparison"
+    - "Performance under different conditions"
+
+  performance_monitoring:
+    - "Expected vs actual performance"
+    - "Degradation assessment"
+    - "Warranty verification"
+
+notes:
+  - "IEC 61853 provides more detailed performance characterization than IEC 61215"
+  - "Energy rating is more representative of real-world performance than STC rating"
+  - "Complete characterization requires multiple parts of the standard"
+  - "Results can be used for detailed system modeling (e.g., PVsyst, SAM)"
+  - "Standard is evolving - Part 5 and beyond are under development"

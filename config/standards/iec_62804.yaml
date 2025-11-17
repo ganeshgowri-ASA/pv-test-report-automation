@@ -1,0 +1,350 @@
+# IEC 62804: Photovoltaic (PV) modules - Test methods for detection of potential-induced degradation
+# Part 1: Crystalline silicon
+# Part 2: Thin-film
+# Part 1-1: Delamination
+
+standard:
+  code: "IEC 62804"
+  full_name: "Photovoltaic (PV) modules - Test methods for detection of potential-induced degradation"
+  version: "IEC 62804-1:2015, IEC 62804-2:2020, IEC 62804-1-1:2020"
+  applicable_to:
+    part_1: "Crystalline silicon PV modules"
+    part_2: "Thin-film PV modules"
+    part_1_1: "Detection of delamination-type PID"
+  scope: "Test methods to evaluate susceptibility to potential-induced degradation (PID)"
+
+background:
+  pid_phenomenon:
+    description: "Power degradation caused by high voltage stress between module and ground"
+    discovery: "Field failures observed in early 2000s, especially in large systems"
+    impact: "Can cause significant power loss (10-90%) in affected modules"
+
+  pid_mechanisms:
+    crystalline_silicon:
+      - type: "PID-s (shunting)"
+        mechanism: "Sodium ion migration causing shunting paths"
+        affected_cell_type: "Most common in p-type silicon"
+        reversibility: "Partially reversible with reverse voltage or heat"
+
+      - type: "PID-p (polarization)"
+        mechanism: "Charge accumulation at interfaces"
+        affected_cell_type: "Can affect various cell types"
+        reversibility: "Generally reversible"
+
+      - type: "PID-d (delamination)"
+        mechanism: "Electrochemical corrosion causing delamination"
+        affected_cell_type: "Cells with certain metallization"
+        reversibility: "Irreversible"
+
+    thin_film:
+      - type: "PID (thin-film specific)"
+        mechanism: "Varies by technology (CdTe, CIGS, a-Si)"
+        characteristics: "Different from crystalline silicon"
+        reversibility: "Technology dependent"
+
+  risk_factors:
+    system_design:
+      - "High system voltage (>600V common, >1000V increasing)"
+      - "Modules at negative potential to ground"
+      - "Grounded frames"
+
+    environmental:
+      - "High temperature"
+      - "High humidity"
+      - "Damp or wet conditions"
+
+    module_materials:
+      - "Encapsulant type and sodium content"
+      - "Glass composition"
+      - "Anti-reflective coating"
+      - "Cell metallization"
+
+part_1_crystalline_silicon:
+  test_method_overview:
+    purpose: "Detect PID susceptibility in c-Si modules"
+    approach: "Apply high voltage stress under elevated temperature and humidity"
+
+  test_conditions:
+    voltage_stress: "-1000V (or maximum system voltage if higher)"
+    temperature: "60°C ± 2°C"
+    relative_humidity: "85% ± 5%"
+    test_duration: "96 hours (or 192 hours for extended test)"
+    configuration: "Module negative relative to grounded frame/plate"
+
+  alternative_test_conditions:
+    description: "For modules with different rated system voltage"
+    voltage: "-600V"
+    duration: "96 or 192 hours"
+    note: "Other combinations may be agreed between parties"
+
+  sample_preparation:
+    sample_size: "Minimum 3 modules"
+
+    preconditioning:
+      - name: "Visual Inspection"
+        description: "Document initial condition"
+
+      - name: "Initial Power Measurement"
+        conditions: "STC (1000 W/m², 25°C, AM 1.5)"
+        parameters:
+          - "Pmax"
+          - "Isc"
+          - "Voc"
+          - "Imp"
+          - "Vmp"
+          - "FF"
+        repetitions: "Minimum 3 measurements, average results"
+
+      - name: "Electroluminescence (EL) Imaging"
+        timing: "Before test"
+        purpose: "Baseline for comparison"
+        optional: "Recommended but not required"
+
+  test_setup:
+    mounting:
+      option_1:
+        description: "Module with grounded metal frame"
+        voltage_application: "To active cell circuit"
+
+      option_2:
+        description: "Module on grounded metal plate"
+        requirements: "Good thermal contact, conductive plate"
+        voltage_application: "To active cell circuit"
+
+    electrical_connection:
+      - "Connect all module terminals together (short circuit)"
+      - "Apply negative voltage to terminals"
+      - "Ground the frame or mounting plate"
+      - "Include safety disconnect and current limiting"
+
+    climate_chamber:
+      - "Maintain 60°C and 85% RH"
+      - "Allow modules to stabilize before applying voltage"
+      - "Monitor temperature and humidity continuously"
+
+  test_procedure:
+    initial_stabilization:
+      - "Place modules in chamber"
+      - "Allow temperature/humidity to stabilize (≥2 hours)"
+      - "Verify no condensation on modules"
+
+    voltage_application:
+      - "Apply specified voltage (-1000V typical)"
+      - "Maintain for full test duration (96 or 192 hours)"
+      - "Monitor voltage and leakage current"
+
+    safety_considerations:
+      - "High voltage safety procedures"
+      - "Emergency shutdown capability"
+      - "Leakage current monitoring and limits"
+      - "Clear warning labels"
+
+    test_interruptions:
+      allowed: "Minimize interruptions"
+      recording: "Document any interruptions or anomalies"
+
+  post_test_evaluation:
+    recovery_period:
+      description: "Allow modules to recover at open circuit"
+      duration: "24 hours minimum at room temperature"
+      conditions: "Open circuit, normal ambient"
+
+    measurements:
+      - name: "Power Measurement"
+        timing: "After recovery period"
+        conditions: "Same as pre-test (STC)"
+        parameters: "All initial parameters repeated"
+
+      - name: "Electroluminescence Imaging"
+        timing: "After power measurement"
+        comparison: "Compare with pre-test images"
+        analysis: "Identify shunted or affected cells"
+
+      - name: "Visual Inspection"
+        check_for:
+          - "Delamination"
+          - "Discoloration"
+          - "Burn marks"
+          - "Other physical changes"
+
+  acceptance_criteria:
+    power_degradation:
+      limit: "≤5% (recommended)"
+      note: "Specific limits may vary by specification"
+      calculation: "Relative to pre-test Pmax"
+
+    visual_inspection:
+      - "No delamination"
+      - "No burn marks or hot spots"
+      - "No physical damage"
+
+    el_imaging:
+      - "No significant increase in dark areas (shunted cells)"
+      - "Uniform cell appearance maintained"
+
+part_2_thin_film:
+  test_method_overview:
+    purpose: "Detect PID susceptibility in thin-film modules"
+    differences: "PID mechanisms differ from crystalline silicon"
+
+  test_conditions:
+    voltage_stress: "-1000V (or maximum system voltage)"
+    temperature: "60°C ± 2°C"
+    relative_humidity: "≤15%"
+    test_duration: "96 hours or 192 hours"
+    note: "Lower humidity than c-Si test"
+
+  test_procedure:
+    similar_to_part_1: true
+    key_differences:
+      - "Lower humidity (dry conditions)"
+      - "May require different voltage polarity testing"
+      - "Technology-specific considerations"
+
+  acceptance_criteria:
+    power_degradation: "≤5% (typical)"
+    visual_inspection: "No degradation or damage"
+
+part_1_1_delamination_type_pid:
+  test_method_overview:
+    purpose: "Specifically detect delamination-type PID"
+    background: "Some modules experience irreversible delamination under PID stress"
+
+  test_conditions:
+    voltage_stress: "-1000V"
+    temperature: "85°C ± 2°C (higher than standard PID test)"
+    relative_humidity: "85% ± 5%"
+    test_duration: "192 hours (longer than standard test)"
+    note: "More severe conditions to accelerate delamination"
+
+  post_test_evaluation:
+    delamination_detection:
+      - name: "Visual Inspection"
+        focus: "Edge delamination, cell delamination"
+
+      - name: "Acoustic or Ultrasonic Inspection"
+        description: "Detect hidden delamination"
+        optional: "Recommended for thorough evaluation"
+
+      - name: "Performance Measurement"
+        note: "Delamination may not immediately affect electrical performance"
+
+  acceptance_criteria:
+    delamination: "No visible or detectable delamination"
+    performance: "≤5% degradation"
+
+test_report_requirements:
+  module_information:
+    - "Manufacturer, model, serial numbers"
+    - "Cell type and technology"
+    - "Rated power and electrical parameters"
+    - "Maximum system voltage rating"
+    - "Encapsulant and glass types (if known)"
+
+  test_details:
+    - "Test standard part applied (1, 2, or 1-1)"
+    - "Voltage stress applied"
+    - "Temperature and humidity conditions"
+    - "Test duration"
+    - "Test setup description and photos"
+    - "Any deviations from standard"
+
+  results:
+    pre_test:
+      - "Initial power measurements (all parameters)"
+      - "Initial EL images (if performed)"
+      - "Visual inspection findings"
+
+    during_test:
+      - "Monitoring data (voltage, current, T, RH)"
+      - "Any anomalies or interruptions"
+
+    post_test:
+      - "Final power measurements and degradation percentages"
+      - "Final EL images with comparison to pre-test"
+      - "Visual inspection findings"
+      - "Delamination assessment (for Part 1-1)"
+
+    conclusion:
+      - "Pass/fail statement"
+      - "Degradation summary"
+      - "Observations and notes"
+
+  additional_information:
+    - "Test laboratory and equipment"
+    - "Measurement uncertainty"
+    - "Calibration information"
+    - "Reference to IEC 62804 standard"
+
+module_design_considerations:
+  materials_selection:
+    encapsulant:
+      low_pid_risk: "Low-sodium content EVA, POE, TPO"
+      high_pid_risk: "High-sodium EVA"
+
+    glass:
+      consideration: "Sodium content, ARC type"
+
+    cells:
+      low_pid_risk: "PID-resistant metallization, n-type cells"
+      high_pid_risk: "Standard p-type with certain metallization"
+
+  design_features:
+    - "Increased insulation"
+    - "Barrier layers"
+    - "Modified encapsulation process"
+    - "Cell design modifications"
+
+system_mitigation_strategies:
+  grounding:
+    - "Negative grounding (make module positive)"
+    - "Ungrounded (floating) systems where allowed"
+    - "Mid-point grounding"
+
+  active_mitigation:
+    - "PID mitigation devices (reverse voltage at night)"
+    - "Active monitoring systems"
+
+  system_design:
+    - "Limit string voltage"
+    - "Module selection based on PID testing"
+
+applications:
+  module_qualification:
+    description: "Assess PID susceptibility during design"
+    frequency: "During product development and qualification"
+
+  quality_assurance:
+    description: "Verify production consistency"
+    frequency: "Periodic sampling"
+
+  failure_analysis:
+    description: "Investigate field degradation"
+    application: "Root cause analysis of power loss"
+
+  certification:
+    description: "Some markets require PID testing"
+    examples: "High-voltage systems, certain utility-scale applications"
+
+related_standards:
+  - code: "IEC 61215"
+    relation: "Design qualification"
+    note: "IEC 62804 is supplementary test"
+
+  - code: "IEC 61730"
+    relation: "Safety qualification"
+    note: "Safety under voltage stress"
+
+  - code: "IEC TS 62804-2"
+    relation: "Test methods for thin-film"
+    note: "Specific procedures for thin-film technologies"
+
+notes:
+  - "PID testing is increasingly required for module qualification"
+  - "Test conditions are accelerated; field degradation may be slower"
+  - "Recovery behavior varies; some degradation may reverse in field"
+  - "EL imaging is very useful for detecting early PID"
+  - "Different test conditions may be specified by customers or standards"
+  - "192-hour test is more severe than 96-hour test"
+  - "Part 1-1 specifically addresses delamination, which is irreversible"
+  - "Module PID resistance alone doesn't guarantee no PID in field - system design matters"
