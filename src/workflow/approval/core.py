@@ -1,0 +1,1 @@
+"""Core for workflow-approval"""\n\nclass Core:\n    pass\n
