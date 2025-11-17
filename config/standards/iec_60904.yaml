@@ -1,0 +1,30 @@
+# IEC 60904: Photovoltaic Devices
+standard: IEC 60904
+version: "Multiple parts"
+title: "Photovoltaic Devices"
+scope: "Measurement procedures for photovoltaic devices"
+
+parts:
+  Part 1: "Measurement of photovoltaic current-voltage characteristics"
+  Part 2: "Requirements for reference solar devices"
+  Part 3: "Measurement principles for terrestrial photovoltaic (PV) solar devices with reference spectral irradiance data"
+  Part 4: "Reference solar devices - Procedures for establishing calibration traceability"
+  Part 5: "Determination of the equivalent cell temperature (ECT)"
+  Part 7: "Computation of the spectral mismatch correction for measurements of photovoltaic devices"
+  Part 8: "Measurement of spectral response"
+  Part 9: "Solar simulator performance requirements"
+  Part 10: "Methods of linearity measurement"
+
+measurement_parameters:
+  - Short Circuit Current (Isc)
+  - Open Circuit Voltage (Voc)
+  - Maximum Power Point (Pmax)
+  - Fill Factor (FF)
+  - Efficiency
+  - Spectral Response
+  - Temperature Coefficients
+
+standard_test_conditions:
+  irradiance: "1000 W/m²"
+  spectrum: "AM1.5G"
+  temperature: "25°C"

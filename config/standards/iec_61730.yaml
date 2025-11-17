@@ -1,0 +1,23 @@
+# IEC 61730: Photovoltaic (PV) Module Safety Qualification
+standard: IEC 61730
+version: "2016"
+title: "Photovoltaic (PV) Module Safety Qualification"
+scope: "Safety qualification of PV modules"
+
+test_sequence:
+  - Part 1: Requirements for Construction
+  - Part 2: Requirements for Testing
+  - MST01: Visual Inspection
+  - MST02: Mechanical Integrity
+  - MST03: Electrical Safety
+  - MST04: Fire Rating
+  - MST05: Accessibility Test
+  - MST06: Cutting Test
+  - MST07: Dielectric Withstand Test
+  - MST08: Wet Insulation Resistance
+
+acceptance_criteria:
+  class: "Class II"
+  fire_rating: "C"
+  dielectric_withstand: "Pass"
+  insulation_resistance: ">=40 MΩ"

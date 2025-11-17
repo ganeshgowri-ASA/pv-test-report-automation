@@ -1,0 +1,28 @@
+# IEC 62759: Photovoltaic (PV) Modules - Transportation Testing
+standard: IEC 62759
+version: "2019"
+title: "Photovoltaic (PV) Modules - Transportation Testing"
+scope: "Testing for transportation of PV modules"
+
+test_sequence:
+  - Part 1: Transportation of Module Package Units
+    - Drop Test
+    - Tip and Tilt Test
+    - Compression Test
+    - Vibration Test
+
+packaging_requirements:
+  - Proper cushioning materials
+  - Weatherproof packaging
+  - Clear handling instructions
+  - Orientation indicators
+
+test_conditions:
+  drop_height: "varies by package weight"
+  compression_load: "varies by package size"
+  vibration_frequency: "as per transport profile"
+
+acceptance_criteria:
+  module_damage: "none"
+  packaging_integrity: "maintained"
+  functional_performance: "not degraded"

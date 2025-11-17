@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PV Module Test Report - {{ report_number }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo {
+            max-width: 200px;
+        }
+        .report-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .section-title {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .footer {
+            margin-top: 50px;
+            border-top: 2px solid #2c3e50;
+            padding-top: 20px;
+        }
+        .signature-block {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+            margin: 20px 2%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="{{ lab_logo }}" alt="Laboratory Logo" class="logo">
+        <div class="report-title">PHOTOVOLTAIC MODULE TEST REPORT</div>
+        <div>Report No: {{ report_number }}</div>
+        <div>Date: {{ report_date }}</div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">1. SAMPLE INFORMATION</div>
+        <table>
+            <tr><th>Parameter</th><th>Value</th></tr>
+            <tr><td>Manufacturer</td><td>{{ manufacturer }}</td></tr>
+            <tr><td>Model Number</td><td>{{ model_number }}</td></tr>
+            <tr><td>Serial Number</td><td>{{ serial_number }}</td></tr>
+            <tr><td>Technology Type</td><td>{{ technology_type }}</td></tr>
+            <tr><td>Rated Power</td><td>{{ rated_power }}</td></tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">2. TEST STANDARDS</div>
+        <p>{{ test_standards }}</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">3. TEST RESULTS</div>
+        {{ test_results_table }}
+    </div>
+
+    <div class="section">
+        <div class="section-title">4. CONCLUSION</div>
+        <p>{{ conclusion }}</p>
+    </div>
+
+    <div class="footer">
+        <div class="signature-block">
+            <p>_______________________</p>
+            <p><strong>Tested By</strong></p>
+            <p>{{ tested_by }}</p>
+            <p>Date: {{ test_date }}</p>
+        </div>
+        <div class="signature-block">
+            <p>_______________________</p>
+            <p><strong>Approved By</strong></p>
+            <p>{{ approved_by }}</p>
+            <p>Date: {{ approval_date }}</p>
+        </div>
+    </div>
+</body>
+</html>

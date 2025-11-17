@@ -1,0 +1,29 @@
+# IEC 62804: Photovoltaic (PV) Modules - Test Methods for Detection of PID
+standard: IEC 62804
+version: "2015"
+title: "Photovoltaic (PV) Modules - Test Methods for Detection of Potential-Induced Degradation"
+scope: "Detection of potential-induced degradation (PID) in crystalline silicon PV modules"
+
+test_sequence:
+  - Initial Visual Inspection
+  - Initial Electrical Performance
+  - Initial EL Imaging
+  - PID Stress Test
+  - Final EL Imaging
+  - Final Electrical Performance
+  - Final Visual Inspection
+
+test_conditions:
+  voltage: "-1000V or -600V"
+  temperature: "60±2°C or 85±2°C"
+  relative_humidity: "85±5%"
+  duration: "96 hours or 192 hours"
+
+test_methods:
+  Method A: "Chamber test with climate chamber"
+  Method B: "Field test simulation"
+
+acceptance_criteria:
+  power_degradation: "<=5%"
+  visual_defects: "none"
+  el_imaging: "no significant degradation"

@@ -1,0 +1,32 @@
+# IEC 61215: Terrestrial Photovoltaic (PV) Modules - Design Qualification and Type Approval
+standard: IEC 61215
+version: "2021"
+title: "Terrestrial Photovoltaic (PV) Modules - Design Qualification and Type Approval"
+scope: "Crystalline silicon terrestrial photovoltaic (PV) modules"
+
+test_sequence:
+  - MST01: Visual Inspection
+  - MST02: Maximum Power Determination
+  - MST03: Insulation Test
+  - MST04: Temperature Coefficient Measurement
+  - MST05: NMOT Measurement
+  - MST06: Performance at STC and Low Irradiance
+  - MST07: Outdoor Exposure
+  - MST08: Hot-Spot Endurance
+  - MST09: UV Preconditioning Test
+  - MST10: Thermal Cycling
+  - MST11: Humidity-Freeze
+  - MST12: Damp Heat
+  - MST13: Robustness of Terminations
+  - MST14: Wet Leakage Current
+  - MST15: Mechanical Load
+  - MST16: Hail Test
+  - MST17: Bypass Diode Thermal Test
+  - MST18: Reverse Current Overload
+  - MST19: PID Test
+
+acceptance_criteria:
+  power_degradation: "<=5%"
+  visual_defects: "none"
+  insulation_resistance: ">=40 MΩ"
+  wet_leakage_current: "<=10 µA"

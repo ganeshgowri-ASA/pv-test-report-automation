@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Opinion - {{ opinion_number }}</title>
+    <style>
+        body { font-family: 'Georgia', serif; margin: 40px; line-height: 1.8; color: #2c3e50; }
+        .header { text-align: center; border-bottom: 3px solid #3498db; padding-bottom: 20px; margin-bottom: 30px; }
+        .section { margin: 30px 0; }
+        .section-title { color: #3498db; font-size: 20px; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 5px; }
+        .opinion-box { background-color: #ecf0f1; padding: 20px; border-left: 5px solid #3498db; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #bdc3c7; padding: 12px; text-align: left; }
+        th { background-color: #ecf0f1; }
+        .signature { margin-top: 50px; text-align: right; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>TECHNICAL OPINION</h1>
+        <p>Opinion No: {{ opinion_number }} | Date: {{ opinion_date }}</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">1. BACKGROUND</div>
+        <p>{{ background }}</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">2. SCOPE OF OPINION</div>
+        <p>{{ scope }}</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">3. INFORMATION REVIEWED</div>
+        <ul>
+            {{ reviewed_information }}
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-title">4. ANALYSIS</div>
+        {{ analysis_content }}
+    </div>
+
+    <div class="section">
+        <div class="section-title">5. TECHNICAL OPINION</div>
+        <div class="opinion-box">
+            {{ technical_opinion }}
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">6. LIMITATIONS</div>
+        <p>{{ limitations }}</p>
+    </div>
+
+    <div class="signature">
+        <p>_______________________________</p>
+        <p><strong>{{ expert_name }}</strong></p>
+        <p>{{ expert_title }}</p>
+        <p>{{ qualifications }}</p>
+        <p>Date: {{ signature_date }}</p>
+    </div>
+</body>
+</html>

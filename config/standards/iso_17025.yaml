@@ -1,0 +1,50 @@
+# ISO/IEC 17025: General Requirements for the Competence of Testing and Calibration Laboratories
+standard: ISO/IEC 17025
+version: "2017"
+title: "General Requirements for the Competence of Testing and Calibration Laboratories"
+scope: "Quality management system for testing and calibration laboratories"
+
+requirements:
+  general:
+    - Impartiality
+    - Confidentiality
+
+  structural:
+    - Legal entity
+    - Management responsibility
+    - Organizational structure
+
+  resource:
+    - Personnel competence
+    - Facilities and environmental conditions
+    - Equipment calibration and maintenance
+    - Metrological traceability
+
+  process:
+    - Review of requests, tenders and contracts
+    - Selection, verification and validation of methods
+    - Sampling procedures
+    - Handling of test items
+    - Technical records
+    - Evaluation of measurement uncertainty
+    - Ensuring validity of results
+    - Reporting of results
+
+  management_system:
+    - Documentation control
+    - Control of records
+    - Actions to address risks and opportunities
+    - Improvement
+    - Corrective actions
+    - Internal audits
+    - Management reviews
+
+documentation_requirements:
+  - Quality Manual
+  - Standard Operating Procedures (SOPs)
+  - Test Methods and Procedures
+  - Equipment Calibration Records
+  - Personnel Training Records
+  - Test Reports
+  - Audit Records
+  - Corrective Action Records

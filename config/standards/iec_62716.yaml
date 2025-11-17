@@ -1,0 +1,25 @@
+# IEC 62716: Photovoltaic (PV) Modules - Ammonia Corrosion Testing
+standard: IEC 62716
+version: "2013"
+title: "Photovoltaic (PV) Modules - Ammonia Corrosion Testing"
+scope: "Ammonia corrosion resistance testing for PV modules"
+
+test_sequence:
+  - Initial Visual Inspection
+  - Initial Electrical Performance
+  - Ammonia Exposure Test
+  - Final Visual Inspection
+  - Final Electrical Performance
+  - Wet Insulation Resistance Test
+
+test_conditions:
+  ammonia_concentration: "10 ppm"
+  temperature: "50±2°C"
+  relative_humidity: "80±5%"
+  duration: "576 hours"
+
+acceptance_criteria:
+  power_degradation: "<=5%"
+  visual_defects: "none"
+  insulation_resistance: ">=40 MΩ"
+  corrosion: "none"

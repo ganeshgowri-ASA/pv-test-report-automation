@@ -1,0 +1,137 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: pvtest-postgres
+    environment:
+      POSTGRES_DB: pvtest
+      POSTGRES_USER: pvtest_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pvtest_user -d pvtest"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pvtest-network
+
+  # Redis for Celery and Caching
+  redis:
+    image: redis:7-alpine
+    container_name: pvtest-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - pvtest-network
+
+  # PV Test Application
+  app:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    container_name: pvtest-app
+    environment:
+      DATABASE_URL: postgresql://pvtest_user:${DB_PASSWORD}@postgres:5432/pvtest
+      REDIS_URL: redis://redis:6379/0
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+      SECRET_KEY: ${SECRET_KEY}
+    volumes:
+      - ../../:/app
+      - uploads:/app/uploads
+      - reports:/app/reports
+      - logs:/app/logs
+    ports:
+      - "8501:8501"
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - pvtest-network
+    restart: unless-stopped
+
+  # Celery Worker for Background Tasks
+  celery-worker:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    container_name: pvtest-celery-worker
+    command: celery -A src.core.workflow.celery_app worker --loglevel=info
+    environment:
+      DATABASE_URL: postgresql://pvtest_user:${DB_PASSWORD}@postgres:5432/pvtest
+      REDIS_URL: redis://redis:6379/0
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY}
+    volumes:
+      - ../../:/app
+      - uploads:/app/uploads
+      - reports:/app/reports
+      - logs:/app/logs
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - pvtest-network
+    restart: unless-stopped
+
+  # Flower for Celery Monitoring
+  flower:
+    build:
+      context: ../..
+      dockerfile: deployment/docker/Dockerfile
+    container_name: pvtest-flower
+    command: celery -A src.core.workflow.celery_app flower --port=5555
+    environment:
+      REDIS_URL: redis://redis:6379/0
+    ports:
+      - "5555:5555"
+    depends_on:
+      - redis
+      - celery-worker
+    networks:
+      - pvtest-network
+    restart: unless-stopped
+
+  # Nginx Reverse Proxy (Optional)
+  nginx:
+    image: nginx:alpine
+    container_name: pvtest-nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    networks:
+      - pvtest-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
+  uploads:
+  reports:
+  logs:
+
+networks:
+  pvtest-network:
+    driver: bridge

@@ -1,0 +1,44 @@
+# NABL, ILAC, and BIS Requirements for Indian Testing Laboratories
+standard: NABL/ILAC/BIS
+version: "Current"
+title: "NABL, ILAC, and BIS Requirements for Testing Laboratories in India"
+scope: "Accreditation and certification requirements for Indian PV testing laboratories"
+
+nabl:
+  name: "National Accreditation Board for Testing and Calibration Laboratories"
+  based_on: "ISO/IEC 17025:2017"
+  requirements:
+    - NABL 162: Specific Criteria for Accreditation of Electrical Testing Laboratories
+    - Calibration traceability to National Standards
+    - Proficiency testing participation
+    - Inter-laboratory comparisons
+
+ilac:
+  name: "International Laboratory Accreditation Cooperation"
+  requirements:
+    - ILAC-G8: Guidelines on Assessment and Reporting of Compliance
+    - ILAC-P10: ILAC Policy on Traceability of Measurement Results
+    - International recognition through MRA
+
+bis:
+  name: "Bureau of Indian Standards"
+  relevant_standards:
+    - IS 16169: Requirements for Solar Photovoltaic Modules
+    - IS/IEC 61215: Crystalline Silicon PV Modules
+    - IS/IEC 61730: PV Module Safety Qualification
+    - IS 14697: Solar Photovoltaic Modules - Design Qualification
+
+additional_requirements:
+  - Equipment calibration from NABL accredited labs
+  - Regular participation in proficiency testing
+  - Maintenance of measurement uncertainty budgets
+  - Implementation of quality control charts
+  - Regular internal audits
+  - Management review meetings
+  - Continual improvement processes
+
+documentation:
+  - Test reports with NABL logo
+  - Calibration certificates with traceability
+  - Uncertainty of measurement statements
+  - Compliance statements as per ILAC-G8

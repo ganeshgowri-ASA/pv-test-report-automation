@@ -1,0 +1,23 @@
+# IEC 61853: Photovoltaic (PV) Module Performance Testing and Energy Rating
+standard: IEC 61853
+version: "2011-2018"
+title: "Photovoltaic (PV) Module Performance Testing and Energy Rating"
+scope: "Performance characterization and energy rating of PV modules"
+
+test_sequence:
+  - Part 1: Irradiance and Temperature Performance Measurements
+  - Part 2: Spectral Response, Incidence Angle and Module Operating Temperature
+  - Part 3: Energy Rating of PV Modules
+  - Part 4: Standard Reference Climatic Profiles
+
+performance_measurements:
+  - IV Curve Characterization
+  - Angle of Incidence Effects
+  - Spectral Response
+  - Operating Temperature Measurement
+  - Energy Output Prediction
+
+test_conditions:
+  irradiance_levels: [100, 200, 400, 600, 800, 1000, 1100]  # W/m²
+  temperatures: [15, 25, 50, 75]  # °C
+  angles_of_incidence: [0, 20, 40, 50, 60, 70, 80]  # degrees

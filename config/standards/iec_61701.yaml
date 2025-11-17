@@ -1,0 +1,33 @@
+# IEC 61701: Salt Mist Corrosion Testing of Photovoltaic (PV) Modules
+standard: IEC 61701
+version: "2020"
+title: "Salt Mist Corrosion Testing of Photovoltaic (PV) Modules"
+scope: "Salt mist corrosion resistance testing for PV modules"
+
+test_sequence:
+  - Initial Visual Inspection
+  - Initial Electrical Performance
+  - Salt Mist Exposure Test
+  - Cleaning
+  - Final Visual Inspection
+  - Final Electrical Performance
+  - Wet Insulation Resistance Test
+
+severity_levels:
+  Level 1: "Low severity - general applications"
+  Level 2: "Moderate severity - moderate saline environments"
+  Level 3: "High severity - high saline environments"
+  Level 4: "Very high severity - extreme saline environments"
+  Level 5: "Extreme severity - very extreme saline environments"
+  Level 6: "Ultra-extreme severity - marine and coastal"
+
+test_conditions:
+  salt_concentration: "5% NaCl solution"
+  temperature: "35±2°C"
+  pH: "6.5-7.2"
+
+acceptance_criteria:
+  power_degradation: "<=5%"
+  visual_defects: "none"
+  insulation_resistance: ">=40 MΩ"
+  corrosion: "minimal"

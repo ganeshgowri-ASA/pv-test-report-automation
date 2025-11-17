@@ -205,3 +205,68 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# PV Test Report Automation Specific
+# Application Data
+uploads/
+reports/
+data/
+temp/
+cache/
+logs/
+
+# Generated Files
+*.pdf
+*.docx
+*.xlsx
+!config/templates/*.html
+
+# Secrets
+secrets/
+credentials/
+*.pem
+*.key
+*.crt
+api_keys.json
+tokens.json
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# LaTeX
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.toc
+*.out
+
+# Docker
+docker-compose.override.yml
+
+# Large Files
+*.zip
+*.tar.gz
+*.rar
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment Variables
+.env.local
+.env.*.local
