@@ -1,0 +1,1 @@
+"""Tests for qa-tests"""\nimport pytest\n\ndef test_init():\n    assert True\n
