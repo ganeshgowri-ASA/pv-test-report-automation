@@ -1,0 +1,1 @@
+"""Core for export-pdf"""\n\nclass Core:\n    pass\n
