@@ -1,0 +1,1 @@
+"""Core for test-insulation"""\n\nclass Core:\n    pass\n
