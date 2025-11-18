@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "I-V Curve Measurement Schema",
+  "description": "Schema for photovoltaic I-V curve measurement data",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Measurement timestamp"
+    },
+    "voltage": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Voltage in Volts (V)"
+    },
+    "current": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Current in Amperes (A)"
+    },
+    "power": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Power in Watts (W)"
+    },
+    "temperature": {
+      "type": "number",
+      "minimum": -40,
+      "maximum": 85,
+      "description": "Module temperature in Celsius (°C)"
+    }
+  },
+  "required": ["timestamp", "voltage", "current", "power"]
+}

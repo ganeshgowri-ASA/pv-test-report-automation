@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Irradiance Sensor Data Schema",
+  "description": "Schema for solar irradiance sensor measurements",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Measurement timestamp"
+    },
+    "ghi": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1500,
+      "description": "Global Horizontal Irradiance in W/m²"
+    },
+    "dhi": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1500,
+      "description": "Diffuse Horizontal Irradiance in W/m²"
+    },
+    "dni": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1500,
+      "description": "Direct Normal Irradiance in W/m²"
+    },
+    "module_temperature": {
+      "type": "number",
+      "description": "Module temperature in Celsius (°C)"
+    },
+    "ambient_temperature": {
+      "type": "number",
+      "description": "Ambient temperature in Celsius (°C)"
+    }
+  },
+  "required": ["timestamp"]
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Environmental Chamber Log Schema",
+  "description": "Schema for environmental chamber log data",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Log entry timestamp"
+    },
+    "temperature": {
+      "type": "number",
+      "minimum": -70,
+      "maximum": 200,
+      "description": "Chamber temperature in Celsius (°C)"
+    },
+    "humidity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Relative humidity in percent (%)"
+    },
+    "pressure": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Pressure in kilopascals (kPa)"
+    },
+    "setpoint_temperature": {
+      "type": "number",
+      "description": "Temperature setpoint in Celsius (°C)"
+    },
+    "setpoint_humidity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Humidity setpoint in percent (%)"
+    }
+  },
+  "required": ["timestamp", "temperature", "humidity"]
+}

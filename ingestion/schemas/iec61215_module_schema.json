@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IEC 61215 Module Test Data Schema",
+  "description": "Schema for IEC 61215 module test data",
+  "type": "object",
+  "properties": {
+    "serial_number": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Module serial number"
+    },
+    "voc": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Open circuit voltage in Volts (V)"
+    },
+    "isc": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Short circuit current in Amperes (A)"
+    },
+    "pmax": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Maximum power in Watts (W)"
+    },
+    "vmax": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Voltage at maximum power in Volts (V)"
+    },
+    "imax": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Current at maximum power in Amperes (A)"
+    },
+    "fill_factor": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fill factor (dimensionless)"
+    },
+    "efficiency": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Module efficiency in percent (%)"
+    },
+    "test_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Test date and time"
+    },
+    "test_temperature": {
+      "type": "number",
+      "minimum": -40,
+      "maximum": 85,
+      "description": "Test temperature in Celsius (°C)"
+    },
+    "irradiance": {
+      "type": "number",
+      "minimum": 0,
+      "default": 1000,
+      "description": "Irradiance in W/m²"
+    }
+  },
+  "required": ["serial_number", "voc", "isc", "pmax", "vmax", "imax", "fill_factor", "efficiency", "test_date", "test_temperature"]
+}

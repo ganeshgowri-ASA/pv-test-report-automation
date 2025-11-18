@@ -1,0 +1,5 @@
+{"serial_number": "PV2025-001", "test_date": "2025-01-15T10:00:00Z", "pmax": 422.3, "voc": 88.5, "isc": 8.95, "vmax": 57.4, "imax": 7.36, "fill_factor": 0.753, "efficiency": 19.2, "grade": "A"}
+{"serial_number": "PV2025-002", "test_date": "2025-01-15T10:15:00Z", "pmax": 425.1, "voc": 88.7, "isc": 8.98, "vmax": 57.6, "imax": 7.38, "fill_factor": 0.755, "efficiency": 19.3, "grade": "A"}
+{"serial_number": "PV2025-003", "test_date": "2025-01-15T10:30:00Z", "pmax": 418.5, "voc": 88.3, "isc": 8.92, "vmax": 57.2, "imax": 7.32, "fill_factor": 0.751, "efficiency": 19.0, "grade": "A"}
+{"serial_number": "PV2025-004", "test_date": "2025-01-15T10:45:00Z", "pmax": 410.2, "voc": 87.9, "isc": 8.88, "vmax": 56.8, "imax": 7.22, "fill_factor": 0.746, "efficiency": 18.6, "grade": "B"}
+{"serial_number": "PV2025-005", "test_date": "2025-01-15T11:00:00Z", "pmax": 421.8, "voc": 88.6, "isc": 8.96, "vmax": 57.5, "imax": 7.34, "fill_factor": 0.752, "efficiency": 19.2, "grade": "A"}

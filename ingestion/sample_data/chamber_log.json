@@ -1,0 +1,42 @@
+[
+  {
+    "timestamp": "2025-01-15T08:00:00Z",
+    "temperature": 25.0,
+    "humidity": 50.0,
+    "pressure": 101.3,
+    "setpoint_temperature": 25.0,
+    "setpoint_humidity": 50.0
+  },
+  {
+    "timestamp": "2025-01-15T08:05:00Z",
+    "temperature": 25.1,
+    "humidity": 50.2,
+    "pressure": 101.3,
+    "setpoint_temperature": 25.0,
+    "setpoint_humidity": 50.0
+  },
+  {
+    "timestamp": "2025-01-15T08:10:00Z",
+    "temperature": 24.9,
+    "humidity": 49.8,
+    "pressure": 101.2,
+    "setpoint_temperature": 25.0,
+    "setpoint_humidity": 50.0
+  },
+  {
+    "timestamp": "2025-01-15T08:15:00Z",
+    "temperature": 25.0,
+    "humidity": 50.1,
+    "pressure": 101.3,
+    "setpoint_temperature": 25.0,
+    "setpoint_humidity": 50.0
+  },
+  {
+    "timestamp": "2025-01-15T08:20:00Z",
+    "temperature": 25.2,
+    "humidity": 50.3,
+    "pressure": 101.3,
+    "setpoint_temperature": 25.0,
+    "setpoint_humidity": 50.0
+  }
+]

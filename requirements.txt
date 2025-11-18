@@ -1,0 +1,21 @@
+# PV Test Report Automation - Data Ingestion Engine Requirements
+
+# Core dependencies
+pandas>=2.0.0
+numpy>=1.24.0
+pydantic>=2.0.0
+chardet>=5.0.0
+jsonschema>=4.17.0
+
+# Optional dependencies for advanced features
+# Uncomment as needed:
+
+# Excel support
+# openpyxl>=3.1.0
+
+# Parquet support
+# pyarrow>=12.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0

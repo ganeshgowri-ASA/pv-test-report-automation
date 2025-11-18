@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Flash Test Result Schema",
+  "description": "Schema for PV module flash test results",
+  "type": "object",
+  "properties": {
+    "serial_number": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Module serial number"
+    },
+    "test_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Test date and time"
+    },
+    "pmax": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Maximum power at STC in Watts (W)"
+    },
+    "voc": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Open circuit voltage in Volts (V)"
+    },
+    "isc": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Short circuit current in Amperes (A)"
+    },
+    "vmax": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Voltage at maximum power in Volts (V)"
+    },
+    "imax": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Current at maximum power in Amperes (A)"
+    },
+    "fill_factor": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Fill factor (dimensionless)"
+    },
+    "efficiency": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Module efficiency in percent (%)"
+    },
+    "grade": {
+      "type": "string",
+      "pattern": "^[A-D]$",
+      "description": "Module grade (A, B, C, or D)"
+    }
+  },
+  "required": ["serial_number", "test_date", "pmax", "voc", "isc", "vmax", "imax", "fill_factor", "efficiency"]
+}
