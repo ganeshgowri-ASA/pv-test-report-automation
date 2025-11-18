@@ -1,0 +1,105 @@
+# ============================================================================
+# PV Test Report Automation - Python Dependencies
+# ============================================================================
+
+# Core Framework
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# Configuration Management
+pydantic==2.5.3
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+PyYAML==6.0.1
+
+# Database
+sqlalchemy==2.0.25
+alembic==1.13.1
+psycopg2-binary==2.9.9  # PostgreSQL
+pymysql==1.1.0  # MySQL (optional)
+aiosqlite==0.19.0  # Async SQLite
+
+# Authentication & Security
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.1.2
+cryptography==42.0.0
+
+# LLM APIs
+anthropic==0.18.1  # Claude API
+openai==1.10.0  # OpenAI API
+google-generativeai==0.3.2  # Gemini API
+
+# Document Processing
+PyPDF2==3.0.1
+pypdf==4.0.1
+pdfplumber==0.10.3
+pytesseract==0.3.10  # OCR
+Pillow==10.2.0  # Image processing
+python-docx==1.1.0  # Word documents
+openpyxl==3.1.2  # Excel files
+pandas==2.2.0  # Data manipulation
+
+# LaTeX/Report Generation
+jinja2==3.1.3
+latex==0.7.0
+
+# Email
+aiosmtplib==3.0.1
+email-validator==2.1.0.post1
+
+# Caching & Background Tasks
+redis==5.0.1
+celery==5.3.6
+flower==2.0.1  # Celery monitoring
+
+# HTTP Client
+httpx==0.26.0
+aiohttp==3.9.3
+requests==2.31.0
+
+# Validation & Serialization
+marshmallow==3.20.2
+jsonschema==4.21.1
+
+# Date/Time
+python-dateutil==2.8.2
+pytz==2024.1
+
+# Logging & Monitoring
+loguru==0.7.2
+sentry-sdk[fastapi]==1.40.0
+prometheus-client==0.19.0
+
+# Rate Limiting
+slowapi==0.1.9
+
+# Testing
+pytest==8.0.0
+pytest-asyncio==0.23.4
+pytest-cov==4.1.0
+pytest-mock==3.12.0
+httpx==0.26.0  # For testing async endpoints
+faker==22.6.0  # Test data generation
+
+# Code Quality
+black==24.1.1
+flake8==7.0.0
+isort==5.13.2
+mypy==1.8.0
+pylint==3.0.3
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.5.6
+
+# Utilities
+click==8.1.7  # CLI
+tqdm==4.66.1  # Progress bars
+pydantic-extra-types==2.4.1
+typing-extensions==4.9.0
+
+# Development
+ipython==8.20.0
+jupyter==1.0.0
