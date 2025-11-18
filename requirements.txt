@@ -1,0 +1,27 @@
+# Core dependencies
+pydantic>=2.0.0,<3.0.0         # Data validation and settings management
+python-dateutil>=2.8.2         # Date/time utilities
+
+# Testing and development
+pytest>=7.0.0                  # Testing framework
+pytest-cov>=4.0.0             # Coverage plugin
+black>=23.0.0                  # Code formatting
+flake8>=6.0.0                  # Code linting
+mypy>=1.0.0                    # Static type checking
+
+# Data processing and reporting
+numpy>=1.24.0                  # Numerical computing
+pandas>=2.0.0                  # Data analysis
+matplotlib>=3.7.0              # Plotting and visualization
+openpyxl>=3.1.0               # Excel file support
+reportlab>=4.0.0              # PDF generation
+
+# Optional: Equipment interface libraries
+# pyserial>=3.5                # Serial communication
+# pyvisa>=1.13.0               # VISA instrument control
+# pymodbus>=3.5.0              # Modbus protocol
+# python-usbtmc>=0.8           # USBTMC instrument control
+
+# Documentation
+mkdocs>=1.5.0                 # Documentation generator
+mkdocs-material>=9.0.0        # Material theme for mkdocs
