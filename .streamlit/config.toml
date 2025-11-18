@@ -1,0 +1,44 @@
+# Streamlit Configuration
+# Custom theme and settings for PV Test Lab application
+
+[theme]
+# Primary colors
+primaryColor = "#007bff"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f8f9fa"
+textColor = "#212529"
+font = "sans serif"
+
+[server]
+# Server configuration
+headless = true
+port = 8501
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 200
+enableWebsocketCompression = true
+
+[browser]
+# Browser configuration
+gatherUsageStats = false
+serverAddress = "localhost"
+serverPort = 8501
+
+[runner]
+# Runner configuration
+magicEnabled = true
+fastReruns = true
+
+[client]
+# Client configuration
+showErrorDetails = true
+toolbarMode = "minimal"
+
+[logger]
+# Logging configuration
+level = "info"
+messageFormat = "%(asctime)s %(levelname)s: %(message)s"
+
+[deprecation]
+# Deprecation warnings
+showPyplotGlobalUse = false
