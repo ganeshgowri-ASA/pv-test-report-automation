@@ -1,0 +1,19 @@
+TEST DOCUMENT
+
+This is a simple test document for basic parsing tests.
+
+It contains multiple paragraphs with different content.
+
+Section 1: Introduction
+This section contains introductory text.
+
+Section 2: Data
+Here is some data in a simple table format:
+
+Item     Value    Unit
+Power    400      W
+Voltage  40       V
+Current  10       A
+
+Section 3: Conclusion
+This is the conclusion section.

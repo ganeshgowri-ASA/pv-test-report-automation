@@ -1,0 +1,59 @@
+CALIBRATION CERTIFICATE
+
+Certificate No: NABL-2024-12345
+
+Laboratory: National Accredited Testing Laboratory
+Address: 123 Science Park, Technology Hub, Bangalore - 560001
+NABL Accreditation No: TC-1234
+
+EQUIPMENT DETAILS
+Equipment: Digital Multimeter
+Manufacturer: Fluke Corporation
+Model: 87V
+Serial Number: 12345678
+Equipment ID: DMM-001
+
+CALIBRATION DETAILS
+Calibration Date: 15-Jan-2024
+Due Date: 14-Jan-2025
+Calibration Interval: 12 months
+
+ENVIRONMENTAL CONDITIONS
+Temperature: 23 ± 2 °C
+Humidity: 50 ± 10 %RH
+Pressure: 101.3 kPa
+
+MEASUREMENT UNCERTAINTY
+Expanded Uncertainty: ±0.05 V
+Coverage Factor: k=2
+Confidence Level: 95%
+
+TRACEABILITY
+Reference Standard: Precision Voltage Calibrator
+Standard ID: REF-CAL-2023-789
+Traceability: NIST (National Institute of Standards and Technology)
+
+CALIBRATION RESULTS
+
+Reference (V)    Measured (V)    Deviation (V)    Uncertainty (V)
+1.000           1.001           +0.001          ±0.05
+5.000           5.002           +0.002          ±0.05
+10.000          10.001          +0.001          ±0.05
+50.000          50.003          +0.003          ±0.05
+100.000         100.002         +0.002          ±0.05
+
+RESULT: PASS
+All measurements are within acceptable tolerance limits.
+
+PERSONNEL
+Calibrated By: John Technician
+Reviewed By: Sarah Engineer
+Approved By: Dr. Michael Smith
+
+Date of Issue: 15-Jan-2024
+
+This certificate shall not be reproduced except in full without written approval.
+Accreditation Body: NABL (National Accreditation Board for Testing and Calibration Laboratories)
+Member of ILAC MRA (International Laboratory Accreditation Cooperation)
+
+End of Certificate

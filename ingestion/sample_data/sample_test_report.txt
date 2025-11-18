@@ -1,0 +1,103 @@
+PHOTOVOLTAIC MODULE TEST REPORT
+
+Report Number: PV-TEST-2024-456
+Report Date: 20-March-2024
+
+TESTING LABORATORY
+Name: Solar Energy Testing Center
+Address: 456 Renewable Energy Park, Hyderabad - 500032
+NABL Accreditation: TC-5678
+ISO/IEC 17025:2017 Accredited
+
+MODULE SPECIFICATIONS
+
+Manufacturer: SolarTech Industries Ltd.
+Model: ST-400-M72
+Serial Number: ST400M72-202403-001
+Technology: Monocrystalline Silicon
+
+RATED SPECIFICATIONS (STC)
+Rated Power (Pmax): 400 W
+Power Tolerance: ±3%
+Voltage at Pmax (Vmp): 40.5 V
+Current at Pmax (Imp): 9.88 A
+Open Circuit Voltage (Voc): 48.7 V
+Short Circuit Current (Isc): 10.54 A
+Module Efficiency: 20.5%
+Number of Cells: 72
+
+TEST CONDITIONS
+
+Standard Test Conditions (STC):
+- Irradiance: 1000 W/m²
+- Cell Temperature: 25°C
+- Spectrum: AM 1.5
+
+Environmental Conditions:
+Temperature: 24.5 ± 0.5 °C
+Relative Humidity: 45 ± 5 %RH
+Atmospheric Pressure: 101.2 kPa
+
+TEST STANDARDS
+IEC 61215-1:2021 - Terrestrial PV modules - Design qualification and type approval
+IEC 61215-2:2021 - Test procedures
+IEC 61730-1:2016 - PV module safety qualification - Part 1: Requirements
+IEC 61730-2:2016 - PV module safety qualification - Part 2: Test requirements
+
+ELECTRICAL PERFORMANCE TEST RESULTS
+
+Parameter                    Measured Value    Specification    Deviation (%)    Result
+Rated Power (Pmax)          398.5 W          400 W ±3%        -0.38%          PASS
+Voltage at Pmax (Vmp)       40.3 V           40.5 V           -0.49%          PASS
+Current at Pmax (Imp)       9.89 A           9.88 A           +0.10%          PASS
+Open Circuit Voltage (Voc)  48.5 V           48.7 V           -0.41%          PASS
+Short Circuit Current (Isc) 10.52 A          10.54 A          -0.19%          PASS
+Fill Factor (FF)            78.2%            78.0%            +0.26%          PASS
+Module Efficiency           20.3%            20.5%            -0.97%          PASS
+
+VISUAL INSPECTION
+✓ No visible defects
+✓ Cell alignment proper
+✓ Lamination quality good
+✓ Junction box secure
+✓ Cable terminations proper
+✓ Frame integrity good
+✓ Labels and markings clear
+
+MECHANICAL TESTS
+✓ Mechanical load test: PASS (IEC 61215-2 MQT 16)
+✓ Hail impact test: PASS (IEC 61215-2 MQT 17)
+
+ELECTRICAL SAFETY TESTS
+✓ Wet leakage current: PASS (IEC 61215-2 MQT 11)
+✓ Insulation test: PASS (>40 MΩ)
+✓ Ground continuity: PASS (<0.1 Ω)
+
+THERMAL IMAGING
+No hot spots detected under operating conditions.
+Maximum temperature differential: 3.2°C (acceptable)
+
+CONCLUSION
+The tested photovoltaic module meets all requirements of IEC 61215 and IEC 61730 standards.
+The module performance is within specified tolerances.
+
+OVERALL RESULT: PASS
+
+TEST PERSONNEL
+Test Technician: Rajesh Kumar
+Test Engineer: Priya Sharma
+Technical Reviewer: Dr. Arun Patel
+Laboratory Manager: Suresh Reddy
+
+EQUIPMENT USED
+1. Solar Simulator: Model SS-3000, Cal Due: 15-Aug-2024
+2. I-V Curve Tracer: Model IVT-500, Cal Due: 20-Jul-2024
+3. Pyranometer: Model PSP-100, Cal Due: 10-Jun-2024
+4. Temperature Sensor: Model PT-100, Cal Due: 05-Sep-2024
+
+Date of Test: 18-March-2024 to 20-March-2024
+Date of Report Issue: 20-March-2024
+
+This report shall not be reproduced except in full without written permission.
+
+End of Report
