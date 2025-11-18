@@ -1,0 +1,44 @@
+# Core dependencies for PV Test Report Automation
+# LaTeX Report Export Engine
+
+# Template engine
+Jinja2>=3.1.2
+
+# Image processing for charts and graphs
+Pillow>=10.0.0
+
+# Data manipulation and analysis
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Chart/graph generation
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# PDF manipulation and watermarking
+PyPDF2>=3.0.0
+
+# Data validation
+pydantic>=2.0.0
+
+# Date/time handling
+python-dateutil>=2.8.2
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Code quality
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.4.0
+
+# Logging
+loguru>=0.7.0
+
+# Configuration management
+python-dotenv>=1.0.0
+PyYAML>=6.0
+
+# Optional: For advanced PDF features
+reportlab>=4.0.0

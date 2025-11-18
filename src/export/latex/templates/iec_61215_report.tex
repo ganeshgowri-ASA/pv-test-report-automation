@@ -1,0 +1,437 @@
+\documentclass[11pt,a4paper]{article}
+
+% Essential packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{watermark}
+\usepackage{datetime}
+
+% Page geometry
+\geometry{
+    a4paper,
+    left=25mm,
+    right=25mm,
+    top=30mm,
+    bottom=30mm,
+    headheight=15mm,
+    footskip=15mm
+}
+
+% Define colors
+\definecolor{HeaderBlue}{RGB}{31, 119, 180}
+\definecolor{AccentOrange}{RGB}{255, 127, 14}
+\definecolor{PassGreen}{RGB}{34, 139, 34}
+\definecolor{FailRed}{RGB}{220, 20, 60}
+\definecolor{Gray}{RGB}{128, 128, 128}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=HeaderBlue,
+    filecolor=HeaderBlue,
+    urlcolor=HeaderBlue,
+    citecolor=HeaderBlue,
+    pdftitle={\VAR{metadata.report_number} - PV Module Test Report},
+    pdfauthor={\VAR{lab_info.lab_name}},
+    pdfsubject={IEC 61215 Photovoltaic Module Testing},
+    pdfkeywords={PV, Solar, Testing, IEC 61215, \VAR{module_info.manufacturer}}
+}
+
+% Watermark for draft reports
+\BLOCK{if metadata.is_draft}
+\usepackage{draftwatermark}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{5}
+\SetWatermarkColor[gray]{0.9}
+\BLOCK{endif}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{
+    \BLOCK{if lab_info.logo_path}
+    \includegraphics[height=12mm]{\VAR{lab_info.logo_path}}
+    \BLOCK{else}
+    \textbf{\VAR{lab_info.lab_name}}
+    \BLOCK{endif}
+}
+\fancyhead[R]{
+    \BLOCK{if lab_info.nabl_logo_path}
+    \includegraphics[height=12mm]{\VAR{lab_info.nabl_logo_path}}
+    \BLOCK{endif}
+}
+\fancyfoot[L]{\small ISO/IEC 17025:\VAR{metadata.report_date|format_date('%Y')} Accredited}
+\fancyfoot[C]{\small Report No: \VAR{metadata.report_number}}
+\fancyfoot[R]{\small Page \thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% Custom commands
+\newcommand{\testresult}[1]{%
+    \IfEqCase{#1}{%
+        {PASS}{\textcolor{PassGreen}{\textbf{PASS}}}%
+        {FAIL}{\textcolor{FailRed}{\textbf{FAIL}}}%
+        {CONDITIONAL}{\textcolor{AccentOrange}{\textbf{CONDITIONAL}}}%
+    }[\textcolor{Gray}{#1}]%
+}
+
+\newcommand{\highlight}[1]{\colorbox{yellow!30}{#1}}
+
+% Document begins
+\begin{document}
+
+% Title Page
+\begin{titlepage}
+    \centering
+
+    \vspace*{1cm}
+
+    % Lab logo
+    \BLOCK{if lab_info.logo_path}
+    \includegraphics[width=0.4\textwidth]{\VAR{lab_info.logo_path}}
+    \BLOCK{else}
+    {\Huge \textbf{\VAR{lab_info.lab_name}}}
+    \BLOCK{endif}
+
+    \vspace{1cm}
+
+    % Accreditation marks
+    \BLOCK{if lab_info.nabl_logo_path}
+    \includegraphics[height=20mm]{\VAR{lab_info.nabl_logo_path}}
+    \hspace{1cm}
+    \BLOCK{endif}
+
+    \vspace{1.5cm}
+
+    {\Huge \textbf{Test Report}}
+
+    \vspace{0.5cm}
+
+    {\Large \textbf{Photovoltaic Module Type Testing}}
+
+    {\Large \textbf{IEC 61215-2:2021}}
+
+    \vspace{2cm}
+
+    % Module information
+    \begin{tabular}{rl}
+        \textbf{Manufacturer:} & \VAR{module_info.manufacturer} \\
+        \textbf{Model:} & \VAR{module_info.model} \\
+        \textbf{Serial Number:} & \VAR{module_info.serial_number} \\
+        \textbf{Rated Power:} & \VAR{module_info.rated_power|format_number(1)} W \\
+    \end{tabular}
+
+    \vspace{2cm}
+
+    % Report metadata
+    \begin{tabular}{rl}
+        \textbf{Report Number:} & \VAR{metadata.report_number} \\
+        \textbf{Report Date:} & \VAR{metadata.report_date|format_date} \\
+        \textbf{Version:} & \VAR{metadata.report_version} \\
+        \BLOCK{if metadata.customer_name}
+        \textbf{Customer:} & \VAR{metadata.customer_name} \\
+        \BLOCK{endif}
+    \end{tabular}
+
+    \vfill
+
+    % Footer
+    {\small
+    \VAR{lab_info.lab_name} \\
+    \VAR{lab_info.lab_address} \\
+    \BLOCK{if lab_info.contact_email}
+    Email: \VAR{lab_info.contact_email} \\
+    \BLOCK{endif}
+    \BLOCK{if lab_info.contact_phone}
+    Phone: \VAR{lab_info.contact_phone} \\
+    \BLOCK{endif}
+    Accreditation: \VAR{lab_info.accreditation_body} - \VAR{lab_info.accreditation_number}
+    }
+
+    \BLOCK{if metadata.is_draft}
+    \vspace{0.5cm}
+    {\Large \textcolor{red}{\textbf{DRAFT - NOT FOR DISTRIBUTION}}}
+    \BLOCK{endif}
+
+\end{titlepage}
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% List of Figures and Tables
+\listoffigures
+\listoftables
+\newpage
+
+%#----------------------------------------------------------
+%# 1. INTRODUCTION
+%#----------------------------------------------------------
+\section{Introduction}
+
+This test report presents the results of photovoltaic (PV) module testing performed in accordance with IEC 61215-2:2021 - Terrestrial photovoltaic (PV) modules - Design qualification and type approval - Part 2: Test procedures.
+
+\subsection{Scope}
+
+The testing covers the Module Sequence Testing (MST) requirements for crystalline silicon terrestrial photovoltaic modules to assess the electrical, mechanical, and thermal performance characteristics.
+
+\subsection{Laboratory Information}
+
+\begin{itemize}
+    \item \textbf{Laboratory Name:} \VAR{lab_info.lab_name}
+    \item \textbf{Address:} \VAR{lab_info.lab_address}
+    \item \textbf{Accreditation:} \VAR{lab_info.accreditation_body} Certificate No. \VAR{lab_info.accreditation_number}
+    \item \textbf{ISO/IEC 17025:} \BLOCK{if lab_info.iso17025_certified}Certified\BLOCK{else}Not Certified\BLOCK{endif}
+\end{itemize}
+
+%#----------------------------------------------------------
+%# 2. MODULE UNDER TEST
+%#----------------------------------------------------------
+\section{Module Under Test}
+
+\begin{table}[H]
+\centering
+\caption{Module Specifications}
+\label{tab:module_specs}
+\begin{tabular}{ll}
+\toprule
+\textbf{Parameter} & \textbf{Value} \\
+\midrule
+Manufacturer & \VAR{module_info.manufacturer} \\
+Model Number & \VAR{module_info.model} \\
+Serial Number & \VAR{module_info.serial_number} \\
+Module Type & \VAR{module_info.module_type} \\
+Cell Technology & \VAR{module_info.cell_technology} \\
+\midrule
+Rated Power (P\textsubscript{max}) & \VAR{module_info.rated_power|format_number(1)} W \\
+Rated Voltage (V\textsubscript{mp}) & \VAR{module_info.rated_voltage|format_number(2)} V \\
+Rated Current (I\textsubscript{mp}) & \VAR{module_info.rated_current|format_number(2)} A \\
+\BLOCK{if module_info.dimensions}
+Dimensions & \VAR{module_info.dimensions} \\
+\BLOCK{endif}
+\BLOCK{if module_info.weight}
+Weight & \VAR{module_info.weight|format_number(1)} kg \\
+\BLOCK{endif}
+\BLOCK{if module_info.manufacturing_date}
+Manufacturing Date & \VAR{module_info.manufacturing_date|format_date} \\
+\BLOCK{endif}
+\bottomrule
+\end{tabular}
+\end{table}
+
+%#----------------------------------------------------------
+%# 3. TEST SEQUENCES AND RESULTS
+%#----------------------------------------------------------
+\section{Test Sequences and Results}
+
+The module was subjected to the following test sequences as per IEC 61215-2:2021:
+
+\subsection{Summary of Test Results}
+
+\begin{table}[H]
+\centering
+\caption{Test Sequence Summary}
+\label{tab:test_summary}
+\begin{tabular}{llll}
+\toprule
+\textbf{Sequence ID} & \textbf{Test Name} & \textbf{Date} & \textbf{Result} \\
+\midrule
+\BLOCK{for seq in test_sequences}
+\VAR{seq.sequence_id} & \VAR{seq.sequence_name} & \VAR{seq.test_date|format_date} & \VAR{seq.overall_result|pass_fail} \\
+\BLOCK{endfor}
+\bottomrule
+\end{tabular}
+\end{table}
+
+%# Detailed test results for each sequence
+\BLOCK{for seq in test_sequences}
+
+\subsection{\VAR{seq.sequence_id}: \VAR{seq.sequence_name}}
+
+\textbf{Standard Reference:} \VAR{seq.standard_reference}
+
+\textbf{Test Date:} \VAR{seq.test_date|format_datetime}
+
+\textbf{Operator:} \VAR{seq.operator}
+
+\textbf{Overall Result:} \VAR{seq.overall_result|pass_fail}
+
+\BLOCK{if seq.test_conditions}
+\subsubsection{Test Conditions}
+\begin{itemize}
+\BLOCK{for key, value in seq.test_conditions.items()}
+    \item \textbf{\VAR{key}:} \VAR{value}
+\BLOCK{endfor}
+\end{itemize}
+\BLOCK{endif}
+
+\BLOCK{if seq.measurements}
+\subsubsection{Measurements}
+
+\begin{longtable}{llllll}
+\caption{Measurement Results for \VAR{seq.sequence_id}} \\
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Unit} & \textbf{Uncertainty} & \textbf{Specification} & \textbf{Result} \\
+\midrule
+\endfirsthead
+
+\multicolumn{6}{c}%
+{{\tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Unit} & \textbf{Uncertainty} & \textbf{Specification} & \textbf{Result} \\
+\midrule
+\endhead
+
+\midrule \multicolumn{6}{r}{{Continued on next page}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\BLOCK{for meas in seq.measurements}
+\VAR{meas.parameter} &
+\VAR{meas.value|format_number(3)} &
+\VAR{meas.unit} &
+\BLOCK{if meas.uncertainty}\VAR{meas.uncertainty|format_number(3)}\BLOCK{else}--\BLOCK{endif} &
+\BLOCK{if meas.specification}\VAR{meas.specification}\BLOCK{else}--\BLOCK{endif} &
+\VAR{meas.result|pass_fail} \\
+\BLOCK{endfor}
+
+\end{longtable}
+\BLOCK{endif}
+
+\BLOCK{if seq.remarks}
+\subsubsection{Remarks}
+\VAR{seq.remarks}
+\BLOCK{endif}
+
+\BLOCK{endfor}
+
+%#----------------------------------------------------------
+%# 4. CHARTS AND GRAPHS
+%#----------------------------------------------------------
+\BLOCK{if charts}
+\section{Charts and Graphs}
+
+\BLOCK{for chart in charts}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{\VAR{chart.file_path}}
+\caption{\VAR{chart.title}}
+\label{fig:\VAR{loop.index}}
+\end{figure}
+\BLOCK{endfor}
+
+\BLOCK{endif}
+
+%#----------------------------------------------------------
+%# 5. SUMMARY AND CONCLUSIONS
+%#----------------------------------------------------------
+\section{Summary and Conclusions}
+
+\subsection{Overall Test Result}
+
+Based on the test sequences performed, the overall result for the module under test is:
+
+\begin{center}
+\Large \textbf{\VAR{overall_result|pass_fail}}
+\end{center}
+
+\BLOCK{if summary}
+\subsection{Summary}
+\VAR{summary}
+\BLOCK{endif}
+
+\BLOCK{if conclusions}
+\subsection{Conclusions}
+\VAR{conclusions}
+\BLOCK{endif}
+
+\BLOCK{if deviations}
+\subsection{Deviations from Standard}
+\VAR{deviations}
+\BLOCK{endif}
+
+%#----------------------------------------------------------
+%# 6. SIGNATURE BLOCKS
+%#----------------------------------------------------------
+\section{Approvals}
+
+\vspace{2cm}
+
+\begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}}
+\textbf{Prepared by:} & \textbf{Reviewed by:} \\[2cm]
+\rule{6cm}{0.4pt} & \rule{6cm}{0.4pt} \\
+\VAR{metadata.prepared_by} & \BLOCK{if metadata.reviewed_by}\VAR{metadata.reviewed_by}\BLOCK{else}Pending\BLOCK{endif} \\
+\VAR{metadata.report_date|format_date} & \BLOCK{if metadata.review_date}\VAR{metadata.review_date|format_date}\BLOCK{else}Pending\BLOCK{endif} \\
+\end{tabular}
+
+\vspace{2cm}
+
+\begin{tabular}{p{0.45\textwidth}}
+\textbf{Approved by:} \\[2cm]
+\rule{6cm}{0.4pt} \\
+\BLOCK{if metadata.approved_by}\VAR{metadata.approved_by}\BLOCK{else}Pending\BLOCK{endif} \\
+\BLOCK{if metadata.approval_date}\VAR{metadata.approval_date|format_date}\BLOCK{else}Pending\BLOCK{endif} \\
+\end{tabular}
+
+%#----------------------------------------------------------
+%# 7. FOOTER COMPLIANCE STATEMENT
+%#----------------------------------------------------------
+\vfill
+
+\begin{center}
+\fbox{
+\begin{minipage}{0.9\textwidth}
+\centering
+\small
+\textbf{ISO/IEC 17025 Compliance Statement}
+
+This test report is issued by \VAR{lab_info.lab_name}, an ISO/IEC 17025 accredited testing laboratory.
+The tests were performed in accordance with the requirements of IEC 61215-2:2021 and ISO/IEC 17025.
+
+Accreditation Body: \VAR{lab_info.accreditation_body} \\
+Certificate Number: \VAR{lab_info.accreditation_number}
+
+\textit{This report shall not be reproduced except in full without written approval from the laboratory.}
+\end{minipage}
+}
+\end{center}
+
+%#----------------------------------------------------------
+%# APPENDICES (if needed)
+%#----------------------------------------------------------
+\BLOCK{if attachments}
+\newpage
+\appendix
+\section{Attachments}
+
+The following documents are attached to this report:
+
+\begin{enumerate}
+\BLOCK{for attachment in attachments}
+    \item \VAR{attachment}
+\BLOCK{endfor}
+\end{enumerate}
+
+\BLOCK{endif}
+
+\end{document}
