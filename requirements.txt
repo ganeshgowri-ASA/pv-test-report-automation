@@ -1,0 +1,18 @@
+# Core dependencies for PV Test Report Automation
+# Phase 6: Calibration Certificate Management System
+
+# Optional: PDF parsing (uncomment if needed)
+# PyPDF2>=3.0.0
+# pdfplumber>=0.10.0
+
+# Database
+# sqlite3 is built into Python
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Code quality
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
