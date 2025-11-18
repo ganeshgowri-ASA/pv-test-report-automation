@@ -1,0 +1,40 @@
+# PV Test Report Automation - Dependencies
+
+# Core Dependencies
+sqlalchemy>=2.0.0
+python-dateutil>=2.8.2
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Logging and Configuration
+python-dotenv>=1.0.0
+pyyaml>=6.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Database
+alembic>=1.12.0  # Database migrations
+
+# Reporting
+reportlab>=4.0.0  # PDF generation
+openpyxl>=3.1.0   # Excel export
+jinja2>=3.1.2     # Report templates
+
+# API (Optional)
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.0.0
+
+# Development
+black>=23.0.0     # Code formatting
+flake8>=6.0.0     # Linting
+mypy>=1.5.0       # Type checking
+isort>=5.12.0     # Import sorting
+
+# Documentation
+mkdocs>=1.5.0
+mkdocs-material>=9.4.0
