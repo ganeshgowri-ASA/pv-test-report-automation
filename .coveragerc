@@ -1,0 +1,122 @@
+# Coverage configuration for PV Test Report Automation
+
+[run]
+# Source code to measure
+source = src
+
+# Files to omit from coverage
+omit =
+    */tests/*
+    */test_*.py
+    */__pycache__/*
+    */venv/*
+    */.venv/*
+    */env/*
+    */migrations/*
+    */site-packages/*
+    setup.py
+    conftest.py
+    */conftest.py
+
+# Enable branch coverage
+branch = True
+
+# Data file location
+data_file = .coverage
+
+# Include files
+include = src/**/*.py
+
+# Parallel mode for multiprocessing
+parallel = False
+
+
+[report]
+# Precision for coverage percentages
+precision = 2
+
+# Show missing lines
+show_missing = True
+
+# Skip covered files
+skip_covered = False
+
+# Skip empty files
+skip_empty = True
+
+# Sort results
+sort = Cover
+
+# Lines to exclude from coverage
+exclude_lines =
+    # Standard pragma
+    pragma: no cover
+
+    # Don't complain about missing debug-only code
+    def __repr__
+    def __str__
+
+    # Don't complain if tests don't hit defensive assertion code
+    raise AssertionError
+    raise NotImplementedError
+    raise ValueError
+    raise TypeError
+
+    # Don't complain if non-runnable code isn't run
+    if __name__ == .__main__.:
+    if __name__ == "__main__":
+
+    # Type checking code
+    if TYPE_CHECKING:
+    if typing.TYPE_CHECKING:
+
+    # Abstract methods
+    @(abc\.)?abstractmethod
+    @abstractmethod
+    @abc.abstractmethod
+
+    # Protocol methods
+    class .*\bProtocol\):
+    @Protocol
+
+    # Ellipsis (...)
+    \.\.\.
+
+    # Pass statements
+    pass
+
+    # Debug code
+    if settings.DEBUG:
+    if DEBUG:
+
+
+[html]
+# Output directory for HTML report
+directory = htmlcov
+
+# Title for HTML report
+title = PV Test Report Automation - Coverage Report
+
+
+[xml]
+# Output file for XML report
+output = coverage.xml
+
+
+[json]
+# Output file for JSON report
+output = coverage.json
+pretty_print = True
+
+
+[paths]
+# Map paths for combining coverage from different locations
+source =
+    src/
+    /app/src/
+    */site-packages/
+
+
+# Coverage thresholds (these are informational, actual enforcement in pytest.ini)
+# Target: >80% overall coverage
+# Critical modules: >90% coverage

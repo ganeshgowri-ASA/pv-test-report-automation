@@ -1,0 +1,17 @@
+# LLM Integration Module Dependencies
+
+# OpenAI Integration
+openai>=1.0.0
+
+# Google Gemini Integration
+google-generativeai>=0.3.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.1
+
+# Optional: For enhanced functionality
+# Anthropic Claude (future integration)
+# anthropic>=0.8.0
