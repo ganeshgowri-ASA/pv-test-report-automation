@@ -1,0 +1,107 @@
+# PV Test Report Automation - Production Configuration
+
+# Database Configuration
+database:
+  type: postgresql
+  host: ${DB_HOST:localhost}
+  port: ${DB_PORT:5432}
+  name: ${DB_NAME:pv_test_automation}
+  user: ${DB_USER:postgres}
+  password: ${DB_PASSWORD:}
+  pool_size: 20
+  max_overflow: 40
+
+# Redis Configuration (for caching and session management)
+redis:
+  host: ${REDIS_HOST:localhost}
+  port: ${REDIS_PORT:6379}
+  db: ${REDIS_DB:0}
+  password: ${REDIS_PASSWORD:}
+
+# LLM Configuration
+llm:
+  default_provider: claude
+
+  claude:
+    model: claude-3-5-sonnet-20241022
+    max_tokens: 4096
+    temperature: 0.3
+
+  openai:
+    model: gpt-4-turbo-preview
+    max_tokens: 4096
+    temperature: 0.3
+
+  gemini:
+    model: gemini-1.5-pro
+    max_tokens: 4096
+    temperature: 0.3
+
+# Storage Configuration
+storage:
+  base_path: ./data
+  reports_path: ./data/reports
+  uploads_path: ./data/uploads
+  temp_path: ./data/temp
+  max_upload_size_mb: 100
+
+# Test Protocols Configuration
+protocols:
+  iec_61215:
+    damp_heat_cycles: 200
+    thermal_cycling_cycles: 200
+    humidity_freeze_cycles: 10
+
+  iec_61730:
+    safety_class: I
+    application_class: A
+
+  iec_61853:
+    temperature_range: [-40, 85]
+    irradiance_range: [100, 1100]
+
+  iec_61701:
+    severity_levels: [1, 2, 3, 4, 5, 6]
+    default_severity: 3
+
+# Export Configuration
+export:
+  formats: [pdf, docx, xlsx, html, json, xml]
+  default_format: pdf
+  batch_size: 50
+  compression: true
+
+# Security Configuration
+security:
+  jwt_secret_key: ${JWT_SECRET_KEY}
+  jwt_algorithm: HS256
+  access_token_expire_minutes: 30
+  refresh_token_expire_days: 7
+
+# API Configuration
+api:
+  host: 0.0.0.0
+  port: 8000
+  workers: 4
+  reload: false
+  log_level: info
+
+# UI Configuration
+ui:
+  streamlit_port: 8501
+  theme: light
+  max_file_size_mb: 100
+
+# Monitoring Configuration
+monitoring:
+  prometheus_port: 9090
+  metrics_enabled: true
+  log_level: INFO
+
+# ISO 17025 / NABL Compliance
+compliance:
+  iso_17025: true
+  nabl_accredited: true
+  calibration_due_days_warning: 30
+  audit_trail_enabled: true
+  digital_signature_required: true
