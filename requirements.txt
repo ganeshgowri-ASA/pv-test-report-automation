@@ -1,0 +1,79 @@
+# PV Test Report Automation - Security Core Dependencies
+# Phase 1 Session 03: Security Core Implementation
+
+# ==========================================
+# Cryptography and Security
+# ==========================================
+cryptography>=41.0.7          # AES, Fernet, PBKDF2, key management
+bcrypt>=4.1.2                 # Password hashing (bcrypt algorithm)
+pyjwt>=2.8.0                  # JWT token generation and validation
+python-jose[cryptography]>=3.3.0  # Additional JWT support with cryptography
+
+# ==========================================
+# FastAPI and Web Framework
+# ==========================================
+fastapi>=0.109.0              # Modern web framework with async support
+uvicorn[standard]>=0.27.0     # ASGI server for FastAPI
+python-multipart>=0.0.6       # Form data parsing for OAuth2
+
+# ==========================================
+# Data Validation and Models
+# ==========================================
+pydantic>=2.5.3               # Data validation and settings management
+pydantic[email]>=2.5.3        # Email validation support
+email-validator>=2.1.0        # Email address validation
+
+# ==========================================
+# Security Headers and CORS
+# ==========================================
+python-dotenv>=1.0.0          # Environment variable management
+passlib[bcrypt]>=1.7.4        # Additional password hashing utilities
+
+# ==========================================
+# Database (for future sessions)
+# ==========================================
+sqlalchemy>=2.0.25            # SQL toolkit and ORM
+alembic>=1.13.1               # Database migrations
+asyncpg>=0.29.0               # Async PostgreSQL driver
+psycopg2-binary>=2.9.9        # PostgreSQL adapter
+
+# ==========================================
+# Testing and Development
+# ==========================================
+pytest>=7.4.4                 # Testing framework
+pytest-asyncio>=0.23.3        # Async test support
+pytest-cov>=4.1.0             # Coverage reporting
+httpx>=0.26.0                 # Async HTTP client for testing
+faker>=22.0.0                 # Fake data generation for tests
+
+# ==========================================
+# Code Quality
+# ==========================================
+black>=23.12.1                # Code formatter
+flake8>=7.0.0                 # Linting
+mypy>=1.8.0                   # Static type checking
+isort>=5.13.2                 # Import sorting
+pylint>=3.0.3                 # Advanced linting
+
+# ==========================================
+# Documentation
+# ==========================================
+mkdocs>=1.5.3                 # Documentation generator
+mkdocs-material>=9.5.3        # Material theme for MkDocs
+
+# ==========================================
+# Logging and Monitoring
+# ==========================================
+python-json-logger>=2.0.7     # JSON formatted logging
+structlog>=24.1.0             # Structured logging
+
+# ==========================================
+# Date and Time
+# ==========================================
+python-dateutil>=2.8.2        # Date/time utilities
+
+# ==========================================
+# Additional Utilities
+# ==========================================
+typing-extensions>=4.9.0      # Backported typing features
+six>=1.16.0                   # Python 2/3 compatibility utilities
