@@ -1,0 +1,18 @@
+# Development dependencies
+-r requirements.txt
+
+# Testing
+pytest>=7.4
+pytest-cov>=4.1
+pytest-mock>=3.11
+pytest-asyncio>=0.21
+
+# Code quality
+black>=23.0
+ruff>=0.1
+mypy>=1.5
+isort>=5.12
+
+# Type stubs
+types-requests>=2.31
+types-PyYAML>=6.0
