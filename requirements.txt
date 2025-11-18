@@ -1,0 +1,39 @@
+# PV Test Report Automation - Dependencies
+
+# Core dependencies
+pydantic>=2.0.0
+requests>=2.31.0
+python-dateutil>=2.8.2
+
+# Data processing
+lxml>=4.9.0
+
+# Optional dependencies for enhanced functionality
+
+# Visio file parsing (.vsdx)
+# Note: python-vsdx is not available via pip, we're using direct XML parsing with lxml
+
+# MS Project file parsing (.mpp)
+# mpxj>=1.0.0  # Uncomment if .mpp support needed (requires Java)
+# JPype1>=1.4.0  # Required for mpxj
+
+# Smartsheet API
+# Already covered by requests library
+
+# SVG to PNG conversion (optional)
+# cairosvg>=2.7.0  # Uncomment for PNG export from Visio diagrams
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+
+# Development tools
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0
+isort>=5.12.0
+
+# Documentation
+mkdocs>=1.5.0
+mkdocs-material>=9.0.0

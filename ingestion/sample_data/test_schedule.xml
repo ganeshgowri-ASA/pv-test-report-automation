@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns="http://schemas.microsoft.com/project">
+  <Title>PV Module Testing Schedule</Title>
+  <Name>PV Module IEC 61215 Test Schedule</Name>
+  <StartDate>2025-01-15T08:00:00</StartDate>
+  <FinishDate>2025-03-30T17:00:00</FinishDate>
+  <Tasks>
+    <Task>
+      <UID>1</UID>
+      <ID>1</ID>
+      <Name>Equipment Calibration</Name>
+      <Start>2025-01-15T08:00:00</Start>
+      <Finish>2025-01-17T17:00:00</Finish>
+      <PercentComplete>100</PercentComplete>
+      <Priority>800</Priority>
+      <Notes>Calibrate all test equipment per ISO 17025</Notes>
+    </Task>
+    <Task>
+      <UID>2</UID>
+      <ID>2</ID>
+      <Name>Sample Reception and Visual Inspection</Name>
+      <Start>2025-01-18T08:00:00</Start>
+      <Finish>2025-01-18T17:00:00</Finish>
+      <PercentComplete>100</PercentComplete>
+      <Priority>700</Priority>
+      <PredecessorLink>
+        <PredecessorUID>1</PredecessorUID>
+      </PredecessorLink>
+    </Task>
+    <Task>
+      <UID>3</UID>
+      <ID>3</ID>
+      <Name>Thermal Cycling Test (TC 200)</Name>
+      <Start>2025-01-20T08:00:00</Start>
+      <Finish>2025-02-05T17:00:00</Finish>
+      <PercentComplete>75</PercentComplete>
+      <Priority>900</Priority>
+      <Cost>15000</Cost>
+      <PredecessorLink>
+        <PredecessorUID>2</PredecessorUID>
+      </PredecessorLink>
+      <Assignment>
+        <ResourceUID>101</ResourceUID>
+      </Assignment>
+    </Task>
+    <Task>
+      <UID>4</UID>
+      <ID>4</ID>
+      <Name>Humidity Freeze Test (HF 10)</Name>
+      <Start>2025-02-06T08:00:00</Start>
+      <Finish>2025-02-15T17:00:00</Finish>
+      <PercentComplete>25</PercentComplete>
+      <Priority>900</Priority>
+      <Cost>12000</Cost>
+      <PredecessorLink>
+        <PredecessorUID>3</PredecessorUID>
+      </PredecessorLink>
+      <Assignment>
+        <ResourceUID>102</ResourceUID>
+      </Assignment>
+    </Task>
+    <Task>
+      <UID>5</UID>
+      <ID>5</ID>
+      <Name>Damp Heat Test (DH 1000)</Name>
+      <Start>2025-02-16T08:00:00</Start>
+      <Finish>2025-03-10T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <Priority>900</Priority>
+      <Cost>18000</Cost>
+      <PredecessorLink>
+        <PredecessorUID>4</PredecessorUID>
+      </PredecessorLink>
+      <Assignment>
+        <ResourceUID>103</ResourceUID>
+      </Assignment>
+    </Task>
+    <Task>
+      <UID>6</UID>
+      <ID>6</ID>
+      <Name>Final IV Measurement and Analysis</Name>
+      <Start>2025-03-11T08:00:00</Start>
+      <Finish>2025-03-13T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <Priority>800</Priority>
+      <PredecessorLink>
+        <PredecessorUID>5</PredecessorUID>
+      </PredecessorLink>
+    </Task>
+    <Task>
+      <UID>7</UID>
+      <ID>7</ID>
+      <Name>Test Report Generation</Name>
+      <Start>2025-03-14T08:00:00</Start>
+      <Finish>2025-03-20T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <Priority>700</Priority>
+      <PredecessorLink>
+        <PredecessorUID>6</PredecessorUID>
+      </PredecessorLink>
+    </Task>
+    <Task>
+      <UID>8</UID>
+      <ID>8</ID>
+      <Name>Technical Review and Approval</Name>
+      <Start>2025-03-21T08:00:00</Start>
+      <Finish>2025-03-25T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <Priority>800</Priority>
+      <PredecessorLink>
+        <PredecessorUID>7</PredecessorUID>
+      </PredecessorLink>
+    </Task>
+    <Task>
+      <UID>9</UID>
+      <ID>9</ID>
+      <Name>Certificate Issuance</Name>
+      <Start>2025-03-26T08:00:00</Start>
+      <Finish>2025-03-26T17:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <Priority>500</Priority>
+      <PredecessorLink>
+        <PredecessorUID>8</PredecessorUID>
+      </PredecessorLink>
+    </Task>
+    <Task>
+      <UID>10</UID>
+      <ID>10</ID>
+      <Name>Project Milestone: Testing Complete</Name>
+      <Start>2025-03-30T08:00:00</Start>
+      <Finish>2025-03-30T08:00:00</Finish>
+      <PercentComplete>0</PercentComplete>
+      <Priority>500</Priority>
+    </Task>
+  </Tasks>
+</Project>
