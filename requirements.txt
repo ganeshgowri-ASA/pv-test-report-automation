@@ -1,0 +1,28 @@
+# Excel Data Ingestion Engine - Dependencies
+
+# Core Excel handling
+openpyxl>=3.1.2          # Modern Excel formats (.xlsx, .xlsm, .xlsb)
+xlrd>=2.0.1              # Legacy Excel format (.xls)
+
+# Data processing
+pandas>=2.0.0            # DataFrame operations
+numpy>=1.24.0            # Numerical computations
+
+# Statistical analysis
+scipy>=1.10.0            # Statistical functions for outlier detection
+
+# Data validation and modeling
+pydantic>=2.0.0          # Data validation and schema definition
+
+# Testing
+pytest>=7.4.0            # Testing framework
+pytest-cov>=4.1.0        # Code coverage
+
+# Optional: Enhanced functionality
+python-dateutil>=2.8.2   # Advanced date parsing
+pytz>=2023.3             # Timezone support
+
+# Development tools
+black>=23.0.0            # Code formatting
+flake8>=6.0.0            # Linting
+mypy>=1.4.0              # Type checking
