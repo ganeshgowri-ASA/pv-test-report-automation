@@ -1,0 +1,29 @@
+# PV Test Report Automation - Electroluminescence Module
+# Python 3.8+ required
+
+# Core Image Processing
+numpy>=1.21.0,<2.0.0
+opencv-python>=4.5.0
+Pillow>=9.0.0
+
+# Advanced Image Processing and ML
+scikit-image>=0.19.0
+scipy>=1.7.0
+
+# Visualization and Reporting
+matplotlib>=3.5.0
+
+# Optional: Deep Learning (for future ML enhancements)
+# tensorflow>=2.8.0
+# torch>=1.10.0
+
+# Development Dependencies
+pytest>=7.0.0
+pytest-cov>=3.0.0
+black>=22.0.0
+flake8>=4.0.0
+mypy>=0.950
+
+# Documentation
+sphinx>=4.5.0
+sphinx-rtd-theme>=1.0.0
