@@ -1,0 +1,32 @@
+# Core dependencies
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+
+# Export and reporting
+openpyxl>=3.1.0
+reportlab>=4.0.0
+jinja2>=3.1.0
+
+# Equipment communication
+pyserial>=3.5
+pyvisa>=1.13.0
+pyvisa-py>=0.7.0
+
+# Logging and audit
+python-json-logger>=2.0.0
+
+# Validation and standards
+jsonschema>=4.17.0
+
+# Utilities
+python-dateutil>=2.8.0
+pytz>=2023.3
