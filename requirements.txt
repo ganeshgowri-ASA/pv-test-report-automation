@@ -1,0 +1,15 @@
+# PV Test Report Automation Requirements
+# Python 3.8+
+
+# Core dependencies
+python-dateutil>=2.8.2
+
+# Future extensions (commented for now, add as needed)
+# numpy>=1.24.0  # For numerical analysis
+# pandas>=2.0.0  # For data manipulation
+# matplotlib>=3.7.0  # For plotting V-I curves
+# pillow>=10.0.0  # For thermal image processing
+# pyvisa>=1.13.0  # For test equipment communication
+# pytest>=7.4.0  # For testing
+# black>=23.0.0  # For code formatting
+# mypy>=1.5.0  # For type checking
