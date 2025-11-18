@@ -205,3 +205,24 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# PV Test Automation Specific
+# Test data and results
+/data/
+test_results/
+thermal_images/
+*.thermal
+*.img
+
+# Reports
+reports/
+*.pdf
+*.xlsx
+
+# Equipment calibration certificates (sensitive)
+calibration_certificates/
+*.cert
+
+# Configuration overrides
+config/local.yaml
+config/*.local.yaml

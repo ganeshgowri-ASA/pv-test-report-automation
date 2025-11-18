@@ -1,0 +1,102 @@
+# Equipment Configuration for PV Test Lab
+# ISO 17025 Compliant Equipment Setup
+
+# Thermal Imaging Camera
+thermal_camera:
+  type: "FLIR-T1020"
+  resolution: "1024x768"
+  framerate: 30
+  temperature_range:
+    min: -40
+    max: 1200
+  accuracy: 0.02  # ±2% or ±2°C
+  calibration:
+    last_date: "2024-01-15"
+    next_date: "2025-01-15"
+    certificate: "CAL-THERM-2024-001"
+    lab: "NIST-Traceable Lab"
+  connection:
+    interface: "GigE"
+    ip_address: "192.168.1.100"
+    port: 3956
+
+# Solar Simulator
+solar_simulator:
+  type: "Xenon-Arc"
+  manufacturer: "Spire"
+  model: "SPI-SUN-5000"
+  max_irradiance: 1200  # W/m²
+  spectral_class: "A"
+  non_uniformity: 0.02  # ±2%
+  temporal_instability: 0.01  # ±1%
+  spectral_match: "A"
+  calibration:
+    last_date: "2024-02-01"
+    next_date: "2025-02-01"
+    certificate: "CAL-SOLAR-2024-002"
+    reference_cell: "REF-CELL-001"
+  connection:
+    interface: "RS-232"
+    port: "/dev/ttyUSB0"
+    baud_rate: 9600
+
+# Temperature Data Logger
+temp_logger:
+  type: "Agilent-34970A"
+  channels: 8
+  input_type: "thermocouple"
+  thermocouple_type: "K"
+  sample_rate: 10.0  # Hz
+  accuracy: 0.1  # ±0.1°C
+  calibration:
+    last_date: "2024-01-20"
+    next_date: "2025-01-20"
+    certificate: "CAL-LOGGER-2024-003"
+  connection:
+    interface: "GPIB"
+    address: 22
+
+# Environmental Chamber (for future tests)
+environmental_chamber:
+  type: "Espec-SH-641"
+  temperature_range:
+    min: -70
+    max: 180
+  humidity_range:
+    min: 10
+    max: 98
+  ramp_rate: 3.0  # °C/min
+  calibration:
+    last_date: "2024-01-10"
+    next_date: "2025-01-10"
+    certificate: "CAL-CHAMBER-2024-004"
+
+# I-V Curve Tracer (for future tests)
+iv_tracer:
+  type: "Keysight-B2901A"
+  voltage_range:
+    min: -210
+    max: 210
+  current_range:
+    min: -3
+    max: 3
+  accuracy: 0.0015  # 0.15%
+  calibration:
+    last_date: "2024-02-05"
+    next_date: "2025-02-05"
+    certificate: "CAL-IV-2024-005"
+
+# Lab Environment Monitoring
+lab_conditions:
+  temperature_setpoint: 23.0  # °C
+  temperature_tolerance: 2.0  # ±2°C
+  humidity_setpoint: 50.0  # %
+  humidity_tolerance: 10.0  # ±10%
+  monitoring_interval: 60  # seconds
+
+# Safety Settings
+safety:
+  max_module_temperature: 120.0  # °C (emergency shutdown)
+  max_irradiance: 1200.0  # W/m²
+  emergency_stop_enabled: true
+  operator_presence_required: true
