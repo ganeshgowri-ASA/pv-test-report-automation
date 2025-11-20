@@ -1,0 +1,1 @@
+"""Core for unit-tests"""\n\nclass Core:\n    pass\n
