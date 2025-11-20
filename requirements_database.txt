@@ -1,0 +1,31 @@
+# Database Module Requirements
+# Session 01: Database Models
+
+# Core database
+sqlalchemy>=2.0.0
+alembic>=1.12.0
+psycopg2-binary>=2.9.9  # PostgreSQL adapter
+greenlet>=3.0.0  # For async support
+
+# Database utilities
+sqlalchemy-utils>=0.41.1  # Additional utilities
+sqlalchemy-json>=0.7.0  # JSON field support
+
+# Migration and management
+alembic-postgresql-enum>=1.1.0  # Enum migration support
+
+# Security for password hashing
+bcrypt>=4.1.0
+passlib>=1.7.4
+
+# UUID support
+python-ulid>=1.1.0  # Alternative to UUID if needed
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-asyncio>=0.21.0
+faker>=20.0.0  # For generating test data
+
+# Type hints
+sqlalchemy-stubs>=0.4
