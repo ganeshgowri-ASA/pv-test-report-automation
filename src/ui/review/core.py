@@ -1,0 +1,1 @@
+"""Core for ui-review"""\n\nclass Core:\n    pass\n
