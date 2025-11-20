@@ -1,0 +1,1 @@
+"""Core for qa-tests"""\n\nclass Core:\n    pass\n

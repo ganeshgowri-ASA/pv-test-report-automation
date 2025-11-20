@@ -1,0 +1,1 @@
+"""QA tests\n\nSession: 57-qa-tests"""\n__version__ = "0.1.0"\n
