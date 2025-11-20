@@ -1,0 +1,1 @@
+"""Core for integration-tests"""\n\nclass Core:\n    pass\n
