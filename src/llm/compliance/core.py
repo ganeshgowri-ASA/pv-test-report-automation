@@ -1,0 +1,1 @@
+"""Core for llm-compliance"""\n\nclass Core:\n    pass\n
