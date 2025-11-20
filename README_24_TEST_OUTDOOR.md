@@ -1,0 +1,1 @@
+# Session 24: test-outdoor\n\nOutdoor exposure\n\n⚠️ IN DEVELOPMENT\n

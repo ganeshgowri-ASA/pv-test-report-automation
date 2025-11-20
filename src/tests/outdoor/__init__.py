@@ -1,0 +1,1 @@
+"""Outdoor exposure\n\nSession: 24-test-outdoor"""\n__version__ = "0.1.0"\n
