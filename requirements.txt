@@ -1,0 +1,36 @@
+# PV Test Report Automation - Requirements
+# Phase 2: Data Ingestion Dependencies
+
+# Core dependencies
+pydantic>=2.0.0
+python-dateutil>=2.8.0
+
+# Excel parsing (Session 06)
+pandas>=2.0.0
+openpyxl>=3.1.0
+numpy>=1.24.0
+scipy>=1.10.0  # For scientific calculations in protocols
+
+# Document processing (Session 07)
+pdfplumber>=0.10.0
+pypdf>=3.0.0
+python-docx>=1.0.0
+
+# Image processing (Session 08)
+Pillow>=10.0.0
+pytesseract>=0.3.10  # Optional: For OCR
+opencv-python>=4.8.0  # Optional: For advanced image processing
+
+# Database and storage (Session 09)
+sqlalchemy>=2.0.0
+aiosqlite>=0.19.0  # For async SQLite
+asyncpg>=0.29.0  # Optional: For async PostgreSQL
+
+# Development and testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Optional: For production deployments
+# psycopg2-binary>=2.9.0  # PostgreSQL driver
+# mysql-connector-python>=8.0.0  # MySQL driver

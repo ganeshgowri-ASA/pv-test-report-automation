@@ -1,1 +1,9 @@
-"""QA tests\n\nSession: 57-qa-tests"""\n__version__ = "0.1.0"\n
+"""
+QA tests for PV Test Report Automation.
+
+This package contains QA test scenarios, regression tests,
+and performance benchmarks.
+
+Session: 57-qa-tests
+"""
+__version__ = "1.0.0"

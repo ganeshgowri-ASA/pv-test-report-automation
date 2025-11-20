@@ -1,1 +1,8 @@
-"""E2E workflow tests\n\nSession: 58-e2e-workflow"""\n__version__ = "0.1.0"\n
+"""
+End-to-end tests for PV Test Report Automation.
+
+This package contains E2E tests using Selenium/Playwright for browser automation.
+
+Session: 58-e2e-workflow
+"""
+__version__ = "1.0.0"

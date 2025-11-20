@@ -1,0 +1,30 @@
+# Workflow Management System Dependencies
+
+# Core dependencies
+sqlalchemy>=2.0.0,<3.0.0
+jinja2>=3.0.0,<4.0.0
+
+# Testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional email dependencies (for production email sending)
+# Uncomment if using SMTP email notifications
+# email-validator>=2.0.0
+
+# Optional third-party integrations (for production use)
+# Uncomment as needed based on your notification channels
+
+# Slack integration
+# slack-sdk>=3.0.0
+
+# Microsoft Teams integration
+# pymsteams>=0.2.0
+
+# SMS integration (Twilio)
+# twilio>=8.0.0
+
+# Development dependencies
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0

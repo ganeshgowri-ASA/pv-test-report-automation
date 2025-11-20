@@ -5,6 +5,8 @@ PV Test Report Automation System
 A comprehensive photovoltaic testing and reporting automation platform
 compliant with IEC 61215-2021, IEC 61730-2023, ISO 17025, and NABL standards.
 
+Production-ready modules for photovoltaic system test automation.
+
 Modules:
     - database: SQLAlchemy models and database operations
     - config: Configuration management system
@@ -23,7 +25,7 @@ Author: PV Test Automation Team
 License: Proprietary
 """
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 __author__ = "PV Test Automation Team"
 __license__ = "Proprietary"
 

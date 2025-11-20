@@ -1,0 +1,125 @@
+version: '3.8'
+
+services:
+  # Main application service
+  app:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: pv-test-automation
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://pvtest:pvtest123@postgres:5432/pvtest_db
+      - REDIS_URL=redis://redis:6379/0
+      - LOG_LEVEL=INFO
+      - ENVIRONMENT=production
+    volumes:
+      - ../src:/app/src:ro
+      - app_data:/data
+      - app_logs:/logs
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - pv_network
+
+  # PostgreSQL database
+  postgres:
+    image: postgres:15-alpine
+    container_name: pv-postgres
+    environment:
+      - POSTGRES_DB=pvtest_db
+      - POSTGRES_USER=pvtest
+      - POSTGRES_PASSWORD=pvtest123
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pvtest"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - pv_network
+
+  # Redis cache
+  redis:
+    image: redis:7-alpine
+    container_name: pv-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - pv_network
+
+  # Worker service for background tasks
+  worker:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    container_name: pv-worker
+    command: python -m celery -A src.tasks worker --loglevel=info
+    environment:
+      - DATABASE_URL=postgresql://pvtest:pvtest123@postgres:5432/pvtest_db
+      - REDIS_URL=redis://redis:6379/0
+      - LOG_LEVEL=INFO
+    volumes:
+      - ../src:/app/src:ro
+      - app_data:/data
+      - app_logs:/logs
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    networks:
+      - pv_network
+
+  # Nginx reverse proxy (optional)
+  nginx:
+    image: nginx:alpine
+    container_name: pv-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app
+    restart: unless-stopped
+    networks:
+      - pv_network
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  app_data:
+    driver: local
+  app_logs:
+    driver: local
+
+networks:
+  pv_network:
+    driver: bridge

@@ -1,0 +1,33 @@
+# PV Test Report Export Module - Requirements
+
+# Core dependencies (always required)
+# None - base functionality works with Python standard library
+
+# Optional dependencies (install as needed)
+
+# PDF Export
+reportlab>=4.0.0           # PDF generation with ReportLab
+PyPDF2>=3.0.0             # PDF manipulation and watermarks
+# weasyprint>=60.0        # Alternative PDF engine (uncomment if preferred)
+
+# Word Export
+python-docx>=1.0.0        # Word document generation
+
+# HTML Export
+jinja2>=3.1.0             # Template engine
+plotly>=5.18.0            # Interactive charts
+
+# Excel Export
+openpyxl>=3.1.0           # Excel file manipulation
+# xlsxwriter>=3.1.0       # Alternative Excel engine (uncomment if preferred)
+
+# Schema Validation
+jsonschema>=4.20.0        # JSON schema validation
+lxml>=4.9.0               # XML/XSD validation and XSLT
+
+# Development dependencies
+# pytest>=7.4.0           # Testing framework
+# pytest-cov>=4.1.0       # Code coverage
+# black>=23.0.0           # Code formatting
+# mypy>=1.7.0             # Type checking
+# flake8>=6.1.0           # Linting

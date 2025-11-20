@@ -1,1 +1,8 @@
-"""Unit tests\n\nSession: 56-unit-tests"""\n__version__ = "0.1.0"\n
+"""
+Unit tests for PV Test Report Automation.
+
+This package contains unit tests for individual components.
+
+Session: 56-unit-tests
+"""
+__version__ = "1.0.0"
