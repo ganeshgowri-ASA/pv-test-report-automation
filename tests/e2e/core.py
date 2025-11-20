@@ -1,0 +1,1 @@
+"""Core for e2e-workflow"""\n\nclass Core:\n    pass\n
