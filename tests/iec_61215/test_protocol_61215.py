@@ -1,0 +1,1 @@
+"""Tests for protocol-61215"""\nimport pytest\n\ndef test_init():\n    assert True\n
