@@ -1,0 +1,2 @@
+# Requirements for security-core
+# To be defined during implementation
