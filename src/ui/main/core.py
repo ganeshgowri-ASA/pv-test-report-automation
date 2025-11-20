@@ -1,0 +1,1 @@
+"""Core for ui-main"""\n\nclass Core:\n    pass\n
