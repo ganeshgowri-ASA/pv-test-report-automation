@@ -1,0 +1,1 @@
+"""IEC 61730 safety\n\nSession: 12-protocol-61730"""\n__version__ = "0.1.0"\n
