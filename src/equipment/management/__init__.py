@@ -1,0 +1,1 @@
+"""Equipment database\n\nSession: 31-equipment-mgmt"""\n__version__ = "0.1.0"\n

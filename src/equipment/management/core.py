@@ -1,0 +1,1 @@
+"""Core for equipment-mgmt"""\n\nclass Core:\n    pass\n
