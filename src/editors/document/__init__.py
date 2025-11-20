@@ -1,0 +1,1 @@
+"""Document editor\n\nSession: 45-editor-document"""\n__version__ = "0.1.0"\n

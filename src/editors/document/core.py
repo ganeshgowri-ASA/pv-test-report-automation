@@ -1,0 +1,1 @@
+"""Core for editor-document"""\n\nclass Core:\n    pass\n

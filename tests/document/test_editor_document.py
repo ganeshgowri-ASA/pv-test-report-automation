@@ -1,0 +1,1 @@
+"""Tests for editor-document"""\nimport pytest\n\ndef test_init():\n    assert True\n
