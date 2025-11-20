@@ -1,0 +1,1 @@
+"""Excel editor\n\nSession: 46-editor-excel"""\n__version__ = "0.1.0"\n
