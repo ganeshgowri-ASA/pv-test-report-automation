@@ -1,0 +1,1 @@
+"""Core for test-iv"""\n\nclass Core:\n    pass\n
