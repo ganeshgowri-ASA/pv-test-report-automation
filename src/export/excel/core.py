@@ -1,0 +1,1 @@
+"""Core for export-excel"""\n\nclass Core:\n    pass\n
