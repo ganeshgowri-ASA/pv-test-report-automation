@@ -1,0 +1,44 @@
+FROM python:3.11-slim
+
+LABEL maintainer="PV Test Automation Team"
+LABEL description="Streamlit frontend for PV Test Report Automation System"
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first for better caching
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY src/ ./src/
+COPY streamlit_app/ ./streamlit_app/
+COPY config/ ./config/
+COPY assets/ ./assets/
+
+# Create necessary directories
+RUN mkdir -p /app/logs /app/data /app/uploads
+
+# Expose Streamlit port
+EXPOSE 8501
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 --start-period=40s \
+  CMD curl -f http://localhost:8501/_stcore/health || exit 1
+
+# Run Streamlit with production settings
+CMD ["streamlit", "run", "streamlit_app/main.py", \
+     "--server.port=8501", \
+     "--server.address=0.0.0.0", \
+     "--server.headless=true", \
+     "--server.enableCORS=false", \
+     "--server.enableXsrfProtection=true", \
+     "--browser.gatherUsageStats=false"]

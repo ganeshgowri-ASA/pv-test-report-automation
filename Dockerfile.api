@@ -1,0 +1,44 @@
+FROM python:3.11-slim
+
+LABEL maintainer="PV Test Automation Team"
+LABEL description="FastAPI backend for PV Test Report Automation System"
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir uvicorn[standard] gunicorn
+
+# Copy application code
+COPY src/ ./src/
+COPY api/ ./api/
+COPY config/ ./config/
+
+# Create necessary directories
+RUN mkdir -p /app/logs /app/data
+
+# Expose API port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 --start-period=40s \
+  CMD curl -f http://localhost:8000/health || exit 1
+
+# Run API server with Gunicorn and Uvicorn workers
+CMD ["gunicorn", "api.main:app", \
+     "--workers", "4", \
+     "--worker-class", "uvicorn.workers.UvicornWorker", \
+     "--bind", "0.0.0.0:8000", \
+     "--log-level", "info", \
+     "--access-logfile", "-", \
+     "--error-logfile", "-"]

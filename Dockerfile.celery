@@ -1,0 +1,34 @@
+FROM python:3.11-slim
+
+LABEL maintainer="PV Test Automation Team"
+LABEL description="Celery worker for PV Test Report Automation System"
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    curl \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir celery[redis,amqp]
+
+# Copy application code
+COPY src/ ./src/
+COPY api/ ./api/
+COPY config/ ./config/
+
+# Create necessary directories
+RUN mkdir -p /app/logs /app/data
+
+# Run Celery worker
+CMD ["celery", "-A", "api.celery_app", "worker", \
+     "--loglevel=info", \
+     "--concurrency=4", \
+     "--max-tasks-per-child=1000"]
