@@ -1,0 +1,1 @@
+"""Core for optimization"""\n\nclass Core:\n    pass\n
