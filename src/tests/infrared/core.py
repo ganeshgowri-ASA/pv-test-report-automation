@@ -1,0 +1,1 @@
+"""Core for test-ir"""\n\nclass Core:\n    pass\n

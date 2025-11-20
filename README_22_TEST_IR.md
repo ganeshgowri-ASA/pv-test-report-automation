@@ -1,0 +1,1 @@
+# Session 22: test-ir\n\nIR thermography\n\n⚠️ IN DEVELOPMENT\n

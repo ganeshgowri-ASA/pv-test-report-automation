@@ -1,0 +1,1 @@
+"""IR thermography\n\nSession: 22-test-ir"""\n__version__ = "0.1.0"\n
