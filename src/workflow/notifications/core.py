@@ -1,0 +1,1 @@
+"""Core for workflow-notifications"""\n\nclass Core:\n    pass\n
