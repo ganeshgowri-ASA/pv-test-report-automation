@@ -1,0 +1,1 @@
+"""Core for llm-gpt"""\n\nclass Core:\n    pass\n
