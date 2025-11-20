@@ -1,0 +1,1 @@
+"""Core for editor-flowchart"""\n\nclass Core:\n    pass\n

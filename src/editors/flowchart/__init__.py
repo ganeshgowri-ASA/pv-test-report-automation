@@ -1,0 +1,1 @@
+"""Flowchart editor\n\nSession: 47-editor-flowchart"""\n__version__ = "0.1.0"\n
