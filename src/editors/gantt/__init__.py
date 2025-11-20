@@ -1,0 +1,1 @@
+"""Gantt editor\n\nSession: 48-editor-gantt"""\n__version__ = "0.1.0"\n

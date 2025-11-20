@@ -1,0 +1,1 @@
+"""Core for editor-gantt"""\n\nclass Core:\n    pass\n
