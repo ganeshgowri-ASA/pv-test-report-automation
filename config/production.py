@@ -1,0 +1,68 @@
+"""Production configuration.
+
+Session 60: Production Configuration
+- Security hardening
+- Performance optimization
+- Production-ready settings
+"""
+
+# Security settings
+SECRET_KEY_MIN_LENGTH = 32
+ENCRYPTION_KEY_ROTATION_DAYS = 90
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = "Strict"
+
+# CORS settings
+ALLOWED_ORIGINS = [
+    "https://pvautomation.com",
+    "https://app.pvautomation.com"
+]
+
+# Database settings
+DATABASE_POOL_SIZE = 20
+DATABASE_MAX_OVERFLOW = 10
+DATABASE_POOL_TIMEOUT = 30
+DATABASE_POOL_RECYCLE = 3600
+
+# Redis settings
+REDIS_MAX_CONNECTIONS = 50
+REDIS_SOCKET_TIMEOUT = 5
+REDIS_SOCKET_CONNECT_TIMEOUT = 5
+
+# Logging
+LOG_LEVEL = "INFO"
+LOG_FORMAT = "json"
+LOG_FILE = "/var/log/pv-automation/app.log"
+LOG_MAX_BYTES = 10485760  # 10MB
+LOG_BACKUP_COUNT = 10
+
+# Rate limiting
+RATE_LIMIT_PER_MINUTE = 60
+RATE_LIMIT_PER_HOUR = 1000
+
+# File upload limits
+MAX_UPLOAD_SIZE_MB = 100
+ALLOWED_UPLOAD_EXTENSIONS = [".csv", ".xlsx", ".json", ".xml"]
+
+# Export settings
+EXPORT_TIMEOUT_SECONDS = 300
+MAX_CONCURRENT_EXPORTS = 10
+EXPORT_RETENTION_DAYS = 30
+
+# Celery settings
+CELERY_TASK_ALWAYS_EAGER = False
+CELERY_TASK_ACKS_LATE = True
+CELERY_WORKER_PREFETCH_MULTIPLIER = 1
+CELERY_TASK_TIME_LIMIT = 3600
+CELERY_TASK_SOFT_TIME_LIMIT = 3000
+
+# Monitoring
+ENABLE_PROMETHEUS_METRICS = True
+PROMETHEUS_PORT = 9090
+
+# ISO 17025 Compliance
+AUDIT_LOG_RETENTION_YEARS = 7
+REQUIRE_DIGITAL_SIGNATURES = True
+ENABLE_VERSION_CONTROL = True
+ENABLE_CHANGE_TRACKING = True

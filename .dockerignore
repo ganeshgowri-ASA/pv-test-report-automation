@@ -1,0 +1,27 @@
+# Session 59: Docker ignore file
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+.venv
+.env
+.env.local
+.git
+.gitignore
+.pytest_cache
+.coverage
+htmlcov/
+*.log
+exports/
+temp/
+secrets/
+*.pem
+*.key
+.idea/
+.vscode/
+*.swp
+node_modules/

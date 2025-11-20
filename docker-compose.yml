@@ -1,0 +1,58 @@
+# Session 59: Docker Compose for multi-container deployment
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: pv-automation-app
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://pvuser:pvpass@postgres:5432/pv_db
+      - REDIS_URL=redis://redis:6379/0
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./exports:/tmp/pv-exports
+      - ./archive:/var/pv-exports/archive
+    restart: unless-stopped
+  
+  postgres:
+    image: postgres:15-alpine
+    container_name: pv-automation-db
+    environment:
+      - POSTGRES_USER=pvuser
+      - POSTGRES_PASSWORD=pvpass
+      - POSTGRES_DB=pv_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+  
+  redis:
+    image: redis:7-alpine
+    container_name: pv-automation-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+  
+  celery_worker:
+    build: .
+    container_name: pv-automation-worker
+    command: celery -A src.export.batch.batch_processor worker --loglevel=info
+    environment:
+      - DATABASE_URL=postgresql://pvuser:pvpass@postgres:5432/pv_db
+      - CELERY_BROKER_URL=redis://redis:6379/1
+      - CELERY_RESULT_BACKEND=redis://redis:6379/2
+    depends_on:
+      - redis
+      - postgres
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:
