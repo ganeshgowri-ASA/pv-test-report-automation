@@ -1,0 +1,1 @@
+"""Core for export-html"""\n\nclass Core:\n    pass\n
