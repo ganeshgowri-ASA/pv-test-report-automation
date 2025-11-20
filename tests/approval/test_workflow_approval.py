@@ -1,0 +1,1 @@
+"""Tests for workflow-approval"""\nimport pytest\n\ndef test_init():\n    assert True\n
