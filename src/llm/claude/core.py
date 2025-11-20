@@ -1,0 +1,1 @@
+"""Core for llm-claude"""\n\nclass Core:\n    pass\n
