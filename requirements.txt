@@ -1,0 +1,122 @@
+# PV Test Report Automation System - Python Dependencies
+# ISO 17025 Compliant Testing Platform
+
+# Core Web Framework
+streamlit==1.31.0
+fastapi==0.109.2
+uvicorn[standard]==0.27.1
+python-multipart==0.0.9
+
+# Database
+sqlalchemy==2.0.25
+psycopg2-binary==2.9.9
+alembic==1.13.1
+
+# Data Processing
+pandas==2.2.0
+numpy==1.26.4
+scipy==1.12.0
+openpyxl==3.1.2
+xlrd==2.0.1
+
+# Scientific Computing
+matplotlib==3.8.3
+plotly==5.19.0
+seaborn==0.13.2
+
+# Image Processing
+Pillow==10.2.0
+opencv-python==4.9.0.80
+scikit-image==0.22.0
+
+# Document Processing
+python-docx==1.1.0
+PyPDF2==3.0.1
+reportlab==4.1.0
+python-pptx==0.6.23
+
+# LLM Integrations
+anthropic==0.18.1
+openai==1.12.0
+google-generativeai==0.3.2
+
+# Authentication & Security
+pyjwt==2.8.0
+bcrypt==4.1.2
+cryptography==42.0.2
+python-dotenv==1.0.1
+
+# API & Networking
+requests==2.31.0
+httpx==0.26.0
+aiohttp==3.9.3
+
+# Task Queue & Background Jobs
+celery==5.3.6
+redis==5.0.1
+
+# Data Validation
+pydantic==2.6.1
+jsonschema==4.21.1
+
+# Testing
+pytest==8.0.1
+pytest-asyncio==0.23.5
+pytest-cov==4.1.0
+faker==23.2.1
+
+# Code Quality
+black==24.2.0
+flake8==7.0.0
+mypy==1.8.0
+pylint==3.0.3
+
+# Logging & Monitoring
+loguru==0.7.2
+prometheus-client==0.19.0
+
+# Date/Time
+python-dateutil==2.8.2
+pytz==2024.1
+
+# Email
+emails==0.6
+
+# File Utilities
+pathlib2==2.3.7
+watchdog==4.0.0
+
+# LaTeX Export
+latex==0.7.0
+
+# Excel Advanced Features
+xlsxwriter==3.2.0
+
+# JSON/XML Processing
+lxml==5.1.0
+xmltodict==0.13.0
+
+# Chart Generation
+pygal==3.0.4
+
+# QR Code Generation
+qrcode[pil]==7.4.2
+
+# Barcode Generation
+python-barcode==0.15.1
+
+# Statistical Analysis
+statsmodels==0.14.1
+
+# Configuration Management
+pyyaml==6.0.1
+toml==0.10.2
+
+# Utilities
+tqdm==4.66.2
+click==8.1.7
+rich==13.7.1
+
+# Async Support
+asyncio==3.4.3
+aiofiles==23.2.1
