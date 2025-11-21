@@ -10,7 +10,6 @@ numpy==1.26.4
 
 # Basic Utilities
 python-dotenv==1.0.1
-pathlib2==2.3.7
 
 # Note: Full requirements with database, LLM, image processing,
 # and other advanced features will be added step-by-step after
